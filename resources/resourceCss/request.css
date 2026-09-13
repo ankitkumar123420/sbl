@@ -1,0 +1,1190 @@
+/* =========================================================
+   SBL REQUEST DEMO PAGE
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:
+        "Inter",
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background: #f4f9ff;
+    color: #101828;
+
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+/* =========================================================
+   CLOSE LINK
+========================================================= */
+
+.sbl-demo-container {
+    position: relative;
+}
+
+.sbl-demo-page-close {
+    position: absolute;
+
+    top: 18px;
+    right: 18px;
+
+    z-index: 100;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(16, 24, 40, 0.12);
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    color: #101828;
+
+    text-decoration: none;
+
+    font-family: Arial, sans-serif;
+    font-size: 27px;
+    font-weight: 300;
+
+    line-height: 1;
+
+    box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.08);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.sbl-demo-page-close:hover {
+    transform: rotate(90deg) scale(1.08);
+
+    background: #0878d8;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 10px 25px rgba(8, 120, 216, 0.25);
+}
+ 
+.sbl-demo-page {
+    position: relative;
+
+    min-height: 100vh;
+
+    padding: 70px 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef8ff 0%,
+            #ffffff 48%,
+            #f2f8ff 100%
+        );
+}
+
+
+/* =========================================================
+   TECH GRID
+========================================================= */
+
+.sbl-demo-bg-grid {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: .45;
+
+    background-image:
+        linear-gradient(
+            rgba(8, 120, 216, .08) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(8, 120, 216, .08) 1px,
+            transparent 1px
+        );
+
+    background-size: 55px 55px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 90%
+        );
+}
+
+
+/* =========================================================
+   GLOW
+========================================================= */
+
+.sbl-demo-glow {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(80px);
+
+    pointer-events: none;
+
+    opacity: .5;
+
+    animation: demoGlow 8s ease-in-out infinite alternate;
+}
+
+.sbl-demo-glow-1 {
+
+    width: 420px;
+    height: 420px;
+
+    background: rgba(8, 120, 216, .18);
+
+    top: -150px;
+    left: -100px;
+}
+
+.sbl-demo-glow-2 {
+
+    width: 360px;
+    height: 360px;
+
+    background: rgba(246, 190, 0, .13);
+
+    bottom: -130px;
+    right: -80px;
+
+    animation-delay: 2s;
+}
+
+@keyframes demoGlow {
+
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(30px, -20px, 0);
+    }
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.sbl-demo-container {
+
+    position: relative;
+
+    z-index: 5;
+
+    width: min(1200px, 100%);
+
+    min-height: 700px;
+
+    display: grid;
+
+    grid-template-columns: 43% 57%;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 30px 90px rgba(8, 50, 90, .16),
+        0 8px 30px rgba(8, 50, 90, .08);
+
+    border: 1px solid rgba(8, 120, 216, .08);
+}
+
+
+/* =========================================================
+   LEFT SIDE
+========================================================= */
+
+.sbl-demo-left {
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0878d8 0%,
+            #0565ba 52%,
+            #034d91 100%
+        );
+
+    color: white;
+}
+
+
+.sbl-demo-left-inner {
+
+    position: relative;
+
+    z-index: 5;
+
+    padding: 58px 48px;
+
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.sbl-demo-logo {
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;
+
+    background: rgba(255,255,255,.13);
+
+    border: 1px solid rgba(255,255,255,.3);
+
+    backdrop-filter: blur(12px);
+
+    font-size: 20px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 45px;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.25),
+        0 15px 30px rgba(0,0,0,.12);
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.sbl-demo-eyebrow {
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 2.5px;
+
+    color: #ffd43b;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.sbl-demo-left h1 {
+
+    font-size: clamp(36px, 3.4vw, 54px);
+
+    line-height: 1.08;
+
+    letter-spacing: -1.8px;
+
+    font-weight: 800;
+
+    max-width: 480px;
+
+    margin-bottom: 22px;
+}
+
+.sbl-demo-left h1 span {
+
+    color: #ffd43b;
+
+    position: relative;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.sbl-demo-description {
+
+    max-width: 470px;
+
+    font-size: 16px;
+
+    line-height: 1.75;
+
+    color: rgba(255,255,255,.82);
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================================================
+   BENEFITS
+========================================================= */
+
+.sbl-demo-benefits {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 22px;
+}
+
+
+.sbl-demo-benefit {
+
+    display: flex;
+
+    gap: 15px;
+
+    align-items: flex-start;
+}
+
+
+.sbl-demo-benefit-icon {
+
+    flex-shrink: 0;
+
+    width: 27px;
+    height: 27px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #ffd43b;
+
+    color: #063d72;
+
+    font-size: 14px;
+
+    font-weight: 900;
+
+    box-shadow:
+        0 5px 20px rgba(255,212,59,.2);
+}
+
+
+.sbl-demo-benefit-content h3 {
+
+    font-size: 14px;
+
+    font-weight: 750;
+
+    margin-bottom: 4px;
+}
+
+
+.sbl-demo-benefit-content p {
+
+    font-size: 12px;
+
+    line-height: 1.55;
+
+    color: rgba(255,255,255,.7);
+
+    max-width: 300px;
+}
+
+
+/* =========================================================
+   QUOTE
+========================================================= */
+
+.sbl-demo-quote {
+
+    display: flex;
+
+    gap: 13px;
+
+    margin-top: auto;
+
+    padding-top: 35px;
+}
+
+
+.sbl-demo-quote-symbol {
+
+    font-size: 52px;
+
+    line-height: .7;
+
+    color: #ffd43b;
+
+    font-family: Georgia, serif;
+}
+
+
+.sbl-demo-quote p {
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    font-weight: 600;
+
+    color: rgba(255,255,255,.88);
+
+    margin-bottom: 7px;
+}
+
+
+.sbl-demo-quote span {
+
+    font-size: 11px;
+
+    color: rgba(255,255,255,.55);
+}
+
+
+/* =========================================================
+   DECORATIVE CIRCLES
+========================================================= */
+
+.sbl-demo-circle {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,.14);
+
+    pointer-events: none;
+}
+
+
+.circle-one {
+
+    width: 360px;
+    height: 360px;
+
+    right: -190px;
+    top: 70px;
+}
+
+
+.circle-two {
+
+    width: 260px;
+    height: 260px;
+
+    right: -100px;
+    top: 120px;
+}
+
+
+.circle-three {
+
+    width: 180px;
+    height: 180px;
+
+    left: -100px;
+    bottom: -80px;
+
+    background: rgba(255,255,255,.035);
+}
+
+
+/* =========================================================
+   RIGHT SIDE
+========================================================= */
+
+.sbl-demo-right {
+
+    padding: 55px 58px;
+
+    background: #ffffff;
+
+    overflow-y: auto;
+}
+
+
+/* =========================================================
+   FORM HEADING
+========================================================= */
+
+.sbl-demo-form-heading {
+
+    margin-bottom: 28px;
+}
+
+
+.sbl-demo-form-heading > span {
+
+    display: block;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    color: #0878d8;
+
+    margin-bottom: 8px;
+}
+
+
+.sbl-demo-form-heading h2 {
+
+    font-size: 34px;
+
+    line-height: 1.15;
+
+    letter-spacing: -1px;
+
+    color: #101828;
+
+    margin-bottom: 9px;
+}
+
+
+.sbl-demo-form-heading p {
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    color: #667085;
+
+    max-width: 510px;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+#sblDemoForm {
+
+    width: 100%;
+}
+
+
+.sbl-form-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    margin-bottom: 17px;
+}
+
+
+.sbl-form-group label,
+.sbl-captcha-area > label {
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    color: #344054;
+
+    margin-bottom: 7px;
+}
+
+
+.sbl-form-group label b,
+.sbl-captcha-area label b {
+
+    color: #e5484d;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.sbl-form-group input,
+.sbl-form-group select,
+.sbl-form-group textarea {
+
+    width: 100%;
+
+    border: 1px solid #d0d5dd;
+
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    color: #101828;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    outline: none;
+
+    transition:
+        border-color .25s ease,
+        box-shadow .25s ease,
+        transform .25s ease;
+}
+
+
+.sbl-form-group input,
+.sbl-form-group select {
+
+    height: 44px;
+
+    padding: 0 13px;
+}
+
+
+.sbl-form-group textarea {
+
+    min-height: 95px;
+
+    resize: vertical;
+
+    padding: 12px 13px;
+}
+
+
+.sbl-form-group input::placeholder,
+.sbl-form-group textarea::placeholder {
+
+    color: #98a2b3;
+}
+
+
+.sbl-form-group input:focus,
+.sbl-form-group select:focus,
+.sbl-form-group textarea:focus {
+
+    border-color: #0878d8;
+
+    box-shadow:
+        0 0 0 3px rgba(8,120,216,.10);
+}
+
+
+/* =========================================================
+   TWO COLUMN ROW
+========================================================= */
+
+.sbl-form-row {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 14px;
+}
+
+
+/* =========================================================
+   CAPTCHA
+========================================================= */
+
+.sbl-captcha-area {
+
+    margin-top: 4px;
+
+    margin-bottom: 18px;
+}
+
+
+.sbl-captcha-wrapper {
+
+    display: grid;
+
+    grid-template-columns: 150px 43px 1fr;
+
+    gap: 8px;
+
+    align-items: center;
+}
+
+
+#sblCaptchaCanvas {
+
+    width: 150px;
+
+    height: 44px;
+
+    border-radius: 8px;
+
+    border: 1px solid #d0d5dd;
+
+    background: #f8fafc;
+
+    display: block;
+}
+
+
+#sblCaptchaRefresh {
+
+    width: 43px;
+
+    height: 44px;
+
+    border: 1px solid #d0d5dd;
+
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: #0878d8;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        transform .2s ease;
+}
+
+
+#sblCaptchaRefresh:hover {
+
+    background: #eef7ff;
+
+    transform: rotate(180deg);
+}
+
+
+#sblCaptchaInput {
+
+    height: 44px;
+
+    min-width: 0;
+
+    padding: 0 12px;
+
+    border: 1px solid #d0d5dd;
+
+    border-radius: 8px;
+
+    outline: none;
+
+    font-family: inherit;
+
+    font-size: 13px;
+}
+
+
+#sblCaptchaInput:focus {
+
+    border-color: #0878d8;
+
+    box-shadow:
+        0 0 0 3px rgba(8,120,216,.1);
+}
+
+
+.sbl-captcha-error {
+
+    min-height: 17px;
+
+    padding-top: 5px;
+
+    color: #e5484d;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   PRIVACY
+========================================================= */
+
+.sbl-demo-privacy {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 9px;
+
+    margin-bottom: 20px;
+}
+
+
+.sbl-demo-privacy input {
+
+    margin-top: 2px;
+
+    width: 15px;
+    height: 15px;
+
+    accent-color: #0878d8;
+
+    flex-shrink: 0;
+}
+
+
+.sbl-demo-privacy label {
+
+    font-size: 11px;
+
+    line-height: 1.55;
+
+    color: #667085;
+}
+
+
+.sbl-demo-privacy a {
+
+    color: #0878d8;
+
+    text-decoration: none;
+
+    font-weight: 650;
+}
+
+
+.sbl-demo-privacy a:hover {
+
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   SUBMIT BUTTON
+========================================================= */
+
+.sbl-demo-submit {
+
+    position: relative;
+
+    overflow: hidden;
+
+    width: 100%;
+
+    height: 52px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            100deg,
+            #0878d8,
+            #0565ba
+        );
+
+    color: white;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 750;
+
+    box-shadow:
+        0 10px 25px rgba(8,120,216,.2);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+
+.sbl-demo-submit::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 100px;
+    height: 200%;
+
+    top: -50%;
+
+    left: -150px;
+
+    background: rgba(255,255,255,.22);
+
+    transform: rotate(20deg);
+
+    transition: left .6s ease;
+}
+
+
+.sbl-demo-submit:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 35px rgba(8,120,216,.3);
+}
+
+
+.sbl-demo-submit:hover::before {
+
+    left: 120%;
+}
+
+
+.sbl-demo-submit strong {
+
+    font-size: 20px;
+
+    transition: transform .25s ease;
+}
+
+
+.sbl-demo-submit:hover strong {
+
+    transform: translateX(5px);
+}
+
+
+/* =========================================================
+   SUCCESS
+========================================================= */
+
+.sbl-demo-success {
+
+    display: none;
+
+    text-align: center;
+
+    margin-top: 20px;
+
+    padding: 25px;
+
+    border-radius: 14px;
+
+    background: #f0fdf4;
+
+    border: 1px solid #bbf7d0;
+}
+
+
+.sbl-demo-success.show {
+
+    display: block;
+
+    animation: successAppear .4s ease;
+}
+
+
+.success-check {
+
+    width: 45px;
+    height: 45px;
+
+    margin: 0 auto 12px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #16a34a;
+
+    color: white;
+
+    font-size: 22px;
+
+    font-weight: 800;
+}
+
+
+.sbl-demo-success h3 {
+
+    font-size: 17px;
+
+    color: #166534;
+
+    margin-bottom: 7px;
+}
+
+
+.sbl-demo-success p {
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+    color: #4b5563;
+}
+
+
+@keyframes successAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .sbl-demo-page {
+        padding: 35px 20px;
+    }
+
+    .sbl-demo-container {
+
+        grid-template-columns: 1fr;
+
+        max-width: 700px;
+    }
+
+    .sbl-demo-left {
+
+        min-height: 500px;
+    }
+
+    .sbl-demo-right {
+
+        padding: 45px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .sbl-demo-page {
+        padding: 15px;
+    }
+
+    .sbl-demo-container {
+
+        border-radius: 18px;
+    }
+
+    .sbl-demo-left-inner {
+
+        padding: 38px 27px;
+    }
+
+    .sbl-demo-left h1 {
+
+        font-size: 36px;
+    }
+
+    .sbl-demo-right {
+
+        padding: 32px 24px;
+    }
+
+    .sbl-demo-form-heading h2 {
+
+        font-size: 29px;
+    }
+
+    .sbl-form-row {
+
+        grid-template-columns: 1fr;
+
+        gap: 0;
+    }
+
+    .sbl-captcha-wrapper {
+
+        grid-template-columns: 130px 42px 1fr;
+    }
+
+    #sblCaptchaCanvas {
+
+        width: 130px;
+    }
+}
+
+
+@media (max-width: 420px) {
+
+    .sbl-captcha-wrapper {
+
+        grid-template-columns: 1fr 42px;
+    }
+
+    #sblCaptchaInput {
+
+        grid-column: 1 / -1;
+    }
+
+    .sbl-demo-left h1 {
+
+        font-size: 31px;
+    }
+}

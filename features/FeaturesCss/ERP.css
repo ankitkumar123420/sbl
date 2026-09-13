@@ -1,0 +1,3654 @@
+ /* =========================================================
+   SBL PRICING PAGE
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    font-family:
+        "Zoho Puvi",
+        Inter,
+        Arial,
+        sans-serif;
+
+    background: #ffffff;
+
+    color: #101317;
+
+}
+.mobile-menu {
+    display: none;
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(255,255,255,.35);
+    border-radius: 8px;
+    background: transparent;
+    cursor: pointer;
+
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.mobile-menu span {
+    width: 21px;
+    height: 2px;
+    background: #fff;
+    border-radius: 10px;
+    transition: .3s ease;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+
+    .mobile-menu {
+        display: flex;
+    }
+
+}
+
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    z-index: 1000;
+
+    height: 84px;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, .18);
+
+    background:
+        rgba(8, 120, 216, .96);
+
+    transition:
+        height .3s ease,
+        background .3s ease,
+        box-shadow .3s ease,
+        backdrop-filter .3s ease;
+}
+
+
+/* Navbar after scrolling */
+
+.header.scrolled {
+    height: 72px;
+
+    background:
+        rgba(4, 72, 135, .94);
+
+    backdrop-filter: blur(14px);
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, .18);
+}
+
+
+.header-inner {
+    width:
+        min(1510px, 92%);
+
+    height: 100%;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo {
+
+    display: flex;
+    background-color: #fff;
+    align-items: center;
+    border-radius: 50%;
+
+    width: 72px;
+    height: 70px;
+
+    /* flex-shrink: 0; */
+}
+
+
+.logo img {
+
+    width: 100%;
+
+    height: 100%;
+
+    /* max-height: 62px */
+
+    object-fit: contain;
+
+    display: block;
+
+    transition:
+        transform .35s ease;
+}
+
+
+.logo:hover img {
+
+    transform:
+        scale(1.085);
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.nav {
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 42px;
+
+    margin-left: auto;
+
+    margin-right: 48px;
+}
+
+
+/* =========================================================
+   NAV ITEM
+========================================================= */
+
+.nav-item {
+
+    position: relative;
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+.nav-link {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    height: 100%;
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    font-weight: 500;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition:
+        color .25s ease;
+}
+
+
+.nav-link:hover {
+
+    color:
+        #ffe27d;
+}
+
+
+/* =========================================================
+   NAV CHEVRON
+========================================================= */
+
+.chevron {
+
+    width: 7px;
+
+    height: 7px;
+
+    border-right:
+        1.5px solid currentColor;
+
+    border-bottom:
+        1.5px solid currentColor;
+
+    transform:
+        rotate(45deg) translateY(-2px);
+
+    transition:
+        transform .3s ease;
+}
+
+
+.nav-item:hover .chevron {
+
+    transform:
+        rotate(225deg) translate(-1px, -1px);
+}
+
+
+/* =========================================================
+   DROPDOWN
+========================================================= */
+
+.dropdown {
+
+    position: absolute;
+
+    top: calc(100% + 1px);
+
+    left: 50%;
+
+    transform:
+        translateX(-50%) translateY(12px);
+
+    width: 270px;
+
+    padding: 10px;
+
+    border-radius: 0 0 14px 14px;
+
+    background:
+        #ffffff;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, .18);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity .25s ease,
+        transform .3s cubic-bezier(.16, 1, .3, 1);
+}
+
+
+.nav-item:hover .dropdown {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+    transform:
+        translateX(-50%) translateY(0);
+}
+
+
+/* =========================================================
+   DROPDOWN ITEM
+========================================================= */
+
+.dropdown-item {
+
+    display: block;
+
+    padding:
+        12px 13px;
+
+    border-radius: 8px;
+
+    color:
+        #1c3c59;
+
+    font-size:
+        14px;
+
+    font-weight:
+        500;
+
+    transition:
+        background .25s ease,
+        color .25s ease,
+        transform .25s ease;
+}
+
+
+.dropdown-item:hover {
+
+    color:
+        #0878d8;
+
+    background:
+        #eef7ff;
+
+    transform:
+        translateX(4px);
+}
+
+
+/* =========================================================
+   DROPDOWN SMALL DESCRIPTION
+========================================================= */
+
+.dropdown-item span {
+
+    display: block;
+
+    margin-top: 3px;
+
+    color:
+        #8293a3;
+
+    font-size:
+        11px;
+
+    line-height:
+        1.4;
+}
+
+
+/* =========================================================
+   RIGHT LANGUAGE
+========================================================= */
+
+.language {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    min-width: 108px;
+
+    padding:
+        9px 13px;
+
+    border:
+        1px solid rgba(255, 255, 255, .75);
+
+    border-radius:
+        30px;
+
+    color:
+        #ffffff;
+
+    font-size:
+        14px;
+
+    cursor:
+        pointer;
+
+    transition:
+        background .25s ease,
+        transform .25s ease;
+}
+
+
+.language:hover {
+
+    background:
+        rgba(255, 255, 255, .1);
+
+    transform:
+        translateY(-2px);
+}
+
+
+.flag {
+
+    width: 20px;
+
+    height: 20px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 50%;
+
+    font-size: 13px;
+
+    background:
+        #ffffff;
+}
+
+.sbl-erp-page {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   COMMON
+========================================================= */
+
+.erp-section-label {
+    display: inline-block;
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+
+    color: #0878d8;
+
+    margin-bottom: 18px;
+}
+
+.sbl-erp-page a {
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.sbl-erp-hero {
+    position: relative;
+
+    min-height: 980px;
+
+    padding: 145px 5% 100px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    overflow: hidden;
+
+    color: #ffffff;
+
+    background:
+        radial-gradient(
+            circle at 50% 25%,
+            rgba(46, 159, 255, .28),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #0878d8 0%,
+            #0565ba 50%,
+            #03477f 100%
+        );
+}
+
+
+/* =========================================================
+   HERO TECH GRID
+========================================================= */
+
+.erp-tech-grid {
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: .22;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.12) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.12) 1px,
+            transparent 1px
+        );
+
+    background-size: 60px 60px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black 0%,
+            black 55%,
+            transparent 100%
+        );
+}
+
+
+/* =========================================================
+   HERO GLOWS
+========================================================= */
+
+.erp-glow {
+    position: absolute;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    filter: blur(80px);
+
+    animation: erpGlowMove 9s ease-in-out infinite alternate;
+}
+
+.erp-glow-1 {
+    width: 450px;
+    height: 450px;
+
+    left: -180px;
+    top: 160px;
+
+    background: rgba(0, 196, 255, .16);
+}
+
+.erp-glow-2 {
+    width: 420px;
+    height: 420px;
+
+    right: -170px;
+    top: 260px;
+
+    background: rgba(255, 204, 42, .12);
+
+    animation-delay: 2s;
+}
+
+@keyframes erpGlowMove {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(35px, -25px, 0);
+    }
+}
+
+
+/* =========================================================
+   FLOATING TECH ELEMENTS
+========================================================= */
+
+.erp-floating-code {
+    position: absolute;
+
+    z-index: 1;
+
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255,255,255,.22);
+
+    border-radius: 18px;
+
+    background: rgba(255,255,255,.08);
+
+    backdrop-filter: blur(12px);
+
+    color: rgba(255,255,255,.75);
+
+    font-size: 16px;
+    font-weight: 800;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.12);
+
+    animation:
+        floatingTech 5s ease-in-out infinite;
+}
+
+.erp-code-1 {
+    left: 7%;
+    top: 260px;
+}
+
+.erp-code-2 {
+    right: 8%;
+    top: 330px;
+
+    animation-delay: 1.5s;
+}
+
+.erp-code-3 {
+    left: 11%;
+    top: 540px;
+
+    color: #ffd43b;
+
+    animation-delay: 3s;
+}
+
+@keyframes floatingTech {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-18px) rotate(4deg);
+    }
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.sbl-erp-hero-content {
+    position: relative;
+
+    z-index: 5;
+
+    width: min(900px, 100%);
+
+    text-align: center;
+}
+
+
+.sbl-erp-badge {
+    display: inline-flex;
+
+    align-items: center;
+    gap: 9px;
+
+    padding: 9px 16px;
+
+    border: 1px solid rgba(255,255,255,.22);
+
+    border-radius: 100px;
+
+    background: rgba(255,255,255,.09);
+
+    backdrop-filter: blur(12px);
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 1.8px;
+
+    color: rgba(255,255,255,.9);
+
+    animation: heroReveal .8s ease both;
+}
+
+
+.sbl-erp-badge span {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #ffd43b;
+
+    box-shadow:
+        0 0 12px #ffd43b;
+}
+
+
+.sbl-erp-hero h1 {
+    margin-top: 27px;
+
+    font-size: clamp(48px, 4vw, 84px);
+
+    line-height: .98;
+
+    letter-spacing: -2px;
+
+    font-weight: 800;
+
+    animation:
+        heroReveal .8s .12s ease both;
+}
+
+
+.sbl-erp-hero h1 strong {
+    color: #ffd43b;
+
+    font-weight: 800;
+}
+
+
+.sbl-erp-hero-content > p {
+    width: min(700px, 100%);
+
+    margin: 28px auto 0;
+
+    color: rgba(255,255,255,.78);
+
+    font-size: 17px;
+
+    line-height: 1.75;
+
+    animation:
+        heroReveal .8s .24s ease both;
+}
+
+
+@keyframes heroReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+========================================================= */
+
+.sbl-erp-hero-actions {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 13px;
+
+    margin-top: 34px;
+
+    animation:
+        heroReveal .8s .36s ease both;
+}
+
+
+.erp-primary-btn,
+.erp-secondary-btn {
+    min-height: 50px;
+
+    padding: 0 22px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 14px;
+
+    border-radius: 9px;
+
+    font-size: 13px;
+
+    font-weight: 750;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        background .3s ease;
+}
+
+
+.erp-primary-btn {
+    background: #ffd43b;
+
+    color: #123452;
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.14);
+}
+
+
+.erp-secondary-btn {
+    color: #ffffff;
+
+    border: 1px solid rgba(255,255,255,.3);
+
+    background: rgba(255,255,255,.06);
+}
+
+
+.erp-primary-btn span,
+.erp-secondary-btn span {
+    font-size: 18px;
+
+    transition:
+        transform .3s ease;
+}
+
+
+.erp-primary-btn:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,.2);
+}
+
+
+.erp-secondary-btn:hover {
+    transform: translateY(-4px);
+
+    background: rgba(255,255,255,.13);
+}
+
+
+.erp-primary-btn:hover span {
+    transform: translateX(5px);
+}
+
+.erp-secondary-btn:hover span {
+    transform: translateY(4px);
+}
+
+
+/* =========================================================
+   TRUST LINE
+========================================================= */
+
+.erp-trust-line {
+    margin-top: 27px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 13px;
+
+    color: rgba(255,255,255,.48);
+
+    font-size: 9px;
+
+    font-weight: 750;
+
+    letter-spacing: 1.5px;
+}
+
+
+.erp-trust-line i {
+    width: 3px;
+    height: 3px;
+
+    border-radius: 50%;
+
+    background: #ffd43b;
+}
+
+
+/* =========================================================
+   DASHBOARD
+========================================================= */
+
+.erp-dashboard-wrapper {
+    position: relative;
+
+    z-index: 10;
+
+    width: min(1120px, 94%);
+
+    margin-top: 75px;
+
+    perspective: 1600px;
+
+    animation:
+        dashboardEntrance 1s .5s ease both;
+}
+
+
+@keyframes dashboardEntrance {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(80px)
+            rotateX(8deg);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            rotateX(0);
+    }
+}
+
+
+.erp-dashboard-shadow {
+    position: absolute;
+
+    left: 8%;
+    right: 8%;
+    bottom: -35px;
+
+    height: 80px;
+
+    border-radius: 50%;
+
+    background: rgba(0,0,0,.35);
+
+    filter: blur(35px);
+}
+
+
+.erp-dashboard {
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 16px;
+
+    background: #ffffff;
+
+    color: #101828;
+
+    border: 1px solid rgba(255,255,255,.8);
+
+    box-shadow:
+        0 35px 90px rgba(0,35,80,.3);
+
+    transform:
+        rotateX(2deg);
+
+    transition:
+        transform .6s ease;
+}
+
+
+.erp-dashboard:hover {
+    transform:
+        rotateX(0deg)
+        translateY(-8px);
+}
+
+
+/* =========================================================
+   DASHBOARD TOP
+========================================================= */
+
+.erp-dashboard-top {
+    height: 58px;
+
+    padding: 0 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    border-bottom: 1px solid #e9eef5;
+
+    background: #ffffff;
+}
+
+
+.erp-dashboard-brand {
+    font-size: 19px;
+
+    font-weight: 900;
+
+    color: #0878d8;
+
+    width: 100px;
+}
+
+
+.erp-dashboard-search {
+    width: 280px;
+
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 13px;
+
+    border-radius: 7px;
+
+    background: #f5f8fc;
+
+    color: #98a2b3;
+
+    font-size: 10px;
+}
+
+
+.erp-dashboard-actions {
+    margin-left: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    color: #667085;
+
+    font-size: 15px;
+}
+
+
+.erp-avatar {
+    width: 31px;
+    height: 31px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #0878d8;
+
+    color: white;
+
+    font-size: 9px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   DASHBOARD BODY
+========================================================= */
+
+.erp-dashboard-body {
+    min-height: 440px;
+
+    display: grid;
+
+    grid-template-columns: 175px 1fr;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.erp-dashboard-sidebar {
+    padding: 20px 12px;
+
+    border-right: 1px solid #e9eef5;
+
+    background: #fbfcfe;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+.erp-dashboard-sidebar > div {
+    padding: 10px 11px;
+
+    border-radius: 7px;
+
+    color: #667085;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    transition:
+        background .2s ease,
+        color .2s ease,
+        transform .2s ease;
+}
+
+
+.erp-dashboard-sidebar > div:hover {
+    background: #eef7ff;
+
+    color: #0878d8;
+
+    transform: translateX(3px);
+}
+
+
+.erp-dashboard-sidebar .erp-side-active {
+    color: #0878d8;
+
+    background: #eaf5ff;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   DASHBOARD MAIN
+========================================================= */
+
+.erp-dashboard-main {
+    padding: 25px;
+}
+
+
+.erp-dashboard-title {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 22px;
+}
+
+
+.erp-dashboard-title small {
+    display: block;
+
+    color: #98a2b3;
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+
+    margin-bottom: 5px;
+}
+
+
+.erp-dashboard-title h3 {
+    font-size: 18px;
+
+    letter-spacing: -.4px;
+}
+
+
+.erp-dashboard-title button {
+    border: 0;
+
+    border-radius: 6px;
+
+    padding: 9px 14px;
+
+    background: #0878d8;
+
+    color: white;
+
+    font-size: 9px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   STAT GRID
+========================================================= */
+
+.erp-stat-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 12px;
+
+    margin-bottom: 15px;
+}
+
+
+.erp-stat-card {
+    min-height: 105px;
+
+    padding: 15px;
+
+    border: 1px solid #e9eef5;
+
+    border-radius: 9px;
+
+    background: white;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+
+.erp-stat-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 12px 25px rgba(16,24,40,.08);
+}
+
+
+.erp-stat-card span {
+    display: block;
+
+    color: #667085;
+
+    font-size: 9px;
+
+    margin-bottom: 10px;
+}
+
+
+.erp-stat-card strong {
+    display: block;
+
+    color: #101828;
+
+    font-size: 20px;
+
+    margin-bottom: 7px;
+}
+
+
+.erp-stat-card small {
+    font-size: 8px;
+
+    color: #98a2b3;
+}
+
+
+.erp-stat-card .erp-positive {
+    color: #12b76a;
+}
+
+
+/* =========================================================
+   CHART CARD
+========================================================= */
+
+.erp-chart-card {
+    padding: 18px;
+
+    border: 1px solid #e9eef5;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+}
+
+
+.erp-chart-heading {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.erp-chart-heading span {
+    display: block;
+
+    color: #98a2b3;
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 5px;
+}
+
+
+.erp-chart-heading strong {
+    font-size: 17px;
+}
+
+
+.erp-chart-heading select {
+    border: 1px solid #e4e7ec;
+
+    border-radius: 5px;
+
+    padding: 6px 8px;
+
+    font-size: 8px;
+
+    color: #667085;
+
+    background: white;
+}
+
+
+.erp-chart {
+    position: relative;
+
+    height: 170px;
+
+    margin-top: 20px;
+
+    overflow: hidden;
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            transparent 0,
+            transparent 41px,
+            #edf2f7 42px
+        );
+}
+
+
+.erp-chart-line {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    bottom: 30px;
+
+    height: 100px;
+
+    background:
+        linear-gradient(
+            135deg,
+            transparent 0 10%,
+            #0878d8 10.5% 11%,
+            transparent 11.5% 23%,
+            #0878d8 23.5% 24%,
+            transparent 24.5% 39%,
+            #0878d8 39.5% 40%,
+            transparent 40.5% 53%,
+            #0878d8 53.5% 54%,
+            transparent 54.5% 67%,
+            #0878d8 67.5% 68%,
+            transparent 68.5% 79%,
+            #0878d8 79.5% 80%,
+            transparent 80.5%
+        );
+
+    opacity: .85;
+
+    animation:
+        chartMove 3s ease-in-out infinite alternate;
+}
+
+
+@keyframes chartMove {
+
+    from {
+        transform: translateY(5px);
+    }
+
+    to {
+        transform: translateY(-5px);
+    }
+}
+
+
+.erp-chart-point {
+    position: absolute;
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #ffd43b;
+
+    border: 2px solid #ffffff;
+
+    box-shadow:
+        0 0 0 1px #0878d8;
+}
+
+
+.point-1 {
+    left: 12%;
+    bottom: 77px;
+}
+
+.point-2 {
+    left: 28%;
+    bottom: 100px;
+}
+
+.point-3 {
+    left: 42%;
+    bottom: 63px;
+}
+
+.point-4 {
+    left: 57%;
+    bottom: 118px;
+}
+
+.point-5 {
+    left: 72%;
+    bottom: 90px;
+}
+
+.point-6 {
+    left: 88%;
+    bottom: 130px;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.sbl-erp-intro {
+    position: relative;
+
+    padding: 150px 25px 120px;
+
+    text-align: center;
+
+    background: #ffffff;
+}
+
+
+.sbl-erp-intro h2 {
+    max-width: 850px;
+
+    margin: auto;
+
+    font-size: clamp(42px, 5vw, 70px);
+
+    line-height: 1;
+
+    letter-spacing: -3px;
+
+    color: #101828;
+}
+
+
+.sbl-erp-intro h2 span {
+    color: #0878d8;
+}
+
+
+.sbl-erp-intro > p {
+    max-width: 690px;
+
+    margin: 27px auto 0;
+
+    color: #667085;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   MODULES
+========================================================= */
+
+.sbl-erp-modules {
+    position: relative;
+
+    padding: 110px 5% 140px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f8fbff,
+            #ffffff
+        );
+}
+
+
+.erp-modules-heading {
+    width: min(1200px, 100%);
+
+    margin: 0 auto 55px;
+
+    display: flex;
+
+    align-items: end;
+    justify-content: space-between;
+
+    gap: 50px;
+}
+
+
+.erp-modules-heading > div > span {
+    color: #0878d8;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+.erp-modules-heading h2 {
+    margin-top: 12px;
+
+    font-size: clamp(35px, 4vw, 55px);
+
+    letter-spacing: -2px;
+
+    line-height: 1;
+}
+
+
+.erp-modules-heading > p {
+    max-width: 330px;
+
+    color: #667085;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+.erp-module-grid {
+    width: min(1200px, 100%);
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 15px;
+}
+
+
+/* =========================================================
+   MODULE CARD
+========================================================= */
+
+.erp-module-card {
+    position: relative;
+
+    min-height: 285px;
+
+    padding: 28px;
+
+    overflow: hidden;
+
+    border: 1px solid #e4eaf2;
+
+    border-radius: 16px;
+
+    background: #ffffff;
+
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
+}
+
+
+.erp-module-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    right: -100px;
+    bottom: -100px;
+
+    border-radius: 50%;
+
+    background: rgba(8,120,216,.06);
+
+    transition:
+        transform .5s ease;
+}
+
+
+.erp-module-card:hover {
+
+    transform:
+        translateY(-9px);
+
+    border-color: rgba(8,120,216,.25);
+
+    box-shadow:
+        0 25px 50px rgba(16,24,40,.09);
+}
+
+
+.erp-module-card:hover::before {
+    transform: scale(2);
+}
+
+
+.erp-module-number {
+    position: absolute;
+
+    top: 23px;
+    right: 25px;
+
+    color: #d0d5dd;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+.erp-module-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 27px;
+
+    border-radius: 13px;
+
+    background: #eaf5ff;
+
+    color: #0878d8;
+
+    font-size: 20px;
+
+    font-weight: 800;
+
+    transition:
+        transform .35s ease,
+        background .35s ease;
+}
+
+
+.erp-module-card:hover .erp-module-icon {
+    transform:
+        rotate(-6deg)
+        scale(1.08);
+
+    background: #0878d8;
+
+    color: white;
+}
+
+
+.erp-module-card h3 {
+    font-size: 19px;
+
+    margin-bottom: 11px;
+
+    letter-spacing: -.5px;
+}
+
+
+.erp-module-card p {
+    color: #667085;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+    min-height: 62px;
+}
+
+
+.erp-module-card a {
+    display: inline-block;
+
+    margin-top: 20px;
+
+    color: #0878d8;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    transition:
+        transform .25s ease;
+}
+
+
+.erp-module-card a:hover {
+    transform: translateX(5px);
+}
+
+
+/* =========================================================
+   WORKFLOW
+========================================================= */
+
+.sbl-erp-workflow {
+    position: relative;
+
+    padding: 140px 5%;
+
+    overflow: hidden;
+
+    background: #07111f;
+
+    color: white;
+}
+
+
+.erp-workflow-heading {
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+
+.erp-workflow-heading > span {
+    color: #ffd43b;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+.erp-workflow-heading h2 {
+    margin-top: 17px;
+
+    font-size: clamp(42px, 5vw, 68px);
+
+    line-height: 1;
+
+    letter-spacing: -3px;
+}
+
+
+.erp-workflow-heading h2 strong {
+    color: #0878d8;
+}
+
+
+.erp-workflow-heading p {
+    margin: 25px auto 0;
+
+    max-width: 600px;
+
+    color: rgba(255,255,255,.6);
+
+    font-size: 15px;
+
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   FLOW
+========================================================= */
+
+.erp-flow {
+    position: relative;
+
+    width: min(1100px, 100%);
+
+    margin: 100px auto 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    gap: 25px;
+}
+
+
+.erp-flow-line {
+    position: absolute;
+
+    left: 9%;
+    right: 9%;
+
+    top: 30px;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(8,120,216,.8),
+            rgba(255,212,59,.8),
+            transparent
+        );
+}
+
+
+.erp-flow-item {
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+}
+
+
+.erp-flow-icon {
+    width: 61px;
+    height: 61px;
+
+    margin: 0 auto 22px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #0c1c2f;
+
+    border: 1px solid rgba(255,255,255,.14);
+
+    color: #ffd43b;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 0 0 8px #07111f,
+        0 0 30px rgba(8,120,216,.2);
+
+    transition:
+        transform .3s ease,
+        background .3s ease;
+}
+
+
+.erp-flow-item:hover .erp-flow-icon {
+    transform: scale(1.12);
+
+    background: #0878d8;
+    
+    color: white;
+}
+
+
+.erp-flow-item h3 {
+    font-size: 15px;
+
+    margin-bottom: 7px;
+}
+
+
+.erp-flow-item p {
+    color: rgba(255,255,255,.45);
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   AUTOMATION
+========================================================= */
+
+.sbl-erp-automation {
+    position: relative;
+
+    padding: 150px 8%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 100px;
+
+    background: #ffffff;
+
+    overflow: hidden;
+}
+
+
+.erp-automation-content h2 {
+    max-width: 650px;
+
+    font-size: clamp(42px, 5vw, 65px);
+
+    line-height: 1;
+
+    letter-spacing: -3px;
+}
+
+
+.erp-automation-content h2 span {
+    color: #0878d8;
+}
+
+
+.erp-automation-content > p {
+    max-width: 560px;
+
+    margin-top: 25px;
+
+    color: #667085;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+.erp-automation-list {
+    margin-top: 30px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 13px;
+}
+
+
+.erp-automation-list div {
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    color: #344054;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+.erp-automation-list span {
+    width: 22px;
+    height: 22px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #eaf5ff;
+
+    color: #0878d8;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   AUTOMATION VISUAL
+========================================================= */
+
+.erp-automation-visual {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+.automation-window {
+    position: relative;
+
+    width: min(470px, 100%);
+
+    padding: 25px;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fafdff,
+            #eef7ff
+        );
+
+    box-shadow:
+        0 30px 70px rgba(16,24,40,.1);
+
+    animation:
+        automationFloat 5s ease-in-out infinite;
+}
+
+
+@keyframes automationFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+
+.automation-window-top {
+    display: flex;
+
+    gap: 5px;
+
+    margin-bottom: 27px;
+}
+
+
+.automation-window-top span {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #cbd5e1;
+}
+
+
+.automation-title {
+    margin-bottom: 23px;
+
+    color: #344054;
+
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+
+.automation-node {
+    position: relative;
+
+    padding: 17px 20px;
+
+    border-radius: 12px;
+
+    background: #ffffff;
+
+    border: 1px solid #dce6f0;
+
+    box-shadow:
+        0 8px 20px rgba(16,24,40,.05);
+
+    transition:
+        transform .3s ease;
+}
+
+
+.automation-node:hover {
+    transform: translateX(7px);
+}
+
+
+.automation-node strong {
+    display: block;
+
+    color: #101828;
+
+    font-size: 13px;
+}
+
+
+.automation-node small {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #0878d8;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+}
+
+
+.automation-success {
+    border-color: rgba(18,183,106,.3);
+
+    background: #f3fff8;
+}
+
+
+.automation-success small {
+    color: #12b76a;
+}
+
+
+.automation-connector {
+    width: 1px;
+    height: 27px;
+
+    margin: auto;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #0878d8,
+            #ffd43b
+        );
+
+    position: relative;
+}
+
+
+.automation-connector::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: -1px;
+    left: -3px;
+
+    width: 7px;
+    height: 7px;
+
+    border-right: 1px solid #ffd43b;
+    border-bottom: 1px solid #ffd43b;
+
+    transform: rotate(45deg);
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.sbl-erp-cta {
+    position: relative;
+
+    min-height: 500px;
+
+    padding: 100px 25px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            #0b75ce,
+            #034579 65%,
+            #022f54 100%
+        );
+
+    color: white;
+}
+
+
+.erp-cta-glow {
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+        0 0 0 80px rgba(255,255,255,.015),
+        0 0 0 160px rgba(255,255,255,.01);
+
+    animation:
+        ctaPulse 5s ease-in-out infinite;
+}
+
+
+@keyframes ctaPulse {
+
+    0%,
+    100% {
+        transform: scale(.9);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+
+.erp-cta-content {
+    position: relative;
+
+    z-index: 5;
+}
+
+
+.erp-cta-content > span {
+    color: #ffd43b;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+.erp-cta-content h2 {
+    max-width: 850px;
+
+    margin: 17px auto;
+
+    font-size: clamp(40px, 5vw, 68px);
+
+    line-height: 1;
+
+    letter-spacing: -3px;
+}
+
+
+.erp-cta-content h2 strong {
+    color: #ffd43b;
+}
+
+
+.erp-cta-content p {
+    color: rgba(255,255,255,.65);
+
+    font-size: 15px;
+
+    margin-bottom: 30px;
+}
+
+
+.erp-cta-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 14px;
+
+    min-height: 52px;
+
+    padding: 0 25px;
+
+    border-radius: 9px;
+
+    background: #ffd43b;
+
+    color: #123452;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.2);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+
+.erp-cta-button span {
+    font-size: 19px;
+
+    transition:
+        transform .3s ease;
+}
+
+
+.erp-cta-button:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.3);
+}
+
+
+.erp-cta-button:hover span {
+    transform: translateX(5px);
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+.erp-reveal {
+    opacity: 0;
+
+    transform: translateY(35px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+
+.erp-reveal.erp-visible {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .erp-module-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .sbl-erp-hero {
+        min-height: 900px;
+    }
+
+    .erp-dashboard-search {
+        width: 200px;
+    }
+}
+
+
+@media (max-width: 800px) {
+
+    .sbl-erp-hero {
+        padding-top: 125px;
+
+        min-height: 820px;
+    }
+
+    .sbl-erp-hero h1 {
+        letter-spacing: -2.5px;
+    }
+
+    .erp-floating-code {
+        display: none;
+    }
+
+    .erp-dashboard-body {
+        grid-template-columns: 1fr;
+    }
+
+    .erp-dashboard-sidebar {
+        display: none;
+    }
+
+    .erp-dashboard-search {
+        display: none;
+    }
+
+    .erp-stat-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .erp-modules-heading {
+        display: block;
+    }
+
+    .erp-modules-heading > p {
+        margin-top: 20px;
+    }
+
+    .erp-flow {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        row-gap: 45px;
+    }
+
+    .erp-flow-line {
+        display: none;
+    }
+
+    .sbl-erp-automation {
+        grid-template-columns: 1fr;
+
+        gap: 60px;
+
+        padding: 100px 7%;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .sbl-erp-hero {
+        padding:
+            115px
+            18px
+            70px;
+    }
+
+    .sbl-erp-badge {
+        font-size: 8px;
+
+        letter-spacing: 1.2px;
+    }
+
+    .sbl-erp-hero h1 {
+        font-size: 45px;
+
+        letter-spacing: -2px;
+    }
+
+    .sbl-erp-hero-content > p {
+        font-size: 14px;
+    }
+
+    .sbl-erp-hero-actions {
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+    .erp-primary-btn,
+    .erp-secondary-btn {
+        width: 100%;
+    }
+
+    .erp-trust-line {
+        flex-wrap: wrap;
+
+        line-height: 1.7;
+    }
+
+    .erp-dashboard-wrapper {
+        width: 100%;
+
+        margin-top: 50px;
+    }
+
+    .erp-dashboard {
+        border-radius: 12px;
+    }
+
+    .erp-dashboard-top {
+        padding: 0 13px;
+    }
+
+    .erp-dashboard-main {
+        padding: 15px;
+    }
+
+    .erp-stat-card {
+        min-height: 90px;
+
+        padding: 11px;
+    }
+
+    .erp-stat-card strong {
+        font-size: 16px;
+    }
+
+    .erp-chart {
+        height: 130px;
+    }
+
+    .sbl-erp-intro {
+        padding:
+            100px
+            20px
+            80px;
+    }
+
+    .sbl-erp-intro h2 {
+        letter-spacing: -2px;
+    }
+
+    .sbl-erp-modules {
+        padding:
+            80px
+            20px
+            90px;
+    }
+
+    .erp-module-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .erp-module-card {
+        min-height: 245px;
+    }
+
+    .sbl-erp-workflow {
+        padding:
+            100px
+            20px;
+    }
+
+    .erp-flow {
+        grid-template-columns: 1fr;
+    }
+
+    .automation {
+        padding:
+            90px
+            20px;
+    }
+
+    .erp-automation-content h2 {
+        letter-spacing: -2px;
+    }
+
+    .automation-window {
+        padding: 18px;
+    }
+
+    .sbl-erp-cta {
+        min-height: 430px;
+
+        padding: 80px 20px;
+    }
+
+    .erp-cta-content h2 {
+        letter-spacing: -2px;
+    }
+}
+
+
+
+.sbl-footer {
+
+    position: relative;
+
+    background: #050607;
+
+    color: #ffffff;
+
+    overflow: hidden;
+
+    isolation: isolate;
+
+}
+
+
+/* =========================================================
+   BACKGROUND GLOW
+========================================================= */
+
+.sbl-footer::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 650px;
+
+    height: 650px;
+
+    left: -350px;
+
+    top: -300px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,119,255,.10),
+            transparent 68%
+        );
+
+    pointer-events: none;
+
+}
+
+
+.sbl-footer::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+
+    height: 500px;
+
+    right: -250px;
+
+    bottom: -250px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(245,185,35,.07),
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   MAIN FOOTER
+========================================================= */
+
+.sbl-footer-main {
+
+    position: relative;
+
+    max-width: 1450px;
+
+    margin: auto;
+
+    padding:
+        85px 5% 75px;
+
+    display: grid;
+
+    grid-template-columns:
+        1.25fr
+        repeat(4, 1fr);
+
+    gap: 55px;
+
+    z-index: 2;
+
+}
+
+
+/* =========================================================
+   TITLES
+========================================================= */
+
+.sbl-footer-title,
+.sbl-footer-section-title {
+
+    color: #e9edf2;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.sbl-footer-section-title {
+
+    position: relative;
+
+    padding-bottom: 17px;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.12);
+
+}
+
+
+.sbl-footer-section-title::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -1px;
+
+    width: 42px;
+
+    height: 2px;
+
+    background: #087df0;
+
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.sbl-footer-contact {
+
+    min-width: 250px;
+
+}
+
+
+.sbl-contact-box {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    margin-bottom: 16px;
+
+    text-decoration: none;
+
+    color: #ffffff;
+
+}
+
+
+.sbl-contact-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+    flex: 0 0 48px;
+
+    border:
+        1px solid rgba(255,255,255,.18);
+
+    border-radius: 11px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        rgba(255,255,255,.025);
+
+    transition:
+        border-color .3s ease,
+        background .3s ease,
+        transform .3s ease;
+
+}
+
+
+.sbl-contact-icon svg {
+
+    width: 21px;
+
+    height: 21px;
+
+    fill: none;
+
+    stroke: #bfc7d0;
+
+    stroke-width: 1.7;
+
+}
+
+
+.sbl-contact-box:hover
+.sbl-contact-icon {
+
+    border-color: #087df0;
+
+    background:
+        rgba(0,125,240,.1);
+
+    transform:
+        translateY(-3px);
+
+}
+
+
+.sbl-contact-text {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+}
+
+
+.sbl-contact-text small {
+
+    color: #6f7882;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+.sbl-contact-text strong {
+
+    color: #e8edf2;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+}
+
+
+.sbl-contact-text span {
+
+    color: #737d88;
+
+    font-size: 11px;
+
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.sbl-footer-divider {
+
+    height: 1px;
+
+    background:
+        rgba(255,255,255,.10);
+
+    margin:
+        35px 0 30px;
+
+}
+
+
+/* =========================================================
+   SOCIAL
+========================================================= */
+
+.sbl-socials {
+
+    display: flex;
+
+    gap: 10px;
+
+}
+
+
+.sbl-social {
+
+    width: 44px;
+
+    height: 44px;
+
+    border:
+        1px solid rgba(255,255,255,.17);
+
+    border-radius: 9px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 20px;
+
+    font-weight: 600;
+
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        border-color .3s ease;
+
+}
+
+
+.sbl-social svg {
+
+    width: 22px;
+
+    height: 22px;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.8;
+
+}
+
+
+.sbl-social:hover {
+
+    transform:
+        translateY(-5px);
+
+    border-color: #087df0;
+
+    background:
+        #087df0;
+
+}
+
+
+/* =========================================================
+   FOOTER COLUMNS
+========================================================= */
+
+.sbl-footer-column {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+}
+
+
+.sbl-footer-column a {
+
+    color: #8f99a5;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    margin-bottom: 14px;
+
+    transition:
+        color .25s ease,
+        transform .25s ease;
+
+}
+
+
+.sbl-footer-column a:hover {
+
+    color: #ffffff;
+
+    transform:
+        translateX(5px);
+
+}
+
+
+/* =========================================================
+   ECOSYSTEM
+========================================================= */
+
+.sbl-footer-ecosystem {
+
+    position: relative;
+
+    border-top:
+        1px solid rgba(255,255,255,.12);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.12);
+
+    padding:
+        45px 5%;
+
+    z-index: 2;
+
+}
+
+
+.sbl-ecosystem-heading {
+
+    max-width: 1450px;
+
+    margin:
+        0 auto 35px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+}
+
+
+.sbl-ecosystem-heading span {
+
+    color: #69737e;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.sbl-ecosystem-heading strong {
+
+    color: #dce2e8;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* =========================================================
+   ECOSYSTEM TRACK
+========================================================= */
+
+.sbl-ecosystem-track {
+
+    max-width: 1450px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+}
+
+
+.sbl-ecosystem-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    color: #dfe5ea;
+
+    white-space: nowrap;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    transition:
+        transform .3s ease;
+
+}
+
+
+.sbl-ecosystem-item:hover {
+
+    transform:
+        translateY(-5px);
+
+}
+
+
+/* ICON */
+
+.ecosystem-icon {
+
+    width: 42px;
+
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 11px;
+
+    border:
+        1px solid rgba(255,255,255,.12);
+
+    font-size: 17px;
+
+    font-weight: 800;
+
+}
+
+
+/* COLORS */
+
+.ecosystem-icon.blue {
+
+    color: #1688ff;
+
+    background:
+        rgba(22,136,255,.08);
+
+}
+
+
+.ecosystem-icon.green {
+
+    color: #15c878;
+
+    background:
+        rgba(21,200,120,.08);
+
+}
+
+
+.ecosystem-icon.gold {
+
+    color: #f5bd2b;
+
+    background:
+        rgba(245,189,43,.08);
+
+}
+
+
+.ecosystem-icon.purple {
+
+    color: #a875ff;
+
+    background:
+        rgba(168,117,255,.08);
+
+}
+
+
+.ecosystem-icon.red {
+
+    color: #ff5b5b;
+
+    background:
+        rgba(255,91,91,.08);
+
+}
+
+
+.ecosystem-icon.cyan {
+
+    color: #23d8e8;
+
+    background:
+        rgba(35,216,232,.08);
+
+}
+
+
+.ecosystem-icon.orange {
+
+    color: #ff9d42;
+
+    background:
+        rgba(255,157,66,.08);
+
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.sbl-footer-cta {
+
+    position: relative;
+
+    max-width: 1450px;
+
+    margin: auto;
+
+    padding:
+        75px 5%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 40px;
+
+    z-index: 2;
+
+}
+
+
+.sbl-footer-cta span {
+
+    color: #65707b;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+}
+
+
+.sbl-footer-cta h3 {
+
+    margin:
+        12px 0 0;
+
+    font-size:
+        clamp(32px, 4vw, 52px);
+
+    line-height: 1;
+
+    letter-spacing: -2px;
+
+}
+
+
+.sbl-footer-cta > a {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding:
+        17px 27px;
+
+    border:
+        1px solid #087df0;
+
+    border-radius: 8px;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    background:
+        rgba(0,125,240,.08);
+
+    transition:
+        background .3s ease,
+        transform .3s ease,
+        box-shadow .3s ease;
+
+}
+
+
+.sbl-footer-cta > a span {
+
+    color: inherit;
+
+    font-size: 18px;
+
+    transition:
+        transform .3s ease;
+
+}
+
+
+.sbl-footer-cta > a:hover {
+
+    background: #087df0;
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 15px 35px rgba(0,125,240,.2);
+
+}
+
+
+.sbl-footer-cta > a:hover span {
+
+    transform:
+        translate(4px,-4px);
+
+}
+
+
+/* =========================================================
+   BOTTOM
+========================================================= */
+
+.sbl-footer-bottom {
+
+    position: relative;
+
+    border-top:
+        1px solid rgba(255,255,255,.10);
+
+    padding:
+        28px 5%;
+
+    max-width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr auto 1fr;
+
+    align-items: center;
+
+    gap: 25px;
+
+    z-index: 2;
+
+}
+
+
+/* BRAND */
+
+.sbl-footer-brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+}
+
+
+.sbl-footer-logo {
+
+    font-size: 25px;
+
+    font-weight: 900;
+
+    letter-spacing: -1px;
+
+    color: white;
+
+}
+
+
+.sbl-footer-brand > span {
+
+    color: #646e79;
+
+    font-size: 11px;
+
+}
+
+
+/* LEGAL */
+
+.sbl-footer-legal {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 18px;
+
+}
+
+
+.sbl-footer-legal a {
+
+    color: #69737e;
+
+    font-size: 10px;
+
+    text-decoration: none;
+
+    transition:
+        color .25s ease;
+
+}
+
+
+.sbl-footer-legal a:hover {
+
+    color: white;
+
+}
+
+
+/* COPYRIGHT */
+
+.sbl-copyright {
+
+    color: #626c76;
+
+    font-size: 10px;
+
+    text-align: right;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1150px) {
+
+    .sbl-footer-main {
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+    }
+
+
+    .sbl-footer-contact {
+
+        grid-column:
+            span 3;
+
+    }
+
+
+    .sbl-ecosystem-track {
+
+        justify-content:
+            center;
+
+        flex-wrap: wrap;
+
+    }
+
+
+    .sbl-footer-bottom {
+
+        grid-template-columns:
+            1fr;
+
+        text-align: center;
+
+    }
+
+
+    .sbl-footer-brand {
+
+        justify-content:
+            center;
+
+    }
+
+
+    .sbl-copyright {
+
+        text-align:
+            center;
+
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .sbl-footer-main {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 45px 25px;
+
+        padding:
+            65px 25px;
+
+    }
+
+
+    .sbl-footer-contact {
+
+        grid-column:
+            span 2;
+
+    }
+
+
+    .sbl-footer-ecosystem {
+
+        padding:
+            40px 25px;
+
+    }
+
+
+    .sbl-ecosystem-heading {
+
+        flex-direction:
+            column;
+
+        gap: 7px;
+
+    }
+
+
+    .sbl-ecosystem-track {
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 18px;
+
+    }
+
+
+    .sbl-footer-cta {
+
+        padding:
+            60px 25px;
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+    }
+
+
+    .sbl-footer-bottom {
+
+        padding:
+            30px 25px;
+
+    }
+
+
+    .sbl-footer-legal {
+
+        flex-wrap:
+            wrap;
+
+        gap: 12px;
+
+    }
+
+}
+
+
+@media (max-width: 450px) {
+
+    .sbl-footer-main {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .sbl-footer-contact {
+
+        grid-column:
+            span 1;
+
+    }
+
+
+    .sbl-ecosystem-track {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .sbl-footer-cta h3 {
+
+        font-size:
+            34px;
+
+    }
+
+}
+
+/* =========================================================
+   FOOTER REVEAL ANIMATION
+========================================================= */
+
+.sbl-footer-main > *,
+.sbl-footer-ecosystem,
+.sbl-footer-cta,
+.sbl-footer-bottom {
+
+    opacity: 0;
+
+    transform:
+        translateY(25px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+
+}
+
+
+.sbl-footer-visible {
+
+    opacity: 1 !important;
+
+    transform:
+        translateY(0) !important;
+
+}
