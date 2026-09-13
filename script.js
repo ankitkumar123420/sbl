@@ -399,164 +399,390 @@ window.addEventListener("scroll", () => {
    MOBILE MENU
 ========================================================= */
 
-const mobileMenu =
-    document.getElementById(
-        "mobileMenu"
+/* =========================================================
+   SBL MOBILE NAVIGATION
+   Responsive hamburger menu + dropdowns
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const mobileMenu =
+        document.getElementById("mobileMenu");
+
+    const nav =
+        document.querySelector(".nav");
+
+    const header =
+        document.querySelector(".header");
+
+
+    /* -----------------------------------------------------
+       SAFETY CHECK
+    ----------------------------------------------------- */
+
+    if (!mobileMenu || !nav) {
+        return;
+    }
+
+
+    /* =====================================================
+       OPEN / CLOSE MOBILE MENU
+    ===================================================== */
+
+    mobileMenu.addEventListener("click", function (event) {
+
+        event.stopPropagation();
+
+
+        const isOpen =
+            nav.classList.toggle("mobile-open");
+
+
+        mobileMenu.classList.toggle(
+            "active",
+            isOpen
+        );
+
+
+        mobileMenu.setAttribute(
+            "aria-expanded",
+            isOpen ? "true" : "false"
+        );
+
+
+        mobileMenu.setAttribute(
+            "aria-label",
+            isOpen
+                ? "Close navigation"
+                : "Open navigation"
+        );
+
+
+        /* Prevent page scrolling while menu is open */
+
+        document.body.style.overflow =
+            isOpen ? "hidden" : "";
+
+
+        /* Close dropdowns when menu is closed */
+
+        if (!isOpen) {
+
+            navItems.forEach(function (item) {
+
+                item.classList.remove(
+                    "mobile-active"
+                );
+
+            });
+
+        }
+
+    });
+
+
+    /* =====================================================
+       NAVIGATION ITEMS
+    ===================================================== */
+
+    const navItems =
+        nav.querySelectorAll(".nav-item");
+
+
+    /* =====================================================
+       MOBILE DROPDOWN HANDLING
+    ===================================================== */
+
+    navItems.forEach(function (item) {
+
+        const dropdown =
+            item.querySelector(":scope > .dropdown");
+
+        const navLink =
+            item.querySelector(":scope > .nav-link");
+
+
+        /* -------------------------------------------------
+           Items without dropdown:
+           Pricing / Industries / About
+        ------------------------------------------------- */
+
+        if (!dropdown || !navLink) {
+            return;
+        }
+
+
+        /* -------------------------------------------------
+           Items with dropdown:
+           Features / Solutions / Products / Resources
+        ------------------------------------------------- */
+
+        navLink.addEventListener(
+            "click",
+            function (event) {
+
+                /*
+                 * Desktop:
+                 * Keep your existing hover dropdown.
+                 */
+
+                if (window.innerWidth > 1000) {
+                    return;
+                }
+
+
+                /*
+                 * Mobile:
+                 * Don't navigate.
+                 * Open / close dropdown.
+                 */
+
+                event.preventDefault();
+
+                event.stopPropagation();
+
+
+                const currentlyOpen =
+                    item.classList.contains(
+                        "mobile-active"
+                    );
+
+
+                /* Close all other dropdowns */
+
+                navItems.forEach(
+                    function (otherItem) {
+
+                        if (
+                            otherItem !== item
+                        ) {
+
+                            otherItem.classList.remove(
+                                "mobile-active"
+                            );
+
+                        }
+
+                    }
+                );
+
+
+                /* Toggle selected dropdown */
+
+                if (!currentlyOpen) {
+
+                    item.classList.add(
+                        "mobile-active"
+                    );
+
+                } else {
+
+                    item.classList.remove(
+                        "mobile-active"
+                    );
+
+                }
+
+            }
+        );
+
+    });
+
+
+    /* =====================================================
+       CLOSE MENU AFTER CLICKING A REAL LINK
+    ===================================================== */
+
+    const realLinks =
+        nav.querySelectorAll(
+            ".dropdown-item, .nav-item > a.nav-link"
+        );
+
+
+    realLinks.forEach(function (link) {
+
+        link.addEventListener(
+            "click",
+            function () {
+
+                if (window.innerWidth > 1000) {
+                    return;
+                }
+
+
+                /* Close menu */
+
+                nav.classList.remove(
+                    "mobile-open"
+                );
+
+
+                /* Reset hamburger */
+
+                mobileMenu.classList.remove(
+                    "active"
+                );
+
+
+                mobileMenu.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+
+                mobileMenu.setAttribute(
+                    "aria-label",
+                    "Open navigation"
+                );
+
+
+                /* Restore page scrolling */
+
+                document.body.style.overflow =
+                    "";
+
+
+                /* Close dropdowns */
+
+                navItems.forEach(
+                    function (item) {
+
+                        item.classList.remove(
+                            "mobile-active"
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+    });
+
+
+    /* =====================================================
+       CLOSE MENU WHEN CLICKING OUTSIDE
+    ===================================================== */
+
+    document.addEventListener(
+        "click",
+        function (event) {
+
+            if (window.innerWidth > 1000) {
+                return;
+            }
+
+
+            if (!header) {
+                return;
+            }
+
+
+            const clickedInsideHeader =
+                header.contains(event.target);
+
+
+            if (!clickedInsideHeader) {
+
+                closeMobileMenu();
+
+            }
+
+        }
     );
 
 
-mobileMenu.addEventListener(
-    "click",
-    () => {
+    /* =====================================================
+       ESC KEY
+    ===================================================== */
 
-        alert(
-            "Mobile navigation will be added in the next phase."
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (
+                event.key === "Escape"
+            ) {
+
+                closeMobileMenu();
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       CLOSE MOBILE MENU FUNCTION
+    ===================================================== */
+
+    function closeMobileMenu() {
+
+        nav.classList.remove(
+            "mobile-open"
+        );
+
+
+        mobileMenu.classList.remove(
+            "active"
+        );
+
+
+        mobileMenu.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+
+        mobileMenu.setAttribute(
+            "aria-label",
+            "Open navigation"
+        );
+
+
+        document.body.style.overflow =
+            "";
+
+
+        navItems.forEach(
+            function (item) {
+
+                item.classList.remove(
+                    "mobile-active"
+                );
+
+            }
         );
 
     }
-);
-
-// /* =========================================================
-//    SBL SPOTLIGHT SCROLL ANIMATION
-// ========================================================= */
-
-// const spotlightCards =
-//     document.querySelectorAll(".spot-card");
-
-// const spotlightProgress =
-//     document.querySelector(".spotlight-progress span");
 
 
-// const spotlightObserver =
-//     new IntersectionObserver(
-//         (entries) => {
+    /* =====================================================
+       RESPONSIVE RESET
+    ===================================================== */
 
-//             entries.forEach((entry) => {
+    window.addEventListener(
+        "resize",
+        function () {
 
-//                 if (entry.isIntersecting) {
+            /*
+             * When the user rotates the phone
+             * or changes to desktop width,
+             * completely reset mobile navigation.
+             */
 
-//                     entry.target.classList.add("visible");
+            if (window.innerWidth > 1000) {
 
-//                 }
+                closeMobileMenu();
 
-//             });
+            }
 
-//         },
-//         {
-//             threshold:0.18
-//         }
-//     );
-
-
-// spotlightCards.forEach((card) => {
-
-//     spotlightObserver.observe(card);
-
-// });
+        }
+    );
 
 
-// /* =========================================================
-//    SCROLL PROGRESS
-// ========================================================= */
-
-// window.addEventListener("scroll", () => {
-
-//     const section =
-//         document.querySelector(".sbl-spotlight");
-
-//     if (!section) return;
-
-//     const rect =
-//         section.getBoundingClientRect();
-
-//     const sectionHeight =
-//         section.offsetHeight;
-
-//     const viewport =
-//         window.innerHeight;
-
-//     const travelled =
-//         -rect.top;
-
-//     const total =
-//         sectionHeight - viewport;
-
-//     let progress =
-//         travelled / total;
-
-//     progress =
-//         Math.max(
-//             0,
-//             Math.min(1, progress)
-//         );
-
-//     if (spotlightProgress) {
-
-//         spotlightProgress.style.transform =
-//             `scaleX(${0.2 + progress * 2.8})`;
-
-//     }
-
-// });
-
-
-// /* =========================================================
-//    CARD MOUSE TILT
-// ========================================================= */
-
-// spotlightCards.forEach((card) => {
-
-//     card.addEventListener("mousemove", (e) => {
-
-//         const rect =
-//             card.getBoundingClientRect();
-
-//         const x =
-//             e.clientX - rect.left;
-
-//         const y =
-//             e.clientY - rect.top;
-
-//         const centerX =
-//             rect.width / 2;
-
-//         const centerY =
-//             rect.height / 2;
-
-//         const rotateX =
-//             ((y - centerY) / centerY) * -2;
-
-//         const rotateY =
-//             ((x - centerX) / centerX) * 2;
-
-//         card.style.transform =
-//             `perspective(1000px)
-//              rotateX(${rotateX}deg)
-//              rotateY(${rotateY}deg)
-//              translateY(-5px)`;
-//     });
-
-
-//     card.addEventListener("mouseleave", () => {
-
-//         card.style.transform =
-//             "";
-
-//     });
-
-// });
+});
  
-
-
-
-/* =========================================================
-   SBL SPOTLIGHT — COMPLETE JAVASCRIPT
-========================================================= */
-
-
-/* =========================================================
-   CARD SCROLL REVEAL
-========================================================= */
 
 const spotlightCards =
     document.querySelectorAll(".spot-card");
@@ -1951,3 +2177,265 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 });
+
+/* =========================================================
+   SBL MOBILE NAV — ABOUT HEIGHT FIX
+   FORCE ABOUT TO ONE NORMAL ROW
+========================================================= */
+
+(function () {
+
+    function fixAboutMobileHeight() {
+
+        const nav = document.querySelector(".header .nav");
+
+        if (!nav) {
+            return;
+        }
+
+        /*
+         * Find the actual nav link by its visible text.
+         * This does NOT depend on href or :last-child.
+         */
+
+        const links =
+            nav.querySelectorAll(".nav-link");
+
+        links.forEach(function (link) {
+
+            const text =
+                link.textContent
+                    .replace(/\s+/g, " ")
+                    .trim();
+
+            if (text !== "About") {
+                return;
+            }
+
+
+            /* ---------------------------------------------
+               Find its nav-item parent
+            --------------------------------------------- */
+
+            const navItem =
+                link.closest(".nav-item");
+
+            if (!navItem) {
+                return;
+            }
+
+
+            /* ---------------------------------------------
+               FORCE NAV ITEM
+            --------------------------------------------- */
+
+            navItem.style.setProperty(
+                "height",
+                "52px",
+                "important"
+            );
+
+            navItem.style.setProperty(
+                "min-height",
+                "52px",
+                "important"
+            );
+
+            navItem.style.setProperty(
+                "max-height",
+                "52px",
+                "important"
+            );
+
+            navItem.style.setProperty(
+                "flex",
+                "0 0 52px",
+                "important"
+            );
+
+            navItem.style.setProperty(
+                "flex-grow",
+                "0",
+                "important"
+            );
+
+            navItem.style.setProperty(
+                "flex-shrink",
+                "0",
+                "important"
+            );
+
+            navItem.style.setProperty(
+                "padding",
+                "0",
+                "important"
+            );
+
+            navItem.style.setProperty(
+                "margin",
+                "0",
+                "important"
+            );
+
+            navItem.style.setProperty(
+                "overflow",
+                "hidden",
+                "important"
+            );
+
+
+            /* ---------------------------------------------
+               FORCE ABOUT LINK
+            --------------------------------------------- */
+
+            link.style.setProperty(
+                "height",
+                "52px",
+                "important"
+            );
+
+            link.style.setProperty(
+                "min-height",
+                "52px",
+                "important"
+            );
+
+            link.style.setProperty(
+                "max-height",
+                "52px",
+                "important"
+            );
+
+            link.style.setProperty(
+                "width",
+                "100%",
+                "important"
+            );
+
+            link.style.setProperty(
+                "flex",
+                "0 0 52px",
+                "important"
+            );
+
+            link.style.setProperty(
+                "flex-grow",
+                "0",
+                "important"
+            );
+
+            link.style.setProperty(
+                "flex-shrink",
+                "0",
+                "important"
+            );
+
+            link.style.setProperty(
+                "margin",
+                "0",
+                "important"
+            );
+
+            link.style.setProperty(
+                "padding",
+                "0 14px",
+                "important"
+            );
+
+            link.style.setProperty(
+                "display",
+                "flex",
+                "important"
+            );
+
+            link.style.setProperty(
+                "align-items",
+                "center",
+                "important"
+            );
+
+            link.style.setProperty(
+                "justify-content",
+                "space-between",
+                "important"
+            );
+
+            link.style.setProperty(
+                "box-sizing",
+                "border-box",
+                "important"
+            );
+
+            link.style.setProperty(
+                "overflow",
+                "hidden",
+                "important"
+            );
+
+        });
+
+    }
+
+
+    /* ---------------------------------------------
+       Run when page loads
+    --------------------------------------------- */
+
+    if (
+        document.readyState === "loading"
+    ) {
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            fixAboutMobileHeight
+        );
+
+    } else {
+
+        fixAboutMobileHeight();
+
+    }
+
+
+    /* ---------------------------------------------
+       Run when mobile menu opens
+    --------------------------------------------- */
+
+    const mobileMenu =
+        document.getElementById("mobileMenu");
+
+    if (mobileMenu) {
+
+        mobileMenu.addEventListener(
+            "click",
+            function () {
+
+                setTimeout(
+                    fixAboutMobileHeight,
+                    50
+                );
+
+            }
+        );
+
+    }
+
+
+    /* ---------------------------------------------
+       Run after resize
+    --------------------------------------------- */
+
+    window.addEventListener(
+        "resize",
+        function () {
+
+            if (window.innerWidth <= 950) {
+
+                fixAboutMobileHeight();
+
+            }
+
+        }
+    );
+
+})();
