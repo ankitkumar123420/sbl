@@ -544,255 +544,116 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-
-
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* =====================================================
-       HERO ECOSYSTEM NODE ANIMATION
-    ====================================================== */
+    const page = document.querySelector(".sbl-coming-page");
 
-    const ecosystemNodes =
-        document.querySelectorAll(".eco-map-node");
+    if (!page) return;
 
-    let ecosystemIndex = 0;
 
-    if (ecosystemNodes.length) {
+    /* =========================================
+       REVEAL ANIMATION
+    ========================================= */
 
-        setInterval(() => {
+    const revealItems = page.querySelectorAll(
+        ".roadmap-card, .development-card, .coming-intro, .coming-product-visual"
+    );
 
-            ecosystemNodes.forEach(node => {
-                node.classList.remove("eco-node-active");
+
+    const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+
+            entries.forEach((entry) => {
+
+                if (!entry.isIntersecting) return;
+
+                entry.target.classList.add("coming-visible");
+
+                observer.unobserve(entry.target);
+
             });
 
-            ecosystemNodes[ecosystemIndex]
-                .classList.add("eco-node-active");
-
-            ecosystemIndex++;
-
-            if (ecosystemIndex >= ecosystemNodes.length) {
-                ecosystemIndex = 0;
-            }
-
-        }, 1500);
-
-    }
+        },
+        {
+            threshold:0.12
+        }
+    );
 
 
+    revealItems.forEach((item) => {
 
-    /* =====================================================
-       PRODUCT REVEAL
-    ====================================================== */
+        item.style.opacity = "0";
+        item.style.transform = "translateY(30px)";
+        item.style.transition =
+            "opacity .7s ease, transform .7s cubic-bezier(.16,1,.3,1)";
 
-    const productRows =
-        document.querySelectorAll(".eco-product-row");
+        revealObserver.observe(item);
 
-    if ("IntersectionObserver" in window) {
-
-        const productObserver =
-            new IntersectionObserver(
-                entries => {
-
-                    entries.forEach(entry => {
-
-                        if (!entry.isIntersecting) {
-                            return;
-                        }
-
-                        entry.target.classList.add(
-                            "eco-product-visible"
-                        );
-
-                        productObserver.unobserve(
-                            entry.target
-                        );
-
-                    });
-
-                },
-                {
-                    threshold: .12
-                }
-            );
+    });
 
 
-        productRows.forEach(row => {
+    /* fallback */
 
-            row.classList.add(
-                "eco-product-hidden"
-            );
+    setTimeout(() => {
 
-            productObserver.observe(row);
+        revealItems.forEach((item) => {
+
+            item.classList.add("coming-visible");
+
+            item.style.opacity = "1";
+            item.style.transform = "translateY(0)";
 
         });
 
-    }
+    }, 1500);
 
 
+    /* =========================================
+       ERP DASHBOARD HOVER EFFECT
+    ========================================= */
 
-    /* =====================================================
-       PRODUCT VISUAL MOUSE EFFECT
-    ====================================================== */
+    const erpWindow =
+        page.querySelector(".erp-window");
 
-    const visuals =
-        document.querySelectorAll(
-            ".eco-product-visual"
+
+    if (erpWindow && window.matchMedia(
+        "(pointer:fine)"
+    ).matches) {
+
+        erpWindow.addEventListener(
+            "mousemove",
+            (e) => {
+
+                const rect =
+                    erpWindow.getBoundingClientRect();
+
+                const x =
+                    e.clientX - rect.left;
+
+                const y =
+                    e.clientY - rect.top;
+
+                const rotateY =
+                    ((x / rect.width) - .5) * 7;
+
+                const rotateX =
+                    ((y / rect.height) - .5) * -5;
+
+                erpWindow.style.transform =
+                    `rotateY(${rotateY}deg)
+                     rotateX(${rotateX}deg)
+                     translateY(-4px)`;
+
+            }
         );
 
-    const finePointer =
-        window.matchMedia("(pointer:fine)").matches;
 
-
-    if (finePointer) {
-
-        visuals.forEach(visual => {
-
-            visual.addEventListener(
-                "mousemove",
-                event => {
-
-                    const rect =
-                        visual.getBoundingClientRect();
-
-                    const x =
-                        (event.clientX - rect.left) /
-                        rect.width - .5;
-
-                    const y =
-                        (event.clientY - rect.top) /
-                        rect.height - .5;
-
-
-                    const windowElement =
-                        visual.firstElementChild;
-
-                    if (!windowElement) return;
-
-
-                    windowElement.style.transform =
-                        `perspective(1200px)
-                         rotateY(${x * 2.5}deg)
-                         rotateX(${y * -2.5}deg)
-                         translateY(-5px)`;
-
-                }
-            );
-
-
-            visual.addEventListener(
-                "mouseleave",
-                () => {
-
-                    const windowElement =
-                        visual.firstElementChild;
-
-                    if (!windowElement) return;
-
-                    windowElement.style.transform = "";
-
-                }
-            );
-
-        });
-
-    }
-
-
-
-    /* =====================================================
-       FLOW NODE ACTIVE ANIMATION
-    ====================================================== */
-
-    const flowNodes =
-        document.querySelectorAll(".flow-node");
-
-    let flowIndex = 0;
-
-    if (flowNodes.length) {
-
-        setInterval(() => {
-
-            flowNodes.forEach(node => {
-                node.classList.remove(
-                    "flow-node-active"
-                );
-            });
-
-            flowNodes[flowIndex]
-                .classList.add(
-                    "flow-node-active"
-                );
-
-            flowIndex++;
-
-            if (flowIndex >= flowNodes.length) {
-                flowIndex = 0;
-            }
-
-        }, 1700);
-
-    }
-
-
-
-    /* =====================================================
-       SMOOTH INTERNAL LINKS
-    ====================================================== */
-
-    document
-        .querySelectorAll(
-            '.sbl-ecosystem-page a[href^="#"]'
-        )
-        .forEach(link => {
-
-            link.addEventListener(
-                "click",
-                event => {
-
-                    const target =
-                        document.querySelector(
-                            link.getAttribute("href")
-                        );
-
-                    if (!target) return;
-
-                    event.preventDefault();
-
-                    target.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start"
-                    });
-
-                }
-            );
-
-        });
-
-
-
-    /* =====================================================
-       LOGISTICS IMAGE SAFETY
-    ====================================================== */
-
-    const logisticsImage =
-        document.querySelector(
-            ".logistics-image"
-        );
-
-    if (logisticsImage) {
-
-        logisticsImage.addEventListener(
-            "error",
+        erpWindow.addEventListener(
+            "mouseleave",
             () => {
 
-                logisticsImage.style.display =
-                    "none";
-
-                const parent =
-                    logisticsImage.parentElement;
-
-                parent.style.background =
-                    "linear-gradient(135deg,#0878d8,#0459a5)";
+                erpWindow.style.transform =
+                    "rotateY(-5deg) rotateX(2deg)";
 
             }
         );
@@ -800,29 +661,144 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+    /* =========================================
+       CRM DASHBOARD HOVER
+    ========================================= */
 
-    /* =====================================================
-       MOBILE SAFETY
-    ====================================================== */
+    const crmWindow =
+        page.querySelector(".crm-window");
 
-    if (window.innerWidth <= 700) {
 
-        document
-            .querySelectorAll(
-                ".erp-window, .crm-window, " +
-                ".mining-window, .flow-window, " +
-                ".ai-window"
-            )
-            .forEach(element => {
+    if (crmWindow && window.matchMedia(
+        "(pointer:fine)"
+    ).matches) {
 
-                element.style.transform = "none";
+        crmWindow.addEventListener(
+            "mousemove",
+            (e) => {
 
-            });
+                const rect =
+                    crmWindow.getBoundingClientRect();
+
+                const x =
+                    e.clientX - rect.left;
+
+                const y =
+                    e.clientY - rect.top;
+
+                const rotateY =
+                    ((x / rect.width) - .5) * 7;
+
+                const rotateX =
+                    ((y / rect.height) - .5) * -5;
+
+                crmWindow.style.transform =
+                    `rotateY(${rotateY}deg)
+                     rotateX(${rotateX}deg)
+                     translateY(-4px)`;
+
+            }
+        );
+
+
+        crmWindow.addEventListener(
+            "mouseleave",
+            () => {
+
+                crmWindow.style.transform =
+                    "rotateY(-5deg) rotateX(2deg)";
+
+            }
+        );
 
     }
 
-});
 
+    /* =========================================
+       MINING NODE ANIMATION
+    ========================================= */
+
+    const miningNodes =
+        page.querySelectorAll(".mining-node");
+
+
+    if (miningNodes.length) {
+
+        let activeNode = 0;
+
+        const activateMiningNode = () => {
+
+            miningNodes.forEach(
+                node => node.classList.remove("active")
+            );
+
+            miningNodes[activeNode]
+                ?.classList.add("active");
+
+            activeNode =
+                (activeNode + 1) % miningNodes.length;
+
+        };
+
+
+        activateMiningNode();
+
+        setInterval(
+            activateMiningNode,
+            1500
+        );
+
+    }
+
+
+    /* =========================================
+       ROADMAP CARD STAGGER
+    ========================================= */
+
+    const cards =
+        page.querySelectorAll(".roadmap-card");
+
+
+    cards.forEach((card, index) => {
+
+        card.style.transitionDelay =
+            `${index * 80}ms`;
+
+    });
+
+
+    /* =========================================
+       INTERNAL LINKS
+    ========================================= */
+
+    page.querySelectorAll(
+        'a[href^="#"]'
+    ).forEach((link) => {
+
+        link.addEventListener(
+            "click",
+            (e) => {
+
+                const target =
+                    document.querySelector(
+                        link.getAttribute("href")
+                    );
+
+                if (!target) return;
+
+                e.preventDefault();
+
+                target.scrollIntoView({
+                    behavior:"smooth",
+                    block:"start"
+                });
+
+            }
+        );
+
+    });
+
+});
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -1033,6 +1009,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 });
+
 
 
 

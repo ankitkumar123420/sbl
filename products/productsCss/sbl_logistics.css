@@ -1573,34 +1573,33 @@ body {
 
 }
 
-
 /* =========================================================
-   SBL ECOSYSTEM
+   SBL LOGISTICS
    SKY BLUE + YELLOW + WHITE
 ========================================================= */
 
-.sbl-ecosystem-page {
+.sbl-logistics-page {
 
-    --eco-blue: #0878d8;
-    --eco-blue-dark: #0459a5;
-    --eco-blue-deep: #03447f;
-    --eco-blue-light: #eef8ff;
+    --log-blue: #0878d8;
+    --log-blue-dark: #0459a5;
+    --log-blue-deep: #03447f;
+    --log-blue-light: #eef8ff;
 
-    --eco-yellow: #f4c542;
-    --eco-yellow-light: #fff5c9;
+    --log-yellow: #f4c542;
+    --log-yellow-light: #fff5c9;
 
-    --eco-white: #ffffff;
-    --eco-bg: #f7fafc;
+    --log-white: #ffffff;
+    --log-bg: #f7fafc;
 
-    --eco-navy: #102a43;
-    --eco-text: #17324d;
-    --eco-muted: #718397;
+    --log-navy: #102a43;
+    --log-text: #17324d;
+    --log-muted: #718397;
 
     width: 100%;
     overflow: hidden;
 
     background: #fff;
-    color: var(--eco-text);
+    color: var(--log-text);
 }
 
 
@@ -1608,13 +1607,13 @@ body {
    BASE
 ========================================================= */
 
-.sbl-ecosystem-page *,
-.sbl-ecosystem-page *::before,
-.sbl-ecosystem-page *::after {
+.sbl-logistics-page *,
+.sbl-logistics-page *::before,
+.sbl-logistics-page *::after {
     box-sizing: border-box;
 }
 
-.eco-container {
+.logistics-container {
     width: min(1420px, 92%);
     margin: auto;
 }
@@ -1624,20 +1623,22 @@ body {
    EYEBROW
 ========================================================= */
 
-.eco-eyebrow {
+.logistics-eyebrow {
+
     display: inline-flex;
     align-items: center;
     gap: 10px;
 
-    color: var(--eco-yellow);
+    color: var(--log-yellow);
 
     font-size: 11px;
     font-weight: 800;
 
-    letter-spacing: 2.5px;
+    letter-spacing: 2.4px;
 }
 
-.eco-eyebrow::before {
+.logistics-eyebrow::before {
+
     content: "";
 
     width: 28px;
@@ -1646,8 +1647,8 @@ body {
     background: currentColor;
 }
 
-.eco-blue-eyebrow {
-    color: var(--eco-blue);
+.logistics-eyebrow.blue {
+    color: var(--log-blue);
 }
 
 
@@ -1655,18 +1656,22 @@ body {
    BUTTONS
 ========================================================= */
 
-.eco-btn {
+.logistics-btn {
+
+    position: relative;
 
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
-    gap: 10px;
 
-    min-height: 52px;
+    gap: 12px;
 
-    padding: 0 25px;
+    min-height: 53px;
 
-    border-radius: 7px;
+    padding: 0 24px;
+
+    border-radius: 8px;
 
     text-decoration: none;
 
@@ -1679,30 +1684,47 @@ body {
         background .3s ease;
 }
 
-.eco-btn:hover {
-    transform: translateY(-3px);
+.logistics-btn:hover {
+    transform: translateY(-4px);
 }
 
-.eco-btn-yellow {
-    background: var(--eco-yellow);
+.logistics-btn-yellow {
+
+    background:
+        linear-gradient(
+            135deg,
+            #f4c542,
+            #eeb82c
+        );
+
     color: #16283a;
 
     box-shadow:
         0 15px 35px rgba(244,197,66,.25);
 }
 
-.eco-btn-outline {
-    border: 1px solid rgba(255,255,255,.65);
+.logistics-btn-yellow:hover {
+
+    box-shadow:
+        0 20px 45px rgba(244,197,66,.35);
+}
+
+.logistics-btn-outline {
+
+    border: 1px solid rgba(255,255,255,.55);
+
     color: #fff;
 }
 
-.eco-btn-outline:hover {
+.logistics-btn-outline:hover {
     background: rgba(255,255,255,.12);
 }
 
-.eco-btn-white {
+.logistics-btn-white {
+
     background: #fff;
-    color: var(--eco-blue);
+
+    color: var(--log-blue);
 }
 
 
@@ -1710,13 +1732,13 @@ body {
    HERO
 ========================================================= */
 
-.eco-hero {
+.logistics-hero {
 
     position: relative;
 
-    min-height: 850px;
+    min-height: 790px;
 
-    padding: 150px 0 80px;
+    padding: 145px 0 90px;
 
     overflow: hidden;
 
@@ -1734,11 +1756,9 @@ body {
         );
 
     color: #fff;
-
-    text-align: center;
 }
 
-.eco-hero-grid {
+.logistics-grid {
 
     position: absolute;
     inset: 0;
@@ -1759,40 +1779,40 @@ body {
     background-size: 60px 60px;
 }
 
-.eco-ring {
+.logistics-glow {
 
     position: absolute;
 
-    border: 1px solid rgba(255,255,255,.12);
-
     border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,.12);
 
     pointer-events: none;
 
-    animation: ecoRing 9s ease-in-out infinite;
+    animation: logisticsGlow 9s ease-in-out infinite;
 }
 
-.eco-ring-one {
+.logistics-glow-one {
 
     width: 600px;
     height: 600px;
 
-    right: -250px;
-    top: 100px;
+    right: -280px;
+    top: 80px;
 }
 
-.eco-ring-two {
+.logistics-glow-two {
 
     width: 420px;
     height: 420px;
 
-    left: -250px;
-    bottom: -230px;
+    left: -260px;
+    bottom: -240px;
 
     animation-delay: -4s;
 }
 
-@keyframes ecoRing {
+@keyframes logisticsGlow {
 
     50% {
         transform: scale(1.08) rotate(7deg);
@@ -1800,607 +1820,69 @@ body {
 
 }
 
-.eco-hero-inner {
+.logistics-hero-layout {
 
     position: relative;
+
     z-index: 2;
+
+    display: grid;
+
+    grid-template-columns: .85fr 1.15fr;
+
+    align-items: center;
+
+    gap: 75px;
 }
 
-.eco-hero h1 {
+.logistics-hero-content {
 
-    max-width: 1050px;
-
-    margin: 22px auto;
-
-    font-size: clamp(50px, 7vw, 92px);
-
-    line-height: .94;
-
-    letter-spacing: -4px;
-
-    font-weight: 700;
+    max-width: 650px;
 }
 
-.eco-hero h1 span {
+.logistics-hero-content h1 {
+
+    margin: 20px 0 25px;
+
+    font-size: clamp(48px,6vw,78px);
+
+    line-height: .95;
+
+    letter-spacing: -3.5px;
+}
+
+.logistics-hero-content h1 span {
 
     display: block;
 
-    color: var(--eco-yellow);
+    color: var(--log-yellow);
 }
 
-.eco-hero p {
+.logistics-hero-content > p {
 
-    max-width: 760px;
+    max-width: 590px;
 
-    margin: auto;
+    margin: 0;
 
-    color: rgba(255,255,255,.83);
+    color: rgba(255,255,255,.82);
 
     font-size: 17px;
 
     line-height: 1.75;
 }
 
-.eco-hero-buttons {
+.logistics-hero-actions {
 
     display: flex;
-
-    justify-content: center;
 
     flex-wrap: wrap;
 
     gap: 12px;
 
-    margin-top: 30px;
+    margin-top: 32px;
 }
 
-
-/* =========================================================
-   HERO ECOSYSTEM MAP
-========================================================= */
-
-.eco-system-map {
-
-    position: relative;
-
-    width: min(900px,100%);
-
-    height: 330px;
-
-    margin: 60px auto 0;
-}
-
-.eco-center {
-
-    position: absolute;
-
-    top: 50%;
-    left: 50%;
-
-    transform: translate(-50%,-50%);
-
-    width: 145px;
-    height: 145px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-    align-items: center;
-
-    border: 2px solid var(--eco-yellow);
-
-    border-radius: 50%;
-
-    background: rgba(255,255,255,.1);
-
-    backdrop-filter: blur(15px);
-
-    box-shadow:
-        0 0 50px rgba(244,197,66,.15);
-
-    z-index: 5;
-}
-
-.eco-center small {
-
-    color: var(--eco-yellow);
-
-    font-size: 11px;
-
-    font-weight: 900;
-
-    letter-spacing: 3px;
-}
-
-.eco-center strong {
-
-    margin-top: 8px;
-
-    font-size: 13px;
-
-    letter-spacing: 1px;
-}
-
-.eco-map-node {
-
-    position: absolute;
-
-    z-index: 5;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 8px;
-
-    padding: 12px 17px;
-
-    border: 1px solid rgba(255,255,255,.32);
-
-    border-radius: 30px;
-
-    background: rgba(255,255,255,.1);
-
-    backdrop-filter: blur(10px);
-
-    color: #fff;
-
-    font-size: 10px;
-
-    font-weight: 800;
-
-    transition:
-        transform .3s ease,
-        border .3s ease,
-        background .3s ease;
-}
-
-.eco-map-node:hover {
-
-    border-color: var(--eco-yellow);
-
-    background: rgba(255,255,255,.18);
-
-    transform: translateY(-5px);
-}
-
-.eco-map-node b {
-
-    color: var(--eco-yellow);
-
-    font-size: 8px;
-}
-
-.eco-node-erp {
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.eco-node-crm {
-    top: 65px;
-    left: 5%;
-}
-
-.eco-node-logistics {
-    top: 65px;
-    right: 5%;
-}
-
-.eco-node-mining {
-    bottom: 20px;
-    left: 12%;
-}
-
-.eco-node-flow {
-    bottom: 20px;
-    right: 12%;
-}
-
-.eco-node-ai {
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.eco-map-line {
-
-    position: absolute;
-
-    left: 50%;
-    top: 50%;
-
-    width: 2px;
-
-    height: 130px;
-
-    transform-origin: top;
-
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(244,197,66,.8),
-            rgba(255,255,255,.05)
-        );
-
-    opacity: .55;
-}
-
-.eco-line-1 {
-    transform: translate(-50%,-130px) rotate(0);
-}
-
-.eco-line-2 {
-    transform: translate(-50%,-20px) rotate(62deg);
-}
-
-.eco-line-3 {
-    transform: translate(-50%,-20px) rotate(-62deg);
-}
-
-.eco-line-4 {
-    transform: translate(-50%,0) rotate(125deg);
-}
-
-.eco-line-5 {
-    transform: translate(-50%,0) rotate(-125deg);
-}
-
-.eco-line-6 {
-    transform: translate(-50%,0) rotate(180deg);
-}
-
-
-/* =========================================================
-   INTRODUCTION
-========================================================= */
-
-.eco-introduction {
-
-    padding: 120px 0;
-
-    background: #fff;
-}
-
-.eco-intro-grid {
-
-    display: grid;
-
-    grid-template-columns: .9fr 1.1fr;
-
-    gap: 100px;
-
-    align-items: center;
-}
-
-.eco-intro-title h2 {
-
-    margin: 20px 0 0;
-
-    color: var(--eco-navy);
-
-    font-size: clamp(42px,5vw,67px);
-
-    line-height: .98;
-
-    letter-spacing: -2.5px;
-}
-
-.eco-intro-title h2 span {
-
-    display: block;
-
-    color: var(--eco-blue);
-}
-
-.eco-intro-copy {
-
-    max-width: 650px;
-}
-
-.eco-intro-copy p {
-
-    margin: 0 0 20px;
-
-    color: var(--eco-muted);
-
-    font-size: 17px;
-
-    line-height: 1.8;
-}
-
-
-/* =========================================================
-   PRODUCTS
-========================================================= */
-
-.eco-products {
-
-    padding: 125px 0;
-
-    background: var(--eco-bg);
-}
-
-.eco-products-heading {
-
-    max-width: 750px;
-
-    margin-bottom: 85px;
-}
-
-.eco-products-heading h2 {
-
-    margin: 20px 0;
-
-    color: var(--eco-navy);
-
-    font-size: clamp(42px,5vw,68px);
-
-    line-height: .98;
-
-    letter-spacing: -2.5px;
-}
-
-.eco-products-heading h2 span {
-
-    color: var(--eco-blue);
-}
-
-.eco-products-heading p {
-
-    margin: 0;
-
-    color: var(--eco-muted);
-
-    font-size: 16px;
-
-    line-height: 1.7;
-}
-
-
-/* =========================================================
-   PRODUCT ROW
-========================================================= */
-
-.eco-product-row {
-
-    display: grid;
-
-    grid-template-columns: .8fr 1.2fr;
-
-    gap: 80px;
-
-    align-items: center;
-
-    padding: 90px 0;
-
-    border-top: 1px solid #e2eaf1;
-}
-
-.eco-product-row:first-of-type {
-    border-top: 0;
-}
-
-.eco-product-reverse {
-
-    grid-template-columns: 1.2fr .8fr;
-}
-
-.eco-product-reverse .eco-product-info {
-    order: 2;
-}
-
-.eco-product-reverse .eco-product-visual {
-    order: 1;
-}
-
-.eco-product-info {
-
-    max-width: 530px;
-}
-
-.eco-product-number {
-
-    display: block;
-
-    margin-bottom: 20px;
-
-    color: var(--eco-blue);
-
-    font-size: 12px;
-
-    font-weight: 900;
-
-    letter-spacing: 2px;
-}
-
-.eco-product-category {
-
-    display: block;
-
-    margin-bottom: 12px;
-
-    color: #8293a3;
-
-    font-size: 10px;
-
-    font-weight: 800;
-
-    letter-spacing: 1.8px;
-}
-
-.eco-product-info h3 {
-
-    margin: 0;
-
-    color: var(--eco-navy);
-
-    font-size: clamp(42px,5vw,65px);
-
-    line-height: 1;
-
-    letter-spacing: -2.5px;
-}
-
-.eco-product-info h4 {
-
-    margin: 18px 0 15px;
-
-    color: var(--eco-blue);
-
-    font-size: 20px;
-
-    line-height: 1.3;
-}
-
-.eco-product-info p {
-
-    margin: 0;
-
-    color: var(--eco-muted);
-
-    font-size: 15px;
-
-    line-height: 1.8;
-}
-
-
-/* FEATURES */
-
-.eco-feature-list {
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 8px;
-
-    margin: 25px 0;
-}
-
-.eco-feature-list span {
-
-    padding: 8px 11px;
-
-    border: 1px solid #dce8f1;
-
-    border-radius: 5px;
-
-    background: #fff;
-
-    color: var(--eco-text);
-
-    font-size: 10px;
-
-    font-weight: 700;
-}
-
-
-/* EXPLORE */
-
-.eco-explore-btn {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 12px;
-
-    margin-top: 5px;
-
-    color: var(--eco-blue);
-
-    font-size: 13px;
-
-    font-weight: 900;
-
-    text-decoration: none;
-}
-
-.eco-explore-btn span {
-
-    transition: transform .3s ease;
-}
-
-.eco-explore-btn:hover span {
-
-    transform: translateX(6px);
-}
-
-
-/* =========================================================
-   SOFTWARE VISUAL COMMON
-========================================================= */
-
-.eco-product-visual {
-
-    min-width: 0;
-}
-
-.erp-window,
-.crm-window,
-.mining-window,
-.flow-window,
-.ai-window {
-
-    position: relative;
-
-    width: 100%;
-
-    min-height: 480px;
-
-    overflow: hidden;
-
-    border: 1px solid #d9e5ee;
-
-    border-radius: 18px;
-
-    background: #fff;
-
-    box-shadow:
-        0 30px 80px rgba(25,75,115,.11);
-
-    transition:
-        transform .45s ease,
-        box-shadow .45s ease;
-}
-
-.erp-window:hover,
-.crm-window:hover,
-.mining-window:hover,
-.flow-window:hover,
-.ai-window:hover {
-
-    transform: translateY(-8px);
-
-    box-shadow:
-        0 40px 90px rgba(25,75,115,.15);
-}
-
-.software-topbar {
-
-    height: 62px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    padding: 0 22px;
-
-    border-bottom: 1px solid #e8eef3;
-
-    background: #fff;
-
-    color: var(--eco-muted);
-
-    font-size: 10px;
-}
-
-.software-brand {
+.logistics-live-status {
 
     display: flex;
 
@@ -2408,182 +1890,323 @@ body {
 
     gap: 9px;
 
-    color: var(--eco-navy);
+    margin-top: 30px;
 
-    font-size: 12px;
+    color: rgba(255,255,255,.65);
 
-    font-weight: 900;
+    font-size: 10px;
 }
 
-.software-brand i {
+.logistics-live-status i {
 
-    width: 9px;
-    height: 9px;
+    width: 7px;
+    height: 7px;
 
     border-radius: 50%;
 
-    background: var(--eco-blue);
+    background: #4bd58c;
 
-    box-shadow: 0 0 10px rgba(8,120,216,.4);
+    box-shadow: 0 0 12px #4bd58c;
+}
+
+.logistics-live-status b {
+
+    color: var(--log-yellow);
+
+    font-size: 9px;
 }
 
 
 /* =========================================================
-   ERP VISUAL
+   HERO SOFTWARE SCREEN
 ========================================================= */
 
-.erp-content {
+.logistics-hero-screen {
+
+    perspective: 1200px;
+}
+
+.software-browser {
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255,255,255,.25);
+
+    border-radius: 18px;
+
+    background: #fff;
+
+    color: var(--log-text);
+
+    box-shadow:
+        0 40px 90px rgba(0,35,75,.3);
+
+    transform:
+        perspective(1200px)
+        rotateY(-4deg)
+        rotateX(2deg);
+
+    transition: transform .5s ease;
+}
+
+.software-browser:hover {
+
+    transform:
+        perspective(1200px)
+        rotateY(-1deg)
+        rotateX(0)
+        translateY(-7px);
+}
+
+.browser-top {
+
+    height: 55px;
 
     display: grid;
 
-    grid-template-columns: 150px 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
 
-    min-height: 418px;
+    align-items: center;
+
+    padding: 0 17px;
+
+    border-bottom: 1px solid #e5edf3;
+
+    background: #fff;
 }
 
-.software-sidebar {
+.browser-dots {
+
+    display: flex;
+
+    gap: 5px;
+}
+
+.browser-dots i {
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #cbd6df;
+}
+
+.browser-top > span {
+
+    text-align: center;
+
+    color: var(--log-navy);
+
+    font-size: 11px;
+
+    font-weight: 800;
+}
+
+.browser-top > small {
+
+    justify-self: end;
+
+    color: #20a765;
+
+    font-size: 8px;
+
+    font-weight: 800;
+}
+
+.browser-body {
+
+    display: grid;
+
+    grid-template-columns: 120px 1fr;
+
+    min-height: 430px;
+}
+
+.logistics-sidebar {
 
     display: flex;
 
     flex-direction: column;
 
-    gap: 7px;
+    gap: 5px;
 
-    padding: 22px 12px;
+    padding: 20px 10px;
 
-    border-right: 1px solid #edf1f4;
+    border-right: 1px solid #e7edf2;
 
     background: #f7fafc;
 }
 
-.software-sidebar span {
+.logistics-sidebar strong {
+
+    padding: 5px 10px 20px;
+
+    color: var(--log-blue);
+
+    font-size: 16px;
+}
+
+.logistics-sidebar span {
 
     padding: 10px;
 
     border-radius: 6px;
-
-    color: #7b8c9c;
-
-    font-size: 10px;
-}
-
-.software-sidebar .side-active {
-
-    background: var(--eco-blue-light);
-
-    color: var(--eco-blue);
-
-    font-weight: 800;
-}
-
-.erp-main {
-
-    padding: 28px;
-}
-
-.erp-welcome small {
-
-    color: #91a0ad;
-
-    font-size: 8px;
-
-    letter-spacing: 1px;
-}
-
-.erp-welcome strong {
-
-    display: block;
-
-    margin-top: 5px;
-
-    color: var(--eco-navy);
-
-    font-size: 20px;
-}
-
-.erp-stat-grid {
-
-    display: grid;
-
-    grid-template-columns: repeat(3,1fr);
-
-    gap: 10px;
-
-    margin-top: 25px;
-}
-
-.erp-stat-grid div {
-
-    padding: 15px;
-
-    border: 1px solid #e4ebf1;
-
-    border-radius: 9px;
-}
-
-.erp-stat-grid small {
-
-    display: block;
 
     color: #8293a3;
 
     font-size: 9px;
 }
 
-.erp-stat-grid strong {
+.logistics-sidebar .sidebar-active {
 
-    display: block;
+    background: var(--log-blue-light);
 
-    margin: 7px 0;
+    color: var(--log-blue);
 
-    color: var(--eco-navy);
-
-    font-size: 20px;
+    font-weight: 800;
 }
 
-.erp-stat-grid b {
+.logistics-dashboard {
 
-    color: #20a765;
-
-    font-size: 9px;
+    padding: 24px;
 }
 
-.erp-chart {
-
-    margin-top: 20px;
-
-    padding: 20px;
-
-    border: 1px solid #e4ebf1;
-
-    border-radius: 10px;
-}
-
-.chart-heading {
+.dashboard-title {
 
     display: flex;
 
-    justify-content: space-between;
+    align-items: center;
 
-    color: #7b8c9c;
+    justify-content: space-between;
+}
+
+.dashboard-title small {
+
+    display: block;
+
+    color: #8a9aa8;
+
+    font-size: 8px;
+
+    letter-spacing: 1px;
+}
+
+.dashboard-title strong {
+
+    display: block;
+
+    margin-top: 5px;
+
+    color: var(--log-navy);
+
+    font-size: 18px;
+}
+
+.dashboard-title > span {
+
+    padding: 7px 10px;
+
+    border: 1px solid #dfe8ee;
+
+    border-radius: 5px;
+
+    color: #8293a3;
+
+    font-size: 8px;
+}
+
+.fleet-stats {
+
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 9px;
+
+    margin-top: 22px;
+}
+
+.fleet-stats > div {
+
+    padding: 14px;
+
+    border: 1px solid #e0e9ef;
+
+    border-radius: 8px;
+}
+
+.fleet-stats small {
+
+    display: block;
+
+    color: #8797a6;
+
+    font-size: 8px;
+}
+
+.fleet-stats strong {
+
+    display: block;
+
+    margin: 7px 0 3px;
+
+    color: var(--log-navy);
+
+    font-size: 22px;
+}
+
+.fleet-stats b {
+
+    color: var(--log-blue);
+
+    font-size: 8px;
+}
+
+.dashboard-main-grid {
+
+    display: grid;
+
+    grid-template-columns: 1.5fr .8fr;
+
+    gap: 12px;
+
+    margin-top: 15px;
+}
+
+.fleet-chart,
+.fleet-status {
+
+    padding: 17px;
+
+    border: 1px solid #e0e9ef;
+
+    border-radius: 9px;
+
+    background: #fff;
+}
+
+.mini-title {
+
+    color: #81919f;
 
     font-size: 9px;
 }
 
-.chart-graph {
+.fleet-chart-bars {
 
-    height: 175px;
+    height: 190px;
 
     display: flex;
 
     align-items: flex-end;
 
-    gap: 14px;
+    gap: 10px;
 
-    margin-top: 18px;
+    margin-top: 20px;
 }
 
-.chart-graph i {
+.fleet-chart-bars i {
 
     flex: 1;
 
@@ -2592,16 +2215,16 @@ body {
     background:
         linear-gradient(
             to top,
-            var(--eco-blue),
-            #74bdf1
+            var(--log-blue),
+            #73b9ec
         );
 
-    animation: ecoBars 1.2s ease both;
-
     transform-origin: bottom;
+
+    animation: fleetBar 1.2s ease both;
 }
 
-@keyframes ecoBars {
+@keyframes fleetBar {
 
     from {
         transform: scaleY(0);
@@ -2613,120 +2236,403 @@ body {
 
 }
 
+.fleet-status > div:not(.mini-title) {
 
-/* =========================================================
-   CRM
-========================================================= */
+    display: flex;
 
-.crm-window {
+    align-items: center;
 
-    background: #f8fbfd;
-}
+    gap: 7px;
 
-.crm-board {
+    margin-top: 18px;
 
-    display: grid;
-
-    grid-template-columns: repeat(3,1fr);
-
-    gap: 14px;
-
-    padding: 28px;
-
-    min-height: 418px;
-}
-
-.crm-column {
-
-    min-width: 0;
-}
-
-.crm-column > small {
-
-    display: block;
-
-    margin-bottom: 12px;
-
-    color: #8797a6;
-
-    font-size: 8px;
-
-    letter-spacing: 1px;
-}
-
-.crm-card {
-
-    margin-bottom: 10px;
-
-    padding: 16px;
-
-    border: 1px solid #e0e9ef;
-
-    border-radius: 9px;
-
-    background: #fff;
-
-    box-shadow: 0 5px 15px rgba(30,70,100,.04);
-
-    transition: transform .3s ease;
-}
-
-.crm-card:hover {
-
-    transform: translateY(-4px);
-}
-
-.crm-card b,
-.crm-card span,
-.crm-card strong {
-
-    display: block;
-}
-
-.crm-card b {
-
-    color: var(--eco-navy);
-
-    font-size: 11px;
-}
-
-.crm-card span {
-
-    margin-top: 5px;
-
-    color: #8b9aa8;
+    color: var(--log-muted);
 
     font-size: 9px;
 }
 
-.crm-card strong {
+.fleet-status i {
 
-    margin-top: 12px;
+    width: 6px;
+    height: 6px;
 
-    color: var(--eco-blue);
+    border-radius: 50%;
 
-    font-size: 12px;
+    background: #26a969;
 }
 
-.crm-highlight {
+.fleet-status b {
 
-    border-color: rgba(8,120,216,.3);
+    margin-left: auto;
 
-    box-shadow:
-        0 10px 25px rgba(8,120,216,.09);
-}
-
-.crm-success {
-
-    border-color: rgba(32,167,101,.25);
+    color: var(--log-navy);
 }
 
 
 /* =========================================================
-   LOGISTICS
+   INTRO
 ========================================================= */
 
-.eco-logistics-visual {
+.logistics-intro {
+
+    padding: 120px 0;
+
+    background: #fff;
+}
+
+.logistics-intro-grid {
+
+    display: grid;
+
+    grid-template-columns: .9fr 1.1fr;
+
+    gap: 100px;
+
+    align-items: center;
+}
+
+.logistics-intro h2,
+.logistics-heading h2,
+.logistics-feature-copy h2,
+.mining-content h2 {
+
+    margin: 20px 0;
+
+    color: var(--log-navy);
+
+    font-size: clamp(40px,5vw,66px);
+
+    line-height: .98;
+
+    letter-spacing: -2.5px;
+}
+
+.logistics-intro h2 span,
+.logistics-heading h2 span,
+.logistics-feature-copy h2 span,
+.mining-content h2 span {
+
+    display: block;
+
+    color: var(--log-blue);
+}
+
+.logistics-intro-grid > div:last-child {
+
+    max-width: 650px;
+}
+
+.logistics-intro-grid p {
+
+    margin: 0 0 20px;
+
+    color: var(--log-muted);
+
+    font-size: 16px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   HOW IT WORKS
+========================================================= */
+
+.logistics-how {
+
+    padding: 120px 0;
+
+    background: var(--log-bg);
+}
+
+.logistics-heading {
+
+    max-width: 750px;
+
+    margin-bottom: 65px;
+}
+
+.logistics-heading p {
+
+    color: var(--log-muted);
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+.logistics-workflow {
+
+    display: grid;
+
+    grid-template-columns: 1fr 45px 1fr 45px 1fr 45px 1fr;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.workflow-card {
+
+    min-height: 250px;
+
+    padding: 25px;
+
+    border: 1px solid #dfe8ef;
+
+    border-radius: 14px;
+
+    background: #fff;
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        border .35s ease;
+}
+
+.workflow-card:hover,
+.workflow-card.active {
+
+    transform: translateY(-7px);
+
+    border-color: rgba(8,120,216,.3);
+
+    box-shadow:
+        0 25px 50px rgba(20,70,110,.08);
+}
+
+.workflow-card > span {
+
+    color: var(--log-blue);
+
+    font-size: 10px;
+
+    font-weight: 900;
+}
+
+.workflow-icon {
+
+    width: 43px;
+    height: 43px;
+
+    display: grid;
+
+    place-items: center;
+
+    margin: 35px 0 18px;
+
+    border-radius: 10px;
+
+    background: var(--log-blue-light);
+
+    color: var(--log-blue);
+
+    font-size: 18px;
+
+    font-weight: 800;
+}
+
+.workflow-card h3 {
+
+    margin: 0 0 8px;
+
+    color: var(--log-navy);
+
+    font-size: 20px;
+}
+
+.workflow-card p {
+
+    margin: 0;
+
+    color: var(--log-muted);
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+.workflow-arrow {
+
+    color: var(--log-blue);
+
+    font-size: 25px;
+
+    text-align: center;
+
+    animation: workflowArrow 1.8s infinite;
+}
+
+@keyframes workflowArrow {
+
+    50% {
+        transform: translateX(5px);
+        opacity: .4;
+    }
+
+}
+
+
+/* =========================================================
+   FEATURE SECTIONS
+========================================================= */
+
+.logistics-software-section,
+.logistics-feature-section {
+
+    padding: 125px 0;
+
+    background: #fff;
+}
+
+.logistics-feature-light {
+
+    padding: 125px 0;
+
+    background: var(--log-bg);
+}
+
+.logistics-feature-grid {
+
+    display: grid;
+
+    grid-template-columns: .8fr 1.2fr;
+
+    align-items: center;
+
+    gap: 90px;
+}
+
+.logistics-feature-copy {
+
+    max-width: 560px;
+}
+
+.logistics-feature-copy > p {
+
+    color: var(--log-muted);
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+.logistics-check-list {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+
+    margin: 25px 0;
+}
+
+.logistics-check-list span {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--log-text);
+
+    font-size: 11px;
+}
+
+.logistics-check-list i {
+
+    width: 22px;
+    height: 22px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: var(--log-blue-light);
+
+    color: var(--log-blue);
+
+    font-style: normal;
+
+    font-size: 10px;
+
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   PRODUCT BUTTON
+========================================================= */
+
+.logistics-product-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    min-height: 49px;
+
+    margin-top: 8px;
+
+    padding: 0 21px;
+
+    border-radius: 7px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--log-blue),
+            var(--log-blue-dark)
+        );
+
+    color: #fff;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 12px 25px rgba(8,120,216,.2);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.logistics-product-btn:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 18px 35px rgba(8,120,216,.3);
+}
+
+.logistics-product-btn span {
+
+    font-size: 16px;
+
+    transition: transform .3s ease;
+}
+
+.logistics-product-btn:hover span {
+
+    transform: translate(3px,-2px);
+}
+
+
+/* =========================================================
+   SOFTWARE IMAGE
+========================================================= */
+
+.logistics-image-frame {
 
     position: relative;
 
@@ -2734,12 +2640,22 @@ body {
 
     overflow: hidden;
 
+    border: 1px solid #dce7ee;
+
     border-radius: 18px;
 
-    background: #dfeefa;
+    background:
+        linear-gradient(
+            135deg,
+            #eaf6ff,
+            #f8fbfd
+        );
+
+    box-shadow:
+        0 30px 70px rgba(20,70,110,.1);
 }
 
-.eco-logistics-visual img {
+.software-image {
 
     width: 100%;
     height: 100%;
@@ -2750,560 +2666,146 @@ body {
 
     object-fit: cover;
 
-    transition: transform .7s ease;
+    transition: transform .6s ease;
 }
 
-.eco-logistics-visual:hover img {
+.logistics-image-frame:hover .software-image {
 
-    transform: scale(1.04);
+    transform: scale(1.025);
 }
 
-.logistics-overlay {
+.image-fallback {
 
     position: absolute;
 
-    left: 25px;
-    right: 25px;
-    bottom: 25px;
-
-    padding: 18px;
-
-    border: 1px solid rgba(255,255,255,.35);
-
-    border-radius: 10px;
-
-    background: rgba(4,60,110,.72);
-
-    backdrop-filter: blur(12px);
-
-    color: #fff;
-}
-
-.logistics-overlay span {
-
-    display: block;
-
-    color: var(--eco-yellow);
-
-    font-size: 8px;
-
-    letter-spacing: 1.5px;
-}
-
-.logistics-overlay strong {
-
-    display: block;
-
-    margin-top: 7px;
-
-    font-size: 18px;
-}
-
-.logistics-overlay small {
-
-    display: block;
-
-    margin-top: 4px;
-
-    color: rgba(255,255,255,.65);
-
-    font-size: 9px;
-}
-
-
-/* =========================================================
-   MINING
-========================================================= */
-
-.mining-dashboard {
-
-    padding: 25px;
-
-    min-height: 418px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #f8fbfd,
-            #edf7fd
-        );
-}
-
-.mining-stats {
-
-    display: grid;
-
-    grid-template-columns: repeat(3,1fr);
-
-    gap: 10px;
-}
-
-.mining-stats div {
-
-    padding: 16px;
-
-    border: 1px solid #dfe9f0;
-
-    border-radius: 9px;
-
-    background: #fff;
-}
-
-.mining-stats small {
-
-    display: block;
-
-    color: #8494a3;
-
-    font-size: 8px;
-}
-
-.mining-stats strong {
-
-    display: block;
-
-    margin: 8px 0 3px;
-
-    color: var(--eco-navy);
-
-    font-size: 22px;
-}
-
-.mining-stats span {
-
-    color: var(--eco-blue);
-
-    font-size: 8px;
-}
-
-.mining-analytics {
-
-    display: grid;
-
-    grid-template-columns: 1.4fr .6fr;
-
-    gap: 15px;
-
-    margin-top: 15px;
-}
-
-.mining-chart,
-.mining-status {
-
-    padding: 20px;
-
-    border: 1px solid #dfe9f0;
-
-    border-radius: 10px;
-
-    background: #fff;
-}
-
-.chart-heading {
-
-    color: var(--eco-navy);
-
-    font-size: 10px;
-}
-
-.mining-bars {
-
-    height: 190px;
-
-    display: flex;
-
-    align-items: flex-end;
-
-    gap: 12px;
-
-    margin-top: 18px;
-}
-
-.mining-bars i {
-
-    flex: 1;
-
-    border-radius: 4px 4px 0 0;
-
-    background:
-        linear-gradient(
-            to top,
-            var(--eco-blue),
-            #72b9ed
-        );
-
-    animation: ecoBars 1.2s ease both;
-
-    transform-origin: bottom;
-}
-
-.mining-status > span {
-
-    display: block;
-
-    margin-bottom: 20px;
-
-    color: #8494a3;
-
-    font-size: 8px;
-
-    letter-spacing: 1px;
-}
-
-.mining-status div {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 8px;
-
-    margin: 15px 0;
-
-    color: var(--eco-text);
-
-    font-size: 10px;
-}
-
-.mining-status i {
-
-    width: 7px;
-    height: 7px;
-
-    border-radius: 50%;
-
-    background: #2ca86b;
-
-    box-shadow: 0 0 9px rgba(44,168,107,.3);
-}
-
-
-/* =========================================================
-   FLOW
-========================================================= */
-
-.flow-window {
-
-    background:
-        radial-gradient(
-            circle at center,
-            #edf8ff,
-            #fff 70%
-        );
-}
-
-.flow-header {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    padding: 22px;
-
-    border-bottom: 1px solid #e5edf2;
-}
-
-.flow-header small {
-
-    display: block;
-
-    color: var(--eco-blue);
-
-    font-size: 8px;
-
-    letter-spacing: 1px;
-}
-
-.flow-header strong {
-
-    display: block;
-
-    margin-top: 4px;
-
-    color: var(--eco-navy);
-
-    font-size: 15px;
-}
-
-.flow-header > span {
-
-    color: #20a765;
-
-    font-size: 9px;
-
-    font-weight: 800;
-}
-
-.flow-canvas {
-
-    min-height: 390px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 12px;
-
-    padding: 30px;
-}
-
-.flow-node {
-
-    width: 145px;
-
-    min-height: 135px;
+    inset: 0;
 
     display: flex;
 
     flex-direction: column;
 
+    align-items: center;
+
     justify-content: center;
 
-    padding: 17px;
+    padding: 30px;
 
-    border: 1px solid #dce8f1;
+    background:
+        radial-gradient(
+            circle at center,
+            #ffffff,
+            #eaf6ff
+        );
 
-    border-radius: 11px;
-
-    background: #fff;
-
-    box-shadow:
-        0 12px 30px rgba(20,70,110,.06);
-
-    transition: transform .3s ease;
+    text-align: center;
 }
 
-.flow-node:hover {
+.image-fallback span {
 
-    transform: translateY(-6px);
-}
-
-.flow-node small {
-
-    color: var(--eco-blue);
-
-    font-size: 8px;
-
-    font-weight: 900;
-}
-
-.flow-node strong {
-
-    margin-top: 12px;
-
-    color: var(--eco-navy);
-
-    font-size: 14px;
-}
-
-.flow-node span {
-
-    margin-top: 6px;
-
-    color: var(--eco-muted);
+    color: var(--log-blue);
 
     font-size: 9px;
 
-    line-height: 1.5;
-}
-
-.flow-process {
-
-    border-color: rgba(8,120,216,.4);
-
-    background: var(--eco-blue-light);
-}
-
-.flow-result {
-
-    border-color: rgba(244,197,66,.5);
-
-    background: #fffdf2;
-}
-
-.flow-connector {
-
-    color: var(--eco-blue);
-
-    font-size: 23px;
-
-    animation: flowPulse 1.7s infinite;
-}
-
-@keyframes flowPulse {
-
-    50% {
-        opacity: .3;
-        transform: translateX(4px);
-    }
-
-}
-
-
-/* =========================================================
-   AI
-========================================================= */
-
-.ai-window {
-
-    padding: 25px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #052f58,
-            #0878d8
-        );
-
-    color: #fff;
-}
-
-.ai-window-top {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    padding-bottom: 18px;
-
-    border-bottom: 1px solid rgba(255,255,255,.15);
-}
-
-.ai-window-top span {
-
-    color: var(--eco-yellow);
-
-    font-size: 10px;
-
     font-weight: 900;
 
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
 }
 
-.ai-window-top i {
+.image-fallback strong {
 
-    width: 8px;
-    height: 8px;
+    margin-top: 12px;
 
-    border-radius: 50%;
+    color: var(--log-navy);
 
-    background: #50d28b;
-
-    box-shadow: 0 0 12px #50d28b;
+    font-size: 25px;
 }
 
-.ai-question {
+.image-fallback small {
 
-    max-width: 80%;
+    max-width: 300px;
 
-    margin: 30px 0 15px auto;
+    margin-top: 8px;
 
-    padding: 13px 15px;
-
-    border-radius: 10px;
-
-    background: rgba(255,255,255,.1);
-
-    font-size: 11px;
-
-    line-height: 1.5;
-}
-
-.ai-answer {
-
-    padding: 20px;
-
-    border: 1px solid rgba(255,255,255,.16);
-
-    border-radius: 12px;
-
-    background: rgba(255,255,255,.09);
-}
-
-.ai-answer small {
-
-    color: var(--eco-yellow);
-
-    font-size: 8px;
-
-    letter-spacing: 1px;
-}
-
-.ai-answer strong {
-
-    display: block;
-
-    margin-top: 10px;
-
-    font-size: 18px;
-}
-
-.ai-answer p {
-
-    margin: 9px 0 0;
-
-    color: rgba(255,255,255,.67);
+    color: var(--log-muted);
 
     font-size: 10px;
 
     line-height: 1.6;
 }
 
-.ai-insight {
 
-    margin-top: 16px;
+/* Hide fallback once image loads */
 
-    padding: 8px 10px;
+.logistics-image-frame.image-loaded .image-fallback {
 
-    border-radius: 5px;
-
-    background: rgba(244,197,66,.13);
-
-    color: var(--eco-yellow);
-
-    font-size: 9px;
+    display: none;
 }
 
-.ai-input {
+
+/* =========================================================
+   TRIP POINTS
+========================================================= */
+
+.trip-points {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+
+    margin-top: 28px;
+}
+
+.trip-points div {
 
     display: flex;
 
     align-items: center;
 
-    justify-content: space-between;
+    gap: 12px;
 
-    margin-top: 20px;
+    padding: 12px;
 
-    padding: 13px 15px;
-
-    border: 1px solid rgba(255,255,255,.16);
+    border: 1px solid #e3ebf1;
 
     border-radius: 8px;
 
-    color: rgba(255,255,255,.45);
+    background: #fff;
+}
+
+.trip-points strong {
+
+    color: var(--log-blue);
 
     font-size: 10px;
 }
 
-.ai-input b {
+.trip-points span {
 
-    color: var(--eco-yellow);
+    color: var(--log-text);
 
-    font-size: 18px;
+    font-size: 10px;
+
+    line-height: 1.4;
+}
+
+.dark-frame {
+
+    background:
+        linear-gradient(
+            135deg,
+            #03447f,
+            #0878d8
+        );
 }
 
 
 /* =========================================================
-   CONNECTED SECTION
+   OPERATIONS
 ========================================================= */
 
-.eco-connected {
+.logistics-operations {
 
     padding: 125px 0;
 
@@ -3317,146 +2819,358 @@ body {
     color: #fff;
 }
 
-.eco-connected-heading {
+.logistics-operations .logistics-heading {
 
-    max-width: 760px;
-
-    margin-bottom: 60px;
+    max-width: 800px;
 }
 
-.eco-connected-heading h2 {
+.logistics-operations .logistics-heading h2 {
 
-    margin: 20px 0;
-
-    font-size: clamp(42px,5vw,68px);
-
-    line-height: .98;
-
-    letter-spacing: -2.5px;
+    color: #fff;
 }
 
-.eco-connected-heading h2 span {
+.logistics-operations .logistics-heading h2 span {
 
-    display: block;
-
-    color: var(--eco-yellow);
+    color: var(--log-yellow);
 }
 
-.eco-connected-heading p {
+.logistics-operations .logistics-heading p {
 
-    max-width: 650px;
+    color: rgba(255,255,255,.7);
+}
+
+.operations-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4,1fr);
+
+    gap: 12px;
+}
+
+.operation-card {
+
+    min-height: 230px;
+
+    padding: 25px;
+
+    border: 1px solid rgba(255,255,255,.16);
+
+    border-radius: 14px;
+
+    background: rgba(255,255,255,.07);
+
+    transition:
+        transform .35s ease,
+        border .35s ease,
+        background .35s ease;
+}
+
+.operation-card:hover {
+
+    transform: translateY(-8px);
+
+    border-color: var(--log-yellow);
+
+    background: rgba(255,255,255,.11);
+}
+
+.operation-card > span {
+
+    color: var(--log-yellow);
+
+    font-size: 10px;
+
+    font-weight: 900;
+}
+
+.operation-card h3 {
+
+    margin: 55px 0 10px;
+
+    font-size: 21px;
+}
+
+.operation-card p {
 
     margin: 0;
 
-    color: rgba(255,255,255,.7);
+    color: rgba(255,255,255,.62);
 
-    font-size: 16px;
+    font-size: 12px;
 
-    line-height: 1.75;
+    line-height: 1.7;
 }
 
-.eco-flow-map {
+
+/* =========================================================
+   MINING
+========================================================= */
+
+.logistics-mining {
+
+    padding: 125px 0;
+
+    background: #fff;
+}
+
+.mining-grid {
+
+    display: grid;
+
+    grid-template-columns: .8fr 1.2fr;
+
+    gap: 90px;
+
+    align-items: center;
+}
+
+.mining-content {
+
+    max-width: 550px;
+}
+
+.mining-content > p {
+
+    color: var(--log-muted);
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+.mining-tags {
 
     display: flex;
 
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 15px;
-
     flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 25px;
 }
 
-.eco-flow-card {
+.mining-tags span {
 
-    min-width: 155px;
+    padding: 9px 13px;
 
-    padding: 20px;
+    border: 1px solid #dce7ef;
 
-    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 5px;
 
-    border-radius: 12px;
+    color: var(--log-text);
+
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+
+/* MINING VISUAL */
+
+.mining-visual {
+
+    position: relative;
+
+    min-height: 430px;
+
+    border-radius: 20px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #0878d8,
+            #03447f
+        );
+
+    overflow: hidden;
+}
+
+.mining-core {
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%,-50%);
+
+    width: 150px;
+    height: 150px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    border: 2px solid var(--log-yellow);
+
+    border-radius: 50%;
 
     background: rgba(255,255,255,.08);
+
+    backdrop-filter: blur(10px);
+
+    color: #fff;
+
+    z-index: 3;
+}
+
+.mining-core small {
+
+    color: var(--log-yellow);
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+}
+
+.mining-core strong {
+
+    margin-top: 7px;
+
+    font-size: 14px;
+
+    letter-spacing: 1px;
+}
+
+.mining-node {
+
+    position: absolute;
+
+    z-index: 4;
+
+    padding: 11px 16px;
+
+    border: 1px solid rgba(255,255,255,.28);
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,.1);
+
+    backdrop-filter: blur(8px);
+
+    color: #fff;
+
+    font-size: 10px;
+
+    font-weight: 800;
 
     transition:
         transform .3s ease,
         border .3s ease;
 }
 
-.eco-flow-card:hover {
+.mining-node:hover {
 
-    transform: translateY(-6px);
+    border-color: var(--log-yellow);
 
-    border-color: var(--eco-yellow);
+    transform: translateY(-5px);
 }
 
-.eco-flow-card small {
+.mining-node-one {
 
-    display: block;
+    top: 45px;
+    left: 50%;
 
-    color: var(--eco-yellow);
-
-    font-size: 8px;
+    transform: translateX(-50%);
 }
 
-.eco-flow-card strong {
+.mining-node-two {
 
-    display: block;
+    top: 50%;
+    left: 35px;
 
-    margin-top: 12px;
-
-    font-size: 15px;
+    transform: translateY(-50%);
 }
 
-.eco-flow-card span {
+.mining-node-three {
 
-    display: block;
+    top: 50%;
+    right: 35px;
 
-    margin-top: 5px;
-
-    color: rgba(255,255,255,.55);
-
-    font-size: 9px;
+    transform: translateY(-50%);
 }
 
-.eco-flow-map > b {
+.mining-node-four {
 
-    color: var(--eco-yellow);
+    bottom: 45px;
+    left: 50%;
 
-    font-size: 24px;
+    transform: translateX(-50%);
+}
+
+.mining-line {
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 2px;
+    height: 145px;
+
+    transform-origin: center;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(244,197,66,.8),
+            rgba(255,255,255,.05)
+        );
+
+    opacity: .6;
+}
+
+.mining-line-one {
+    transform: translate(-50%,-145px);
+}
+
+.mining-line-two {
+    transform: translate(-50%,-50%) rotate(90deg);
+}
+
+.mining-line-three {
+    transform: translate(-50%,-50%) rotate(-90deg);
+}
+
+.mining-line-four {
+    transform: translate(-50%,0) rotate(180deg);
 }
 
 
 /* =========================================================
-   FINAL CTA
+   CTA
 ========================================================= */
 
-.eco-final-cta {
+.logistics-cta {
 
     position: relative;
 
-    padding: 125px 0;
+    padding: 120px 0;
 
     overflow: hidden;
 
-    background: var(--eco-blue);
-
-    text-align: center;
+    background: var(--log-blue);
 
     color: #fff;
+
+    text-align: center;
 }
 
-.eco-final-ring {
+.logistics-cta-ring {
 
     position: absolute;
 
     width: 650px;
     height: 650px;
 
-    left: 50%;
     top: 50%;
+    left: 50%;
 
     transform: translate(-50%,-50%);
 
@@ -3465,36 +3179,36 @@ body {
     border-radius: 50%;
 }
 
-.eco-final-cta .eco-container {
+.logistics-cta .logistics-container {
 
     position: relative;
 
     z-index: 2;
 }
 
-.eco-final-cta h2 {
+.logistics-cta h2 {
 
     max-width: 850px;
 
     margin: 20px auto;
 
-    font-size: clamp(45px,6vw,76px);
+    font-size: clamp(45px,6vw,75px);
 
-    line-height: .95;
+    line-height: .96;
 
     letter-spacing: -3px;
 }
 
-.eco-final-cta h2 span {
+.logistics-cta h2 span {
 
     display: block;
 
-    color: var(--eco-yellow);
+    color: var(--log-yellow);
 }
 
-.eco-final-cta p {
+.logistics-cta p {
 
-    max-width: 650px;
+    max-width: 620px;
 
     margin: auto;
 
@@ -3505,7 +3219,7 @@ body {
     line-height: 1.7;
 }
 
-.eco-final-buttons {
+.logistics-cta-buttons {
 
     display: flex;
 
@@ -3525,40 +3239,51 @@ body {
 
 @media (max-width:1100px) {
 
-    .eco-hero {
-        min-height: auto;
+    .logistics-hero-layout {
+
+        grid-template-columns: 1fr;
+
+        gap: 60px;
     }
 
-    .eco-intro-grid {
+    .logistics-hero-content {
+
+        max-width: 800px;
+    }
+
+    .logistics-hero-screen {
+
+        max-width: 850px;
+
+        width: 100%;
+
+        margin: auto;
+    }
+
+    .logistics-intro-grid {
 
         grid-template-columns: 1fr;
 
         gap: 35px;
     }
 
-    .eco-product-row,
-    .eco-product-reverse {
+    .logistics-feature-grid,
+    .mining-grid {
 
         grid-template-columns: 1fr;
 
-        gap: 50px;
+        gap: 55px;
     }
 
-    .eco-product-reverse .eco-product-info {
-        order: 1;
-    }
-
-    .eco-product-reverse .eco-product-visual {
-        order: 2;
-    }
-
-    .eco-product-info {
+    .logistics-feature-copy,
+    .mining-content {
 
         max-width: 750px;
     }
 
-    .eco-flow-map > b {
-        display: none;
+    .operations-grid {
+
+        grid-template-columns: repeat(2,1fr);
     }
 
 }
@@ -3570,448 +3295,271 @@ body {
 
 @media (max-width:700px) {
 
-    .eco-container {
+    .logistics-container {
+
         width: 92%;
     }
 
-    .eco-hero {
+    .logistics-hero {
 
-        padding: 125px 0 60px;
+        padding: 125px 0 65px;
     }
 
-    .eco-hero h1 {
+    .logistics-hero-content h1 {
 
-        font-size: 47px;
+        font-size: 44px;
 
         letter-spacing: -2.5px;
     }
 
-    .eco-hero p {
+    .logistics-hero-content > p {
 
         font-size: 14px;
     }
 
-    .eco-hero-buttons {
+    .logistics-hero-actions {
 
         flex-direction: column;
     }
 
-    .eco-btn {
+    .logistics-btn {
 
         width: 100%;
     }
 
+    .software-browser {
 
-    /* HERO MAP */
-
-    .eco-system-map {
-
-        height: 350px;
-
-        margin-top: 50px;
-    }
-
-    .eco-center {
-
-        width: 120px;
-        height: 120px;
-    }
-
-    .eco-map-node {
-
-        padding: 9px 11px;
-
-        font-size: 8px;
-    }
-
-    .eco-node-erp {
-        top: 0;
-    }
-
-    .eco-node-crm {
-        left: 0;
-        top: 75px;
-    }
-
-    .eco-node-logistics {
-        right: 0;
-        top: 75px;
-    }
-
-    .eco-node-mining {
-        left: 0;
-        bottom: 50px;
-    }
-
-    .eco-node-flow {
-        right: 0;
-        bottom: 50px;
-    }
-
-    .eco-node-ai {
-        bottom: 0;
-    }
-
-
-    /* INTRO */
-
-    .eco-introduction {
-
-        padding: 85px 0;
-    }
-
-    .eco-intro-title h2 {
-
-        font-size: 42px;
-    }
-
-    .eco-intro-copy p {
-
-        font-size: 14px;
-    }
-
-
-    /* PRODUCTS */
-
-    .eco-products {
-
-        padding: 85px 0;
-    }
-
-    .eco-products-heading {
-
-        margin-bottom: 30px;
-    }
-
-    .eco-products-heading h2 {
-
-        font-size: 42px;
-    }
-
-    .eco-product-row {
-
-        padding: 70px 0;
-
-        gap: 40px;
-    }
-
-    .eco-product-info h3 {
-
-        font-size: 45px;
-    }
-
-    .eco-product-info h4 {
-
-        font-size: 17px;
-    }
-
-    .eco-product-info p {
-
-        font-size: 14px;
-    }
-
-
-    /* SOFTWARE WINDOWS */
-
-    .erp-window,
-    .crm-window,
-    .mining-window,
-    .flow-window,
-    .ai-window {
-
-        min-height: 400px;
+        transform: none;
 
         border-radius: 13px;
     }
 
-    .software-topbar {
+    .software-browser:hover {
 
-        height: 52px;
-
-        padding: 0 14px;
+        transform: none;
     }
 
-    .software-topbar > span {
+    .browser-body {
 
-        font-size: 8px;
+        grid-template-columns: 65px 1fr;
+
+        min-height: 350px;
     }
 
+    .logistics-sidebar {
 
-    /* ERP */
-
-    .erp-content {
-
-        grid-template-columns: 80px 1fr;
-
-        min-height: 348px;
+        padding: 15px 6px;
     }
 
-    .software-sidebar {
+    .logistics-sidebar strong {
 
-        padding: 15px 8px;
+        padding: 5px 5px 15px;
+
+        font-size: 13px;
     }
 
-    .software-sidebar span {
+    .logistics-sidebar span {
 
         padding: 8px 5px;
 
-        font-size: 8px;
+        font-size: 7px;
     }
 
-    .erp-main {
-
-        padding: 17px;
-    }
-
-    .erp-stat-grid {
-
-        grid-template-columns: 1fr;
-
-        gap: 6px;
-
-        margin-top: 18px;
-    }
-
-    .erp-stat-grid div {
-
-        padding: 10px;
-    }
-
-    .erp-stat-grid strong {
-
-        font-size: 16px;
-    }
-
-    .erp-chart {
-
-        padding: 12px;
-    }
-
-    .chart-graph {
-
-        height: 105px;
-
-        gap: 6px;
-    }
-
-
-    /* CRM */
-
-    .crm-board {
-
-        grid-template-columns: 1fr;
-
-        gap: 12px;
-
-        padding: 18px;
-
-        min-height: 400px;
-
-        overflow-y: auto;
-    }
-
-    .crm-column {
-
-        display: grid;
-
-        grid-template-columns: 90px 1fr 1fr;
-
-        gap: 8px;
-
-        align-items: start;
-    }
-
-    .crm-column > small {
-
-        margin-top: 15px;
-    }
-
-    .crm-card {
-
-        margin: 0;
-
-        padding: 11px;
-    }
-
-
-    /* LOGISTICS */
-
-    .eco-logistics-visual {
-
-        min-height: 400px;
-    }
-
-    .eco-logistics-visual img {
-
-        min-height: 400px;
-    }
-
-
-    /* MINING */
-
-    .mining-dashboard {
+    .logistics-dashboard {
 
         padding: 15px;
-
-        min-height: 400px;
     }
 
-    .mining-stats {
+    .dashboard-title strong {
+
+        font-size: 14px;
+    }
+
+    .fleet-stats {
 
         grid-template-columns: 1fr;
+
+        gap: 6px;
     }
 
-    .mining-stats div {
-
-        padding: 11px;
+    .fleet-stats > div {
 
         display: flex;
 
         align-items: center;
 
         justify-content: space-between;
+
+        padding: 10px;
     }
 
-    .mining-stats strong {
+    .fleet-stats strong {
 
         margin: 0;
 
-        font-size: 18px;
+        font-size: 17px;
     }
 
-    .mining-analytics {
+    .dashboard-main-grid {
 
         grid-template-columns: 1fr;
     }
 
-    .mining-bars {
+    .fleet-chart-bars {
 
-        height: 110px;
+        height: 100px;
     }
 
-    .mining-status {
+    .fleet-status {
 
         display: none;
     }
 
 
-    /* FLOW */
+    /* INTRO */
 
-    .flow-canvas {
-
-        min-height: 400px;
-
-        flex-direction: column;
-
-        gap: 5px;
-
-        padding: 18px;
-
-        overflow-y: auto;
-    }
-
-    .flow-node {
-
-        width: 100%;
-
-        min-height: 70px;
-
-        display: grid;
-
-        grid-template-columns: 30px 1fr;
-
-        column-gap: 8px;
-
-        padding: 11px;
-    }
-
-    .flow-node small {
-
-        grid-row: 1 / span 2;
-    }
-
-    .flow-node strong {
-
-        margin: 0;
-
-        font-size: 12px;
-    }
-
-    .flow-node span {
-
-        margin: 2px 0 0;
-    }
-
-    .flow-connector {
-
-        transform: rotate(90deg);
-
-        font-size: 17px;
-    }
-
-
-    /* AI */
-
-    .ai-window {
-
-        min-height: 400px;
-
-        padding: 17px;
-    }
-
-    .ai-question {
-
-        max-width: 90%;
-
-        font-size: 9px;
-    }
-
-    .ai-answer strong {
-
-        font-size: 15px;
-    }
-
-
-    /* CONNECTED */
-
-    .eco-connected {
+    .logistics-intro,
+    .logistics-how,
+    .logistics-software-section,
+    .logistics-feature-section,
+    .logistics-feature-light,
+    .logistics-operations,
+    .logistics-mining {
 
         padding: 85px 0;
     }
 
-    .eco-connected-heading h2 {
+    .logistics-intro h2,
+    .logistics-heading h2,
+    .logistics-feature-copy h2,
+    .mining-content h2 {
 
-        font-size: 42px;
+        font-size: 41px;
+
+        letter-spacing: -1.8px;
     }
 
-    .eco-flow-map {
 
-        flex-direction: column;
+    /* WORKFLOW */
 
-        align-items: stretch;
+    .logistics-workflow {
+
+        grid-template-columns: 1fr;
+
+        gap: 10px;
     }
 
-    .eco-flow-card {
+    .workflow-arrow {
 
-        width: 100%;
+        transform: rotate(90deg);
+    }
+
+    .workflow-card {
+
+        min-height: 190px;
+    }
+
+    .workflow-icon {
+
+        margin-top: 20px;
+    }
+
+
+    /* IMAGES */
+
+    .logistics-image-frame {
+
+        min-height: 350px;
+
+        border-radius: 13px;
+    }
+
+    .software-image {
+
+        min-height: 350px;
+    }
+
+
+    /* CHECK LIST */
+
+    .logistics-check-list {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    /* TRIPS */
+
+    .trip-points {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    /* OPERATIONS */
+
+    .operations-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .operation-card {
+
+        min-height: 190px;
+    }
+
+    .operation-card h3 {
+
+        margin-top: 35px;
+    }
+
+
+    /* MINING */
+
+    .mining-visual {
+
+        min-height: 350px;
+    }
+
+    .mining-core {
+
+        width: 115px;
+        height: 115px;
+    }
+
+    .mining-node {
+
+        padding: 8px 11px;
+
+        font-size: 8px;
+    }
+
+    .mining-node-two {
+
+        left: 10px;
+    }
+
+    .mining-node-three {
+
+        right: 10px;
     }
 
 
     /* CTA */
 
-    .eco-final-cta {
+    .logistics-cta {
 
         padding: 90px 0;
     }
 
-    .eco-final-cta h2 {
+    .logistics-cta h2 {
 
-        font-size: 45px;
+        font-size: 43px;
 
         letter-spacing: -2px;
     }
 
-    .eco-final-buttons {
+    .logistics-cta-buttons {
 
         flex-direction: column;
     }
@@ -4025,312 +3573,81 @@ body {
 
 @media (max-width:430px) {
 
-    .eco-eyebrow {
+    .logistics-eyebrow {
 
         font-size: 9px;
 
         letter-spacing: 1.8px;
     }
 
-    .eco-hero h1 {
-
-        font-size: 39px;
-    }
-
-    .eco-system-map {
-
-        height: 310px;
-    }
-
-    .eco-center {
-
-        width: 105px;
-        height: 105px;
-    }
-
-    .eco-center strong {
-
-        font-size: 10px;
-    }
-
-    .eco-map-node {
-
-        font-size: 7px;
-
-        padding: 8px 9px;
-    }
-
-    .eco-intro-title h2,
-    .eco-products-heading h2 {
-
-        font-size: 37px;
-    }
-
-    .eco-product-info h3 {
-
-        font-size: 40px;
-    }
-
-    .eco-feature-list span {
-
-        font-size: 9px;
-
-        padding: 7px 8px;
-    }
-
-    .eco-final-cta h2 {
+    .logistics-hero-content h1 {
 
         font-size: 38px;
     }
 
-}
+    .browser-top {
 
+        grid-template-columns: 1fr 1fr;
+    }
 
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
+    .browser-top > span {
 
-@media (prefers-reduced-motion: reduce) {
+        display: none;
+    }
 
-    .sbl-ecosystem-page *,
-    .sbl-ecosystem-page *::before,
-    .sbl-ecosystem-page *::after {
+    .logistics-sidebar span {
 
-        animation-duration: .01ms !important;
+        font-size: 6px;
+    }
 
-        animation-iteration-count: 1 !important;
+    .dashboard-title > span {
 
-        transition-duration: .01ms !important;
+        display: none;
+    }
+
+    .logistics-intro h2,
+    .logistics-heading h2,
+    .logistics-feature-copy h2,
+    .mining-content h2 {
+
+        font-size: 37px;
+    }
+
+    .logistics-cta h2 {
+
+        font-size: 37px;
     }
 
 }
-
 /* =========================================================
-   ATTRACTIVE PRODUCT EXPLORE BUTTONS
-   ERP / CRM / LOGISTICS / MINING
+   JS STATES
 ========================================================= */
 
-.eco-product-info .eco-explore-btn {
+.logistics-reveal {
 
-    position: relative;
+    opacity: 0;
 
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 13px;
-
-    min-width: 175px;
-    min-height: 50px;
-
-    margin-top: 12px;
-    padding: 0 22px;
-
-    overflow: hidden;
-
-    border: 1px solid rgba(255,255,255,.2);
-    border-radius: 8px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #0878d8 0%,
-            #0569bd 55%,
-            #0459a5 100%
-        );
-
-    color: #fff;
-
-    font-size: 13px;
-    font-weight: 800;
-
-    letter-spacing: .2px;
-
-    text-decoration: none;
-
-    box-shadow:
-        0 10px 25px rgba(8,120,216,.20);
+    transform: translateY(30px);
 
     transition:
-        transform .35s cubic-bezier(.16,1,.3,1),
-        box-shadow .35s ease,
-        background .35s ease;
+        opacity .75s ease,
+        transform .75s cubic-bezier(.16,1,.3,1);
 }
 
+.logistics-visible {
 
-/* Shine layer */
+    opacity: 1;
 
-.eco-product-info .eco-explore-btn::before {
-
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: -120%;
-
-    width: 70%;
-    height: 100%;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,.35),
-            transparent
-        );
-
-    transform: skewX(-20deg);
-
-    transition: left .65s ease;
+    transform: translateY(0);
 }
 
+.mining-node-active {
 
-/* Keep text above shine */
-
-.eco-product-info .eco-explore-btn span,
-.eco-product-info .eco-explore-btn {
-
-    z-index: 1;
-}
-
-
-/* Arrow */
-
-.eco-product-info .eco-explore-btn span {
-
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    width: 25px;
-    height: 25px;
-
-    border-radius: 50%;
-
-    background: rgba(255,255,255,.15);
-
-    color: #fff;
-
-    font-size: 15px;
-
-    transition:
-        transform .35s ease,
-        background .35s ease;
-}
-
-
-/* Hover */
-
-.eco-product-info .eco-explore-btn:hover {
-
-    transform: translateY(-5px);
-
-    background:
-        linear-gradient(
-            135deg,
-            #0b83e8,
-            #0878d8,
-            #0562b1
-        );
+    border-color: var(--log-yellow);
 
     box-shadow:
-        0 17px 38px rgba(8,120,216,.30);
+        0 0 25px rgba(244,197,66,.18);
 }
-
-
-/* Shine animation */
-
-.eco-product-info .eco-explore-btn:hover::before {
-
-    left: 140%;
-}
-
-
-/* Arrow hover */
-
-.eco-product-info .eco-explore-btn:hover span {
-
-    transform: translateX(5px);
-
-    background: #f4c542;
-
-    color: #17324d;
-}
-
-
-/* Click */
-
-.eco-product-info .eco-explore-btn:active {
-
-    transform: translateY(-1px) scale(.98);
-
-}
-
-
-/* =========================================================
-   YELLOW ACCENT UNDER BUTTON
-========================================================= */
-
-.eco-product-info .eco-explore-btn::after {
-
-    content: "";
-
-    position: absolute;
-
-    left: 18px;
-    bottom: 5px;
-
-    width: 0;
-    height: 2px;
-
-    border-radius: 10px;
-
-    background: #f4c542;
-
-    transition: width .35s ease;
-}
-
-.eco-product-info .eco-explore-btn:hover::after {
-
-    width: 45px;
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width:700px) {
-
-    .eco-product-info .eco-explore-btn {
-
-        min-width: 165px;
-        min-height: 48px;
-
-        padding: 0 19px;
-
-        font-size: 12px;
-    }
-
-}
-
-
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
-
-@media (max-width:430px) {
-
-    .eco-product-info .eco-explore-btn {
-
-        width: 100%;
-
-        min-height: 50px;
-    }
-
-}
-
 
 
 .sbl-footer {

@@ -544,34 +544,174 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-
-
 document.addEventListener("DOMContentLoaded", () => {
 
     /* =====================================================
-       HERO ECOSYSTEM NODE ANIMATION
+       WORKFLOW ANIMATION
     ====================================================== */
 
-    const ecosystemNodes =
-        document.querySelectorAll(".eco-map-node");
+    const workflowCards =
+        document.querySelectorAll(".workflow-card");
 
-    let ecosystemIndex = 0;
+    let workflowIndex = 0;
 
-    if (ecosystemNodes.length) {
+    if (workflowCards.length) {
 
         setInterval(() => {
 
-            ecosystemNodes.forEach(node => {
-                node.classList.remove("eco-node-active");
+            workflowCards.forEach(card => {
+                card.classList.remove("active");
             });
 
-            ecosystemNodes[ecosystemIndex]
-                .classList.add("eco-node-active");
+            workflowCards[workflowIndex]
+                .classList.add("active");
 
-            ecosystemIndex++;
+            workflowIndex++;
 
-            if (ecosystemIndex >= ecosystemNodes.length) {
-                ecosystemIndex = 0;
+            if (workflowIndex >= workflowCards.length) {
+                workflowIndex = 0;
+            }
+
+        }, 1900);
+
+    }
+
+
+
+    /* =====================================================
+       HERO SOFTWARE TILT
+    ====================================================== */
+
+    const heroScreen =
+        document.querySelector(".software-browser");
+
+    const hero =
+        document.querySelector(".logistics-hero");
+
+    const finePointer =
+        window.matchMedia("(pointer:fine)").matches;
+
+
+    if (heroScreen && hero && finePointer) {
+
+        hero.addEventListener("mousemove", event => {
+
+            const rect =
+                hero.getBoundingClientRect();
+
+            const x =
+                (event.clientX - rect.left) /
+                rect.width - .5;
+
+            const y =
+                (event.clientY - rect.top) /
+                rect.height - .5;
+
+            heroScreen.style.transform =
+                `perspective(1200px)
+                 rotateY(${x * -4}deg)
+                 rotateX(${y * 2}deg)
+                 translateY(-5px)`;
+
+        });
+
+
+        hero.addEventListener("mouseleave", () => {
+
+            heroScreen.style.transform =
+                `perspective(1200px)
+                 rotateY(-4deg)
+                 rotateX(2deg)`;
+
+        });
+
+    }
+
+
+
+    /* =====================================================
+       IMAGE FALLBACK
+    ====================================================== */
+
+    const imageFrames =
+        document.querySelectorAll(
+            ".logistics-image-frame"
+        );
+
+
+    imageFrames.forEach(frame => {
+
+        const image =
+            frame.querySelector(".software-image");
+
+        if (!image) return;
+
+
+        const markLoaded = () => {
+
+            frame.classList.add(
+                "image-loaded"
+            );
+
+        };
+
+
+        if (image.complete && image.naturalWidth > 0) {
+
+            markLoaded();
+
+        }
+
+
+        image.addEventListener(
+            "load",
+            markLoaded
+        );
+
+
+        image.addEventListener(
+            "error",
+            () => {
+
+                frame.classList.remove(
+                    "image-loaded"
+                );
+
+            }
+        );
+
+    });
+
+
+
+    /* =====================================================
+       MINING NODE PULSE
+    ====================================================== */
+
+    const miningNodes =
+        document.querySelectorAll(".mining-node");
+
+    let miningIndex = 0;
+
+    if (miningNodes.length) {
+
+        setInterval(() => {
+
+            miningNodes.forEach(node => {
+                node.classList.remove(
+                    "mining-node-active"
+                );
+            });
+
+            miningNodes[miningIndex]
+                .classList.add(
+                    "mining-node-active"
+                );
+
+            miningIndex++;
+
+            if (miningIndex >= miningNodes.length) {
+                miningIndex = 0;
             }
 
         }, 1500);
@@ -581,15 +721,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       PRODUCT REVEAL
+       SCROLL REVEAL
     ====================================================== */
 
-    const productRows =
-        document.querySelectorAll(".eco-product-row");
+    const revealElements =
+        document.querySelectorAll(
+            ".logistics-heading, " +
+            ".logistics-feature-copy, " +
+            ".logistics-image-frame, " +
+            ".workflow-card, " +
+            ".operation-card, " +
+            ".mining-content, " +
+            ".mining-visual"
+        );
+
 
     if ("IntersectionObserver" in window) {
 
-        const productObserver =
+        const observer =
             new IntersectionObserver(
                 entries => {
 
@@ -600,10 +749,10 @@ document.addEventListener("DOMContentLoaded", () => {
                         }
 
                         entry.target.classList.add(
-                            "eco-product-visible"
+                            "logistics-visible"
                         );
 
-                        productObserver.unobserve(
+                        observer.unobserve(
                             entry.target
                         );
 
@@ -616,120 +765,15 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
 
-        productRows.forEach(row => {
+        revealElements.forEach(element => {
 
-            row.classList.add(
-                "eco-product-hidden"
+            element.classList.add(
+                "logistics-reveal"
             );
 
-            productObserver.observe(row);
+            observer.observe(element);
 
         });
-
-    }
-
-
-
-    /* =====================================================
-       PRODUCT VISUAL MOUSE EFFECT
-    ====================================================== */
-
-    const visuals =
-        document.querySelectorAll(
-            ".eco-product-visual"
-        );
-
-    const finePointer =
-        window.matchMedia("(pointer:fine)").matches;
-
-
-    if (finePointer) {
-
-        visuals.forEach(visual => {
-
-            visual.addEventListener(
-                "mousemove",
-                event => {
-
-                    const rect =
-                        visual.getBoundingClientRect();
-
-                    const x =
-                        (event.clientX - rect.left) /
-                        rect.width - .5;
-
-                    const y =
-                        (event.clientY - rect.top) /
-                        rect.height - .5;
-
-
-                    const windowElement =
-                        visual.firstElementChild;
-
-                    if (!windowElement) return;
-
-
-                    windowElement.style.transform =
-                        `perspective(1200px)
-                         rotateY(${x * 2.5}deg)
-                         rotateX(${y * -2.5}deg)
-                         translateY(-5px)`;
-
-                }
-            );
-
-
-            visual.addEventListener(
-                "mouseleave",
-                () => {
-
-                    const windowElement =
-                        visual.firstElementChild;
-
-                    if (!windowElement) return;
-
-                    windowElement.style.transform = "";
-
-                }
-            );
-
-        });
-
-    }
-
-
-
-    /* =====================================================
-       FLOW NODE ACTIVE ANIMATION
-    ====================================================== */
-
-    const flowNodes =
-        document.querySelectorAll(".flow-node");
-
-    let flowIndex = 0;
-
-    if (flowNodes.length) {
-
-        setInterval(() => {
-
-            flowNodes.forEach(node => {
-                node.classList.remove(
-                    "flow-node-active"
-                );
-            });
-
-            flowNodes[flowIndex]
-                .classList.add(
-                    "flow-node-active"
-                );
-
-            flowIndex++;
-
-            if (flowIndex >= flowNodes.length) {
-                flowIndex = 0;
-            }
-
-        }, 1700);
 
     }
 
@@ -741,7 +785,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document
         .querySelectorAll(
-            '.sbl-ecosystem-page a[href^="#"]'
+            '.sbl-logistics-page a[href^="#"]'
         )
         .forEach(link => {
 
@@ -771,58 +815,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       LOGISTICS IMAGE SAFETY
-    ====================================================== */
-
-    const logisticsImage =
-        document.querySelector(
-            ".logistics-image"
-        );
-
-    if (logisticsImage) {
-
-        logisticsImage.addEventListener(
-            "error",
-            () => {
-
-                logisticsImage.style.display =
-                    "none";
-
-                const parent =
-                    logisticsImage.parentElement;
-
-                parent.style.background =
-                    "linear-gradient(135deg,#0878d8,#0459a5)";
-
-            }
-        );
-
-    }
-
-
-
-    /* =====================================================
        MOBILE SAFETY
     ====================================================== */
 
     if (window.innerWidth <= 700) {
 
-        document
-            .querySelectorAll(
-                ".erp-window, .crm-window, " +
-                ".mining-window, .flow-window, " +
-                ".ai-window"
-            )
-            .forEach(element => {
+        if (heroScreen) {
 
-                element.style.transform = "none";
+            heroScreen.style.transform =
+                "none";
 
-            });
+        }
 
     }
 
 });
-
 
 
 document.addEventListener("DOMContentLoaded", function () {

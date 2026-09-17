@@ -1575,134 +1575,37 @@ body {
 
 
 /* =========================================================
-   SBL ECOSYSTEM
-   SKY BLUE + YELLOW + WHITE
+   SBL COMING SOON PRODUCTS
+   ERP / CRM / MINING
 ========================================================= */
 
-.sbl-ecosystem-page {
+.sbl-coming-page {
+    --blue: #0878d8;
+    --blue-dark: #0459a5;
+    --blue-deep: #043b72;
+    --blue-light: #eaf6ff;
 
-    --eco-blue: #0878d8;
-    --eco-blue-dark: #0459a5;
-    --eco-blue-deep: #03447f;
-    --eco-blue-light: #eef8ff;
+    --yellow: #f4c542;
+    --yellow-light: #fff4c7;
 
-    --eco-yellow: #f4c542;
-    --eco-yellow-light: #fff5c9;
+    --white: #ffffff;
+    --bg: #f6f9fc;
 
-    --eco-white: #ffffff;
-    --eco-bg: #f7fafc;
+    --navy: #102a43;
+    --text: #17324d;
+    --muted: #718397;
 
-    --eco-navy: #102a43;
-    --eco-text: #17324d;
-    --eco-muted: #718397;
-
-    width: 100%;
-    overflow: hidden;
-
-    background: #fff;
-    color: var(--eco-text);
+    background: var(--bg);
+    color: var(--text);
+    overflow:hidden;
 }
 
 
-/* =========================================================
-   BASE
-========================================================= */
+/* CONTAINER */
 
-.sbl-ecosystem-page *,
-.sbl-ecosystem-page *::before,
-.sbl-ecosystem-page *::after {
-    box-sizing: border-box;
-}
-
-.eco-container {
-    width: min(1420px, 92%);
-    margin: auto;
-}
-
-
-/* =========================================================
-   EYEBROW
-========================================================= */
-
-.eco-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-
-    color: var(--eco-yellow);
-
-    font-size: 11px;
-    font-weight: 800;
-
-    letter-spacing: 2.5px;
-}
-
-.eco-eyebrow::before {
-    content: "";
-
-    width: 28px;
-    height: 2px;
-
-    background: currentColor;
-}
-
-.eco-blue-eyebrow {
-    color: var(--eco-blue);
-}
-
-
-/* =========================================================
-   BUTTONS
-========================================================= */
-
-.eco-btn {
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-
-    min-height: 52px;
-
-    padding: 0 25px;
-
-    border-radius: 7px;
-
-    text-decoration: none;
-
-    font-size: 13px;
-    font-weight: 800;
-
-    transition:
-        transform .3s ease,
-        box-shadow .3s ease,
-        background .3s ease;
-}
-
-.eco-btn:hover {
-    transform: translateY(-3px);
-}
-
-.eco-btn-yellow {
-    background: var(--eco-yellow);
-    color: #16283a;
-
-    box-shadow:
-        0 15px 35px rgba(244,197,66,.25);
-}
-
-.eco-btn-outline {
-    border: 1px solid rgba(255,255,255,.65);
-    color: #fff;
-}
-
-.eco-btn-outline:hover {
-    background: rgba(255,255,255,.12);
-}
-
-.eco-btn-white {
-    background: #fff;
-    color: var(--eco-blue);
+.sbl-coming-page .coming-container {
+    width:min(1220px, 92%);
+    margin:auto;
 }
 
 
@@ -1710,721 +1613,650 @@ body {
    HERO
 ========================================================= */
 
-.eco-hero {
-
-    position: relative;
-
-    min-height: 850px;
-
-    padding: 150px 0 80px;
-
-    overflow: hidden;
+.sbl-coming-page .coming-hero {
+    position:relative;
+    min-height:720px;
+    padding:150px 0 90px;
+    overflow:hidden;
 
     background:
         radial-gradient(
-            circle at 75% 40%,
-            rgba(255,255,255,.14),
-            transparent 30%
+            circle at 80% 20%,
+            rgba(255,255,255,.15),
+            transparent 35%
         ),
         linear-gradient(
-            125deg,
+            135deg,
             #0878d8,
-            #086fc8 55%,
+            #0567bc 55%,
             #0459a5
         );
 
-    color: #fff;
-
-    text-align: center;
+    color:#fff;
 }
 
-.eco-hero-grid {
 
-    position: absolute;
-    inset: 0;
-
-    opacity: .09;
+.sbl-coming-page .coming-grid {
+    position:absolute;
+    inset:0;
 
     background-image:
         linear-gradient(
-            rgba(255,255,255,.4) 1px,
+            rgba(255,255,255,.055) 1px,
             transparent 1px
         ),
         linear-gradient(
             90deg,
-            rgba(255,255,255,.4) 1px,
+            rgba(255,255,255,.055) 1px,
             transparent 1px
         );
 
-    background-size: 60px 60px;
+    background-size:55px 55px;
+
+    mask-image:
+        linear-gradient(
+            to right,
+            transparent,
+            #000 30%,
+            #000 70%,
+            transparent
+        );
 }
 
-.eco-ring {
 
-    position: absolute;
+.sbl-coming-page .coming-hero-grid {
+    position:relative;
+    z-index:2;
 
-    border: 1px solid rgba(255,255,255,.12);
+    display:grid;
+    grid-template-columns:
+        minmax(0, .95fr)
+        minmax(500px, 1.05fr);
 
-    border-radius: 50%;
+    gap:70px;
 
-    pointer-events: none;
-
-    animation: ecoRing 9s ease-in-out infinite;
+    align-items:center;
 }
 
-.eco-ring-one {
 
-    width: 600px;
-    height: 600px;
+/* HERO TEXT */
 
-    right: -250px;
-    top: 100px;
+.sbl-coming-page .coming-eyebrow {
+    display:inline-flex;
+    align-items:center;
+
+    min-height:32px;
+    padding:0 13px;
+
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:30px;
+
+    background:rgba(255,255,255,.08);
+
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1.7px;
 }
 
-.eco-ring-two {
 
-    width: 420px;
-    height: 420px;
+.sbl-coming-page .coming-hero h1 {
+    margin:22px 0 20px;
 
-    left: -250px;
-    bottom: -230px;
+    max-width:650px;
 
-    animation-delay: -4s;
+    font-size:clamp(42px,5vw,68px);
+    line-height:.98;
+    letter-spacing:-2.8px;
 }
 
-@keyframes ecoRing {
+
+.sbl-coming-page .coming-hero h1 span {
+    display:block;
+    color:#ffe27d;
+}
+
+
+.sbl-coming-page .coming-hero p {
+    max-width:610px;
+
+    margin:0;
+
+    color:rgba(255,255,255,.84);
+
+    font-size:16px;
+    line-height:1.75;
+}
+
+
+/* STATUS */
+
+.sbl-coming-page .coming-status {
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+
+    margin-top:25px;
+
+    padding:10px 14px;
+
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:30px;
+
+    background:rgba(0,0,0,.12);
+
+    font-size:12px;
+    font-weight:700;
+}
+
+
+.sbl-coming-page .status-dot {
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:#f4c542;
+
+    box-shadow:
+        0 0 0 5px rgba(244,197,66,.12);
+
+    animation:
+        statusPulse 1.8s infinite;
+}
+
+
+@keyframes statusPulse {
+
+    0%,100% {
+        opacity:1;
+        transform:scale(1);
+    }
 
     50% {
-        transform: scale(1.08) rotate(7deg);
+        opacity:.55;
+        transform:scale(.75);
     }
 
 }
 
-.eco-hero-inner {
 
-    position: relative;
-    z-index: 2;
-}
+/* BUTTONS */
 
-.eco-hero h1 {
+.sbl-coming-page .coming-actions {
+    display:flex;
+    flex-wrap:wrap;
+    gap:13px;
 
-    max-width: 1050px;
-
-    margin: 22px auto;
-
-    font-size: clamp(50px, 7vw, 92px);
-
-    line-height: .94;
-
-    letter-spacing: -4px;
-
-    font-weight: 700;
-}
-
-.eco-hero h1 span {
-
-    display: block;
-
-    color: var(--eco-yellow);
-}
-
-.eco-hero p {
-
-    max-width: 760px;
-
-    margin: auto;
-
-    color: rgba(255,255,255,.83);
-
-    font-size: 17px;
-
-    line-height: 1.75;
-}
-
-.eco-hero-buttons {
-
-    display: flex;
-
-    justify-content: center;
-
-    flex-wrap: wrap;
-
-    gap: 12px;
-
-    margin-top: 30px;
+    margin-top:28px;
 }
 
 
-/* =========================================================
-   HERO ECOSYSTEM MAP
-========================================================= */
+.sbl-coming-page .coming-btn {
+    position:relative;
 
-.eco-system-map {
+    min-height:50px;
 
-    position: relative;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
 
-    width: min(900px,100%);
+    padding:0 22px;
 
-    height: 330px;
+    border-radius:7px;
 
-    margin: 60px auto 0;
-}
+    text-decoration:none;
 
-.eco-center {
-
-    position: absolute;
-
-    top: 50%;
-    left: 50%;
-
-    transform: translate(-50%,-50%);
-
-    width: 145px;
-    height: 145px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-    align-items: center;
-
-    border: 2px solid var(--eco-yellow);
-
-    border-radius: 50%;
-
-    background: rgba(255,255,255,.1);
-
-    backdrop-filter: blur(15px);
-
-    box-shadow:
-        0 0 50px rgba(244,197,66,.15);
-
-    z-index: 5;
-}
-
-.eco-center small {
-
-    color: var(--eco-yellow);
-
-    font-size: 11px;
-
-    font-weight: 900;
-
-    letter-spacing: 3px;
-}
-
-.eco-center strong {
-
-    margin-top: 8px;
-
-    font-size: 13px;
-
-    letter-spacing: 1px;
-}
-
-.eco-map-node {
-
-    position: absolute;
-
-    z-index: 5;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 8px;
-
-    padding: 12px 17px;
-
-    border: 1px solid rgba(255,255,255,.32);
-
-    border-radius: 30px;
-
-    background: rgba(255,255,255,.1);
-
-    backdrop-filter: blur(10px);
-
-    color: #fff;
-
-    font-size: 10px;
-
-    font-weight: 800;
+    font-size:13px;
+    font-weight:800;
 
     transition:
         transform .3s ease,
-        border .3s ease,
+        box-shadow .3s ease,
         background .3s ease;
 }
 
-.eco-map-node:hover {
 
-    border-color: var(--eco-yellow);
-
-    background: rgba(255,255,255,.18);
-
-    transform: translateY(-5px);
+.sbl-coming-page .coming-btn:hover {
+    transform:translateY(-4px);
 }
 
-.eco-map-node b {
 
-    color: var(--eco-yellow);
+.sbl-coming-page .coming-btn-yellow {
+    background:var(--yellow);
+    color:#17324d;
 
-    font-size: 8px;
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.16);
 }
 
-.eco-node-erp {
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+
+.sbl-coming-page .coming-btn-yellow:hover {
+    background:#ffd85f;
+
+    box-shadow:
+        0 18px 38px rgba(0,0,0,.2);
 }
 
-.eco-node-crm {
-    top: 65px;
-    left: 5%;
+
+.sbl-coming-page .coming-btn-outline {
+    border:1px solid rgba(255,255,255,.35);
+
+    background:rgba(255,255,255,.07);
+
+    color:#fff;
 }
 
-.eco-node-logistics {
-    top: 65px;
-    right: 5%;
+
+.sbl-coming-page .coming-btn-outline:hover {
+    background:rgba(255,255,255,.15);
 }
 
-.eco-node-mining {
-    bottom: 20px;
-    left: 12%;
+
+.sbl-coming-page .coming-btn span {
+    font-size:18px;
+
+    transition:
+        transform .3s ease;
 }
 
-.eco-node-flow {
-    bottom: 20px;
-    right: 12%;
+
+.sbl-coming-page .coming-btn:hover span {
+    transform:translateX(5px);
 }
 
-.eco-node-ai {
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.sbl-coming-page .coming-intro {
+    padding:110px 0 70px;
+
+    text-align:center;
+
+    background:#fff;
 }
 
-.eco-map-line {
 
-    position: absolute;
+.sbl-coming-page .coming-section-label {
+    color:var(--blue);
 
-    left: 50%;
-    top: 50%;
+    font-size:11px;
+    font-weight:900;
 
-    width: 2px;
+    letter-spacing:2px;
+}
 
-    height: 130px;
 
-    transform-origin: top;
+.sbl-coming-page .coming-intro h2 {
+    max-width:800px;
+
+    margin:15px auto;
+
+    font-size:clamp(34px,4vw,52px);
+
+    line-height:1.05;
+    letter-spacing:-1.8px;
+}
+
+
+.sbl-coming-page .coming-intro h2 span {
+    color:var(--blue);
+}
+
+
+.sbl-coming-page .coming-intro p {
+    max-width:650px;
+
+    margin:20px auto 0;
+
+    color:var(--muted);
+
+    line-height:1.75;
+}
+
+
+/* =========================================================
+   ROADMAP
+========================================================= */
+
+.sbl-coming-page .coming-roadmap {
+    padding:35px 0 110px;
+
+    background:#fff;
+}
+
+
+.sbl-coming-page .roadmap-grid {
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:18px;
+}
+
+
+.sbl-coming-page .roadmap-card {
+    position:relative;
+
+    min-height:250px;
+
+    padding:26px;
+
+    overflow:hidden;
+
+    border:1px solid #e2ebf2;
+    border-radius:14px;
+
+    background:#fff;
+
+    box-shadow:
+        0 12px 35px rgba(16,42,67,.05);
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease;
+}
+
+
+.sbl-coming-page .roadmap-card:hover {
+    transform:translateY(-8px);
+
+    border-color:#a9d7f7;
+
+    box-shadow:
+        0 22px 45px rgba(8,120,216,.1);
+}
+
+
+.sbl-coming-page .roadmap-card > span {
+    position:absolute;
+
+    top:18px;
+    right:20px;
+
+    color:#d9e9f5;
+
+    font-size:30px;
+    font-weight:900;
+}
+
+
+.sbl-coming-page .roadmap-icon {
+    width:50px;
+    height:50px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin-bottom:22px;
+
+    border-radius:11px;
+
+    background:var(--blue-light);
+
+    color:var(--blue);
+
+    font-size:21px;
+    font-weight:900;
+}
+
+
+.sbl-coming-page .roadmap-card h3 {
+    margin:0 0 9px;
+
+    color:var(--navy);
+
+    font-size:18px;
+}
+
+
+.sbl-coming-page .roadmap-card p {
+    margin:0;
+
+    color:var(--muted);
+
+    font-size:13px;
+    line-height:1.7;
+}
+
+
+.sbl-coming-page .roadmap-card em {
+    display:inline-block;
+
+    margin-top:20px;
+
+    padding:5px 9px;
+
+    border-radius:5px;
+
+    background:var(--yellow-light);
+
+    color:#8a6910;
+
+    font-size:10px;
+    font-style:normal;
+    font-weight:800;
+}
+
+
+/* =========================================================
+   DEVELOPMENT
+========================================================= */
+
+.sbl-coming-page .development-section {
+    padding:110px 0;
 
     background:
         linear-gradient(
-            to bottom,
-            rgba(244,197,66,.8),
-            rgba(255,255,255,.05)
+            135deg,
+            #eef8ff,
+            #f8fbfe
+        );
+}
+
+
+.sbl-coming-page .development-grid {
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:70px;
+
+    align-items:center;
+}
+
+
+.sbl-coming-page .development-section h2 {
+    max-width:600px;
+
+    margin:15px 0;
+
+    color:var(--navy);
+
+    font-size:clamp(34px,4vw,52px);
+
+    line-height:1.05;
+    letter-spacing:-1.8px;
+}
+
+
+.sbl-coming-page .development-section h2 span {
+    display:block;
+
+    color:var(--blue);
+}
+
+
+.sbl-coming-page .development-section p {
+    max-width:570px;
+
+    color:var(--muted);
+
+    line-height:1.75;
+}
+
+
+/* DEVELOPMENT CARD */
+
+.sbl-coming-page .development-card {
+    padding:10px;
+
+    border:1px solid #dceaf3;
+    border-radius:15px;
+
+    background:#fff;
+
+    box-shadow:
+        0 20px 50px rgba(16,42,67,.08);
+}
+
+
+.sbl-coming-page .dev-line {
+    min-height:68px;
+
+    display:grid;
+
+    grid-template-columns:35px 1fr auto;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:0 16px;
+
+    border-bottom:1px solid #edf2f6;
+
+    color:var(--text);
+
+    font-size:13px;
+    font-weight:700;
+}
+
+
+.sbl-coming-page .dev-line:last-child {
+    border-bottom:0;
+}
+
+
+.sbl-coming-page .dev-check {
+    width:27px;
+    height:27px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:var(--blue-light);
+
+    color:var(--blue);
+
+    font-weight:900;
+}
+
+
+.sbl-coming-page .dev-line b {
+    padding:5px 8px;
+
+    border-radius:5px;
+
+    background:#f3f7fa;
+
+    color:#7b8c9c;
+
+    font-size:9px;
+
+    text-transform:uppercase;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.sbl-coming-page .coming-cta {
+    position:relative;
+
+    padding:110px 0;
+
+    text-align:center;
+
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 0,
+            rgba(255,255,255,.14),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #0878d8,
+            #0459a5
         );
 
-    opacity: .55;
-}
-
-.eco-line-1 {
-    transform: translate(-50%,-130px) rotate(0);
-}
-
-.eco-line-2 {
-    transform: translate(-50%,-20px) rotate(62deg);
-}
-
-.eco-line-3 {
-    transform: translate(-50%,-20px) rotate(-62deg);
-}
-
-.eco-line-4 {
-    transform: translate(-50%,0) rotate(125deg);
-}
-
-.eco-line-5 {
-    transform: translate(-50%,0) rotate(-125deg);
-}
-
-.eco-line-6 {
-    transform: translate(-50%,0) rotate(180deg);
+    color:#fff;
 }
 
 
-/* =========================================================
-   INTRODUCTION
-========================================================= */
+.sbl-coming-page .coming-cta::before {
+    content:"";
 
-.eco-introduction {
+    position:absolute;
 
-    padding: 120px 0;
+    width:600px;
+    height:600px;
 
-    background: #fff;
-}
+    top:-400px;
+    left:50%;
 
-.eco-intro-grid {
+    transform:translateX(-50%);
 
-    display: grid;
+    border:1px solid rgba(255,255,255,.08);
 
-    grid-template-columns: .9fr 1.1fr;
-
-    gap: 100px;
-
-    align-items: center;
-}
-
-.eco-intro-title h2 {
-
-    margin: 20px 0 0;
-
-    color: var(--eco-navy);
-
-    font-size: clamp(42px,5vw,67px);
-
-    line-height: .98;
-
-    letter-spacing: -2.5px;
-}
-
-.eco-intro-title h2 span {
-
-    display: block;
-
-    color: var(--eco-blue);
-}
-
-.eco-intro-copy {
-
-    max-width: 650px;
-}
-
-.eco-intro-copy p {
-
-    margin: 0 0 20px;
-
-    color: var(--eco-muted);
-
-    font-size: 17px;
-
-    line-height: 1.8;
+    border-radius:50%;
 }
 
 
-/* =========================================================
-   PRODUCTS
-========================================================= */
+.sbl-coming-page .coming-cta span {
+    font-size:11px;
+    font-weight:900;
 
-.eco-products {
+    letter-spacing:2px;
 
-    padding: 125px 0;
-
-    background: var(--eco-bg);
-}
-
-.eco-products-heading {
-
-    max-width: 750px;
-
-    margin-bottom: 85px;
-}
-
-.eco-products-heading h2 {
-
-    margin: 20px 0;
-
-    color: var(--eco-navy);
-
-    font-size: clamp(42px,5vw,68px);
-
-    line-height: .98;
-
-    letter-spacing: -2.5px;
-}
-
-.eco-products-heading h2 span {
-
-    color: var(--eco-blue);
-}
-
-.eco-products-heading p {
-
-    margin: 0;
-
-    color: var(--eco-muted);
-
-    font-size: 16px;
-
-    line-height: 1.7;
+    color:#ffe27d;
 }
 
 
-/* =========================================================
-   PRODUCT ROW
-========================================================= */
+.sbl-coming-page .coming-cta h2 {
+    max-width:800px;
 
-.eco-product-row {
+    margin:15px auto;
 
-    display: grid;
+    font-size:clamp(35px,5vw,58px);
 
-    grid-template-columns: .8fr 1.2fr;
+    line-height:1.05;
 
-    gap: 80px;
-
-    align-items: center;
-
-    padding: 90px 0;
-
-    border-top: 1px solid #e2eaf1;
-}
-
-.eco-product-row:first-of-type {
-    border-top: 0;
-}
-
-.eco-product-reverse {
-
-    grid-template-columns: 1.2fr .8fr;
-}
-
-.eco-product-reverse .eco-product-info {
-    order: 2;
-}
-
-.eco-product-reverse .eco-product-visual {
-    order: 1;
-}
-
-.eco-product-info {
-
-    max-width: 530px;
-}
-
-.eco-product-number {
-
-    display: block;
-
-    margin-bottom: 20px;
-
-    color: var(--eco-blue);
-
-    font-size: 12px;
-
-    font-weight: 900;
-
-    letter-spacing: 2px;
-}
-
-.eco-product-category {
-
-    display: block;
-
-    margin-bottom: 12px;
-
-    color: #8293a3;
-
-    font-size: 10px;
-
-    font-weight: 800;
-
-    letter-spacing: 1.8px;
-}
-
-.eco-product-info h3 {
-
-    margin: 0;
-
-    color: var(--eco-navy);
-
-    font-size: clamp(42px,5vw,65px);
-
-    line-height: 1;
-
-    letter-spacing: -2.5px;
-}
-
-.eco-product-info h4 {
-
-    margin: 18px 0 15px;
-
-    color: var(--eco-blue);
-
-    font-size: 20px;
-
-    line-height: 1.3;
-}
-
-.eco-product-info p {
-
-    margin: 0;
-
-    color: var(--eco-muted);
-
-    font-size: 15px;
-
-    line-height: 1.8;
+    letter-spacing:-2px;
 }
 
 
-/* FEATURES */
-
-.eco-feature-list {
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 8px;
-
-    margin: 25px 0;
-}
-
-.eco-feature-list span {
-
-    padding: 8px 11px;
-
-    border: 1px solid #dce8f1;
-
-    border-radius: 5px;
-
-    background: #fff;
-
-    color: var(--eco-text);
-
-    font-size: 10px;
-
-    font-weight: 700;
+.sbl-coming-page .coming-cta h2 strong {
+    color:#ffe27d;
 }
 
 
-/* EXPLORE */
+.sbl-coming-page .coming-cta p {
+    margin:0 0 25px;
 
-.eco-explore-btn {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 12px;
-
-    margin-top: 5px;
-
-    color: var(--eco-blue);
-
-    font-size: 13px;
-
-    font-weight: 900;
-
-    text-decoration: none;
-}
-
-.eco-explore-btn span {
-
-    transition: transform .3s ease;
-}
-
-.eco-explore-btn:hover span {
-
-    transform: translateX(6px);
-}
-
-
-/* =========================================================
-   SOFTWARE VISUAL COMMON
-========================================================= */
-
-.eco-product-visual {
-
-    min-width: 0;
-}
-
-.erp-window,
-.crm-window,
-.mining-window,
-.flow-window,
-.ai-window {
-
-    position: relative;
-
-    width: 100%;
-
-    min-height: 480px;
-
-    overflow: hidden;
-
-    border: 1px solid #d9e5ee;
-
-    border-radius: 18px;
-
-    background: #fff;
-
-    box-shadow:
-        0 30px 80px rgba(25,75,115,.11);
-
-    transition:
-        transform .45s ease,
-        box-shadow .45s ease;
-}
-
-.erp-window:hover,
-.crm-window:hover,
-.mining-window:hover,
-.flow-window:hover,
-.ai-window:hover {
-
-    transform: translateY(-8px);
-
-    box-shadow:
-        0 40px 90px rgba(25,75,115,.15);
-}
-
-.software-topbar {
-
-    height: 62px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    padding: 0 22px;
-
-    border-bottom: 1px solid #e8eef3;
-
-    background: #fff;
-
-    color: var(--eco-muted);
-
-    font-size: 10px;
-}
-
-.software-brand {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 9px;
-
-    color: var(--eco-navy);
-
-    font-size: 12px;
-
-    font-weight: 900;
-}
-
-.software-brand i {
-
-    width: 9px;
-    height: 9px;
-
-    border-radius: 50%;
-
-    background: var(--eco-blue);
-
-    box-shadow: 0 0 10px rgba(8,120,216,.4);
+    color:rgba(255,255,255,.78);
 }
 
 
@@ -2432,1905 +2264,1122 @@ body {
    ERP VISUAL
 ========================================================= */
 
-.erp-content {
-
-    display: grid;
-
-    grid-template-columns: 150px 1fr;
-
-    min-height: 418px;
-}
-
-.software-sidebar {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 7px;
-
-    padding: 22px 12px;
-
-    border-right: 1px solid #edf1f4;
-
-    background: #f7fafc;
-}
-
-.software-sidebar span {
-
-    padding: 10px;
-
-    border-radius: 6px;
-
-    color: #7b8c9c;
-
-    font-size: 10px;
-}
-
-.software-sidebar .side-active {
-
-    background: var(--eco-blue-light);
-
-    color: var(--eco-blue);
-
-    font-weight: 800;
-}
-
-.erp-main {
-
-    padding: 28px;
-}
-
-.erp-welcome small {
-
-    color: #91a0ad;
-
-    font-size: 8px;
-
-    letter-spacing: 1px;
-}
-
-.erp-welcome strong {
-
-    display: block;
-
-    margin-top: 5px;
-
-    color: var(--eco-navy);
-
-    font-size: 20px;
-}
-
-.erp-stat-grid {
-
-    display: grid;
-
-    grid-template-columns: repeat(3,1fr);
-
-    gap: 10px;
-
-    margin-top: 25px;
-}
-
-.erp-stat-grid div {
-
-    padding: 15px;
-
-    border: 1px solid #e4ebf1;
-
-    border-radius: 9px;
-}
-
-.erp-stat-grid small {
-
-    display: block;
-
-    color: #8293a3;
-
-    font-size: 9px;
-}
-
-.erp-stat-grid strong {
-
-    display: block;
-
-    margin: 7px 0;
-
-    color: var(--eco-navy);
-
-    font-size: 20px;
-}
-
-.erp-stat-grid b {
-
-    color: #20a765;
-
-    font-size: 9px;
-}
-
-.erp-chart {
-
-    margin-top: 20px;
-
-    padding: 20px;
-
-    border: 1px solid #e4ebf1;
-
-    border-radius: 10px;
-}
-
-.chart-heading {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    color: #7b8c9c;
-
-    font-size: 9px;
-}
-
-.chart-graph {
-
-    height: 175px;
-
-    display: flex;
-
-    align-items: flex-end;
-
-    gap: 14px;
-
-    margin-top: 18px;
-}
-
-.chart-graph i {
-
-    flex: 1;
-
-    border-radius: 4px 4px 0 0;
-
-    background:
-        linear-gradient(
-            to top,
-            var(--eco-blue),
-            #74bdf1
-        );
-
-    animation: ecoBars 1.2s ease both;
-
-    transform-origin: bottom;
-}
-
-@keyframes ecoBars {
-
-    from {
-        transform: scaleY(0);
-    }
-
-    to {
-        transform: scaleY(1);
-    }
-
+.sbl-coming-page .coming-product-visual {
+    perspective:1400px;
 }
 
 
-/* =========================================================
-   CRM
-========================================================= */
+.sbl-coming-page .erp-window {
+    position:relative;
 
-.crm-window {
+    min-height:440px;
 
-    background: #f8fbfd;
-}
+    overflow:hidden;
 
-.crm-board {
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:18px;
 
-    display: grid;
-
-    grid-template-columns: repeat(3,1fr);
-
-    gap: 14px;
-
-    padding: 28px;
-
-    min-height: 418px;
-}
-
-.crm-column {
-
-    min-width: 0;
-}
-
-.crm-column > small {
-
-    display: block;
-
-    margin-bottom: 12px;
-
-    color: #8797a6;
-
-    font-size: 8px;
-
-    letter-spacing: 1px;
-}
-
-.crm-card {
-
-    margin-bottom: 10px;
-
-    padding: 16px;
-
-    border: 1px solid #e0e9ef;
-
-    border-radius: 9px;
-
-    background: #fff;
-
-    box-shadow: 0 5px 15px rgba(30,70,100,.04);
-
-    transition: transform .3s ease;
-}
-
-.crm-card:hover {
-
-    transform: translateY(-4px);
-}
-
-.crm-card b,
-.crm-card span,
-.crm-card strong {
-
-    display: block;
-}
-
-.crm-card b {
-
-    color: var(--eco-navy);
-
-    font-size: 11px;
-}
-
-.crm-card span {
-
-    margin-top: 5px;
-
-    color: #8b9aa8;
-
-    font-size: 9px;
-}
-
-.crm-card strong {
-
-    margin-top: 12px;
-
-    color: var(--eco-blue);
-
-    font-size: 12px;
-}
-
-.crm-highlight {
-
-    border-color: rgba(8,120,216,.3);
+    background:#fff;
 
     box-shadow:
-        0 10px 25px rgba(8,120,216,.09);
-}
+        0 35px 80px rgba(0,0,0,.25);
 
-.crm-success {
+    transform:
+        rotateY(-5deg)
+        rotateX(2deg);
 
-    border-color: rgba(32,167,101,.25);
-}
-
-
-/* =========================================================
-   LOGISTICS
-========================================================= */
-
-.eco-logistics-visual {
-
-    position: relative;
-
-    min-height: 480px;
-
-    overflow: hidden;
-
-    border-radius: 18px;
-
-    background: #dfeefa;
-}
-
-.eco-logistics-visual img {
-
-    width: 100%;
-    height: 100%;
-
-    min-height: 480px;
-
-    display: block;
-
-    object-fit: cover;
-
-    transition: transform .7s ease;
-}
-
-.eco-logistics-visual:hover img {
-
-    transform: scale(1.04);
-}
-
-.logistics-overlay {
-
-    position: absolute;
-
-    left: 25px;
-    right: 25px;
-    bottom: 25px;
-
-    padding: 18px;
-
-    border: 1px solid rgba(255,255,255,.35);
-
-    border-radius: 10px;
-
-    background: rgba(4,60,110,.72);
-
-    backdrop-filter: blur(12px);
-
-    color: #fff;
-}
-
-.logistics-overlay span {
-
-    display: block;
-
-    color: var(--eco-yellow);
-
-    font-size: 8px;
-
-    letter-spacing: 1.5px;
-}
-
-.logistics-overlay strong {
-
-    display: block;
-
-    margin-top: 7px;
-
-    font-size: 18px;
-}
-
-.logistics-overlay small {
-
-    display: block;
-
-    margin-top: 4px;
-
-    color: rgba(255,255,255,.65);
-
-    font-size: 9px;
+    transition:
+        transform .5s ease;
 }
 
 
-/* =========================================================
-   MINING
-========================================================= */
-
-.mining-dashboard {
-
-    padding: 25px;
-
-    min-height: 418px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #f8fbfd,
-            #edf7fd
-        );
+.sbl-coming-page .erp-window:hover {
+    transform:
+        rotateY(0)
+        rotateX(0)
+        translateY(-5px);
 }
 
-.mining-stats {
 
-    display: grid;
+.sbl-coming-page .erp-window-top {
+    height:54px;
 
-    grid-template-columns: repeat(3,1fr);
+    display:flex;
+    align-items:center;
+    gap:15px;
 
-    gap: 10px;
+    padding:0 18px;
+
+    border-bottom:1px solid #e9eef3;
+
+    color:var(--navy);
+
+    font-size:12px;
+    font-weight:800;
 }
 
-.mining-stats div {
 
-    padding: 16px;
+.sbl-coming-page .erp-window-top b {
+    margin-left:auto;
 
-    border: 1px solid #dfe9f0;
+    padding:5px 8px;
 
-    border-radius: 9px;
+    border-radius:5px;
 
-    background: #fff;
+    background:#fff4c7;
+
+    color:#80650e;
+
+    font-size:8px;
 }
 
-.mining-stats small {
 
-    display: block;
-
-    color: #8494a3;
-
-    font-size: 8px;
+.sbl-coming-page .window-dots {
+    display:flex;
+    gap:5px;
 }
 
-.mining-stats strong {
 
-    display: block;
+.sbl-coming-page .window-dots i {
+    width:7px;
+    height:7px;
 
-    margin: 8px 0 3px;
+    border-radius:50%;
 
-    color: var(--eco-navy);
-
-    font-size: 22px;
+    background:#d6e0e7;
 }
 
-.mining-stats span {
 
-    color: var(--eco-blue);
+.sbl-coming-page .erp-window-body {
+    display:grid;
+    grid-template-columns:125px 1fr;
 
-    font-size: 8px;
+    min-height:386px;
 }
 
-.mining-analytics {
 
-    display: grid;
+.sbl-coming-page .erp-sidebar {
+    padding:18px 10px;
 
-    grid-template-columns: 1.4fr .6fr;
+    background:#f4f8fb;
 
-    gap: 15px;
-
-    margin-top: 15px;
+    border-right:1px solid #e4edf3;
 }
 
-.mining-chart,
-.mining-status {
 
-    padding: 20px;
+.sbl-coming-page .erp-brand {
+    margin-bottom:22px;
+    padding:10px;
 
-    border: 1px solid #dfe9f0;
+    color:var(--blue);
 
-    border-radius: 10px;
-
-    background: #fff;
+    font-size:18px;
+    font-weight:900;
 }
 
-.chart-heading {
 
-    color: var(--eco-navy);
+.sbl-coming-page .erp-menu {
+    display:flex;
+    align-items:center;
+    gap:8px;
 
-    font-size: 10px;
+    margin-bottom:7px;
+    padding:9px 8px;
+
+    border-radius:6px;
+
+    color:#8293a3;
+
+    font-size:9px;
 }
 
-.mining-bars {
 
-    height: 190px;
-
-    display: flex;
-
-    align-items: flex-end;
-
-    gap: 12px;
-
-    margin-top: 18px;
+.sbl-coming-page .erp-menu.active {
+    background:#e4f3ff;
+    color:var(--blue);
 }
 
-.mining-bars i {
 
-    flex: 1;
+.sbl-coming-page .erp-menu span {
+    font-weight:900;
+}
 
-    border-radius: 4px 4px 0 0;
+
+.sbl-coming-page .erp-dashboard {
+    padding:22px;
+
+    background:#fff;
+}
+
+
+.sbl-coming-page .erp-dashboard-head {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+
+.sbl-coming-page .erp-dashboard-head small {
+    color:#91a0ad;
+    font-size:8px;
+    font-weight:800;
+}
+
+
+.sbl-coming-page .erp-dashboard-head h3 {
+    margin:4px 0 0;
+
+    color:var(--navy);
+
+    font-size:17px;
+}
+
+
+.sbl-coming-page .erp-user {
+    width:30px;
+    height:30px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:var(--blue);
+
+    color:#fff;
+
+    font-size:8px;
+    font-weight:900;
+}
+
+
+.sbl-coming-page .erp-stats {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+
+    gap:8px;
+
+    margin-top:20px;
+}
+
+
+.sbl-coming-page .erp-stat {
+    padding:12px;
+
+    border:1px solid #e8eef3;
+    border-radius:7px;
+}
+
+
+.sbl-coming-page .erp-stat small {
+    display:block;
+
+    color:#8b9ba8;
+
+    font-size:7px;
+}
+
+
+.sbl-coming-page .erp-stat strong {
+    display:block;
+
+    margin:5px 0;
+
+    color:var(--navy);
+
+    font-size:15px;
+}
+
+
+.sbl-coming-page .erp-stat span {
+    color:#27a36a;
+
+    font-size:7px;
+    font-weight:800;
+}
+
+
+.sbl-coming-page .erp-chart-card {
+    margin-top:15px;
+
+    padding:14px;
+
+    border:1px solid #e8eef3;
+    border-radius:8px;
+}
+
+
+.sbl-coming-page .chart-heading {
+    display:flex;
+    justify-content:space-between;
+
+    color:var(--navy);
+
+    font-size:9px;
+}
+
+
+.sbl-coming-page .chart-heading span {
+    color:#9aa9b5;
+    font-size:7px;
+}
+
+
+.sbl-coming-page .erp-chart {
+    height:145px;
+
+    display:flex;
+    align-items:flex-end;
+    gap:9px;
+
+    margin-top:20px;
+
+    padding:0 10px;
+
+    border-bottom:1px solid #e4ebf0;
+}
+
+
+.sbl-coming-page .erp-chart div {
+    flex:1;
+
+    border-radius:4px 4px 0 0;
 
     background:
         linear-gradient(
             to top,
-            var(--eco-blue),
-            #72b9ed
+            #0878d8,
+            #69b8f1
         );
 
-    animation: ecoBars 1.2s ease both;
-
-    transform-origin: bottom;
-}
-
-.mining-status > span {
-
-    display: block;
-
-    margin-bottom: 20px;
-
-    color: #8494a3;
-
-    font-size: 8px;
-
-    letter-spacing: 1px;
-}
-
-.mining-status div {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 8px;
-
-    margin: 15px 0;
-
-    color: var(--eco-text);
-
-    font-size: 10px;
-}
-
-.mining-status i {
-
-    width: 7px;
-    height: 7px;
-
-    border-radius: 50%;
-
-    background: #2ca86b;
-
-    box-shadow: 0 0 9px rgba(44,168,107,.3);
+    opacity:.8;
 }
 
 
 /* =========================================================
-   FLOW
+   CRM VISUAL
 ========================================================= */
 
-.flow-window {
+.sbl-coming-page .crm-window {
+    position:relative;
+
+    min-height:440px;
+
+    overflow:hidden;
+
+    border-radius:18px;
+
+    background:#fff;
+
+    box-shadow:
+        0 35px 80px rgba(0,0,0,.25);
+
+    transform:
+        rotateY(-5deg)
+        rotateX(2deg);
+
+    transition:transform .5s ease;
+}
+
+
+.sbl-coming-page .crm-window:hover {
+    transform:
+        rotateY(0)
+        rotateX(0)
+        translateY(-5px);
+}
+
+
+.sbl-coming-page .crm-top {
+    height:55px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 20px;
+
+    border-bottom:1px solid #e7edf2;
+
+    color:var(--navy);
+
+    font-size:12px;
+}
+
+
+.sbl-coming-page .crm-top span {
+    padding:5px 8px;
+
+    border-radius:5px;
+
+    background:#fff4c7;
+
+    color:#80650e;
+
+    font-size:8px;
+    font-weight:900;
+}
+
+
+.sbl-coming-page .crm-content {
+    padding:25px;
+}
+
+
+.sbl-coming-page .crm-pipeline-title {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+
+.sbl-coming-page .crm-pipeline-title small {
+    color:#8d9ba8;
+    font-size:8px;
+}
+
+
+.sbl-coming-page .crm-pipeline-title h3 {
+    margin:4px 0;
+
+    color:var(--navy);
+
+    font-size:18px;
+}
+
+
+.sbl-coming-page .crm-plus {
+    width:32px;
+    height:32px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:7px;
+
+    background:var(--blue);
+
+    color:#fff;
+
+    font-size:20px;
+}
+
+
+.sbl-coming-page .crm-pipeline {
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:10px;
+
+    margin-top:25px;
+}
+
+
+.sbl-coming-page .pipeline-column {
+    min-height:210px;
+
+    padding:10px;
+
+    border-radius:8px;
+
+    background:#f5f8fb;
+}
+
+
+.sbl-coming-page .pipeline-column > b {
+    display:block;
+
+    margin-bottom:10px;
+
+    color:#718397;
+
+    font-size:9px;
+}
+
+
+.sbl-coming-page .crm-lead {
+    margin-bottom:8px;
+
+    padding:11px;
+
+    border:1px solid #e3eaf0;
+    border-radius:7px;
+
+    background:#fff;
+
+    box-shadow:0 4px 10px rgba(0,0,0,.025);
+}
+
+
+.sbl-coming-page .crm-lead.featured {
+    border-color:#a8d6f5;
+}
+
+
+.sbl-coming-page .crm-lead strong {
+    display:block;
+
+    color:var(--navy);
+
+    font-size:9px;
+}
+
+
+.sbl-coming-page .crm-lead span {
+    display:block;
+
+    margin-top:4px;
+
+    color:#8c9ba7;
+
+    font-size:7px;
+}
+
+
+.sbl-coming-page .crm-lead small {
+    display:block;
+
+    margin-top:7px;
+
+    color:var(--blue);
+
+    font-size:7px;
+    font-weight:800;
+}
+
+
+.sbl-coming-page .crm-bottom {
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:10px;
+
+    margin-top:15px;
+}
+
+
+.sbl-coming-page .crm-bottom div {
+    padding:12px;
+
+    border:1px solid #e6edf2;
+    border-radius:7px;
+}
+
+
+.sbl-coming-page .crm-bottom small {
+    display:block;
+
+    color:#91a0ad;
+
+    font-size:7px;
+}
+
+
+.sbl-coming-page .crm-bottom strong {
+    display:block;
+
+    margin-top:5px;
+
+    color:var(--navy);
+
+    font-size:15px;
+}
+
+
+/* =========================================================
+   COMING OVERLAY
+========================================================= */
+
+.sbl-coming-page .coming-overlay {
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+        rgba(4,59,114,.55);
+
+    backdrop-filter:blur(2px);
+
+    opacity:0;
+
+    transition:opacity .35s ease;
+
+    pointer-events:none;
+}
+
+
+.sbl-coming-page .coming-overlay span {
+    padding:12px 20px;
+
+    border:1px solid rgba(255,255,255,.45);
+    border-radius:6px;
+
+    background:rgba(4,59,114,.85);
+
+    color:#fff;
+
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:2px;
+
+    transform:translateY(10px);
+
+    transition:transform .35s ease;
+}
+
+
+.sbl-coming-page .coming-product-visual:hover .coming-overlay {
+    opacity:1;
+}
+
+
+.sbl-coming-page .coming-product-visual:hover .coming-overlay span {
+    transform:translateY(0);
+}
+
+
+/* =========================================================
+   MINING VISUAL
+========================================================= */
+
+.sbl-coming-page .mining-visual {
+    position:relative;
+
+    width:100%;
+    height:480px;
+
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:22px;
 
     background:
         radial-gradient(
             circle at center,
-            #edf8ff,
-            #fff 70%
-        );
-}
-
-.flow-header {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    padding: 22px;
-
-    border-bottom: 1px solid #e5edf2;
-}
-
-.flow-header small {
-
-    display: block;
-
-    color: var(--eco-blue);
-
-    font-size: 8px;
-
-    letter-spacing: 1px;
-}
-
-.flow-header strong {
-
-    display: block;
-
-    margin-top: 4px;
-
-    color: var(--eco-navy);
-
-    font-size: 15px;
-}
-
-.flow-header > span {
-
-    color: #20a765;
-
-    font-size: 9px;
-
-    font-weight: 800;
-}
-
-.flow-canvas {
-
-    min-height: 390px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 12px;
-
-    padding: 30px;
-}
-
-.flow-node {
-
-    width: 145px;
-
-    min-height: 135px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    padding: 17px;
-
-    border: 1px solid #dce8f1;
-
-    border-radius: 11px;
-
-    background: #fff;
+            rgba(244,197,66,.11),
+            transparent 28%
+        ),
+        rgba(0,35,70,.3);
 
     box-shadow:
-        0 12px 30px rgba(20,70,110,.06);
-
-    transition: transform .3s ease;
-}
-
-.flow-node:hover {
-
-    transform: translateY(-6px);
-}
-
-.flow-node small {
-
-    color: var(--eco-blue);
-
-    font-size: 8px;
-
-    font-weight: 900;
-}
-
-.flow-node strong {
-
-    margin-top: 12px;
-
-    color: var(--eco-navy);
-
-    font-size: 14px;
-}
-
-.flow-node span {
-
-    margin-top: 6px;
-
-    color: var(--eco-muted);
-
-    font-size: 9px;
-
-    line-height: 1.5;
-}
-
-.flow-process {
-
-    border-color: rgba(8,120,216,.4);
-
-    background: var(--eco-blue-light);
-}
-
-.flow-result {
-
-    border-color: rgba(244,197,66,.5);
-
-    background: #fffdf2;
-}
-
-.flow-connector {
-
-    color: var(--eco-blue);
-
-    font-size: 23px;
-
-    animation: flowPulse 1.7s infinite;
-}
-
-@keyframes flowPulse {
-
-    50% {
-        opacity: .3;
-        transform: translateX(4px);
-    }
-
+        0 35px 80px rgba(0,0,0,.22);
 }
 
 
-/* =========================================================
-   AI
-========================================================= */
+.sbl-coming-page .mining-core {
+    position:absolute;
 
-.ai-window {
+    left:50%;
+    top:50%;
 
-    padding: 25px;
+    transform:translate(-50%,-50%);
+}
+
+
+.sbl-coming-page .mining-core-circle {
+    width:150px;
+    height:150px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    border:1px solid rgba(244,197,66,.7);
+
+    border-radius:50%;
 
     background:
-        linear-gradient(
-            145deg,
-            #052f58,
-            #0878d8
+        radial-gradient(
+            circle,
+            #0878d8,
+            #0459a5
         );
 
-    color: #fff;
-}
-
-.ai-window-top {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    padding-bottom: 18px;
-
-    border-bottom: 1px solid rgba(255,255,255,.15);
-}
-
-.ai-window-top span {
-
-    color: var(--eco-yellow);
-
-    font-size: 10px;
-
-    font-weight: 900;
-
-    letter-spacing: 1.5px;
-}
-
-.ai-window-top i {
-
-    width: 8px;
-    height: 8px;
-
-    border-radius: 50%;
-
-    background: #50d28b;
-
-    box-shadow: 0 0 12px #50d28b;
-}
-
-.ai-question {
-
-    max-width: 80%;
-
-    margin: 30px 0 15px auto;
-
-    padding: 13px 15px;
-
-    border-radius: 10px;
-
-    background: rgba(255,255,255,.1);
-
-    font-size: 11px;
-
-    line-height: 1.5;
-}
-
-.ai-answer {
-
-    padding: 20px;
-
-    border: 1px solid rgba(255,255,255,.16);
-
-    border-radius: 12px;
-
-    background: rgba(255,255,255,.09);
-}
-
-.ai-answer small {
-
-    color: var(--eco-yellow);
-
-    font-size: 8px;
-
-    letter-spacing: 1px;
-}
-
-.ai-answer strong {
-
-    display: block;
-
-    margin-top: 10px;
-
-    font-size: 18px;
-}
-
-.ai-answer p {
-
-    margin: 9px 0 0;
-
-    color: rgba(255,255,255,.67);
-
-    font-size: 10px;
-
-    line-height: 1.6;
-}
-
-.ai-insight {
-
-    margin-top: 16px;
-
-    padding: 8px 10px;
-
-    border-radius: 5px;
-
-    background: rgba(244,197,66,.13);
-
-    color: var(--eco-yellow);
-
-    font-size: 9px;
-}
-
-.ai-input {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    margin-top: 20px;
-
-    padding: 13px 15px;
-
-    border: 1px solid rgba(255,255,255,.16);
-
-    border-radius: 8px;
-
-    color: rgba(255,255,255,.45);
-
-    font-size: 10px;
-}
-
-.ai-input b {
-
-    color: var(--eco-yellow);
-
-    font-size: 18px;
-}
-
-
-/* =========================================================
-   CONNECTED SECTION
-========================================================= */
-
-.eco-connected {
-
-    padding: 125px 0;
-
-    background:
-        linear-gradient(
-            135deg,
-            #03447f,
-            #0878d8
-        );
-
-    color: #fff;
-}
-
-.eco-connected-heading {
-
-    max-width: 760px;
-
-    margin-bottom: 60px;
-}
-
-.eco-connected-heading h2 {
-
-    margin: 20px 0;
-
-    font-size: clamp(42px,5vw,68px);
-
-    line-height: .98;
-
-    letter-spacing: -2.5px;
-}
-
-.eco-connected-heading h2 span {
-
-    display: block;
-
-    color: var(--eco-yellow);
-}
-
-.eco-connected-heading p {
-
-    max-width: 650px;
-
-    margin: 0;
-
-    color: rgba(255,255,255,.7);
-
-    font-size: 16px;
-
-    line-height: 1.75;
-}
-
-.eco-flow-map {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 15px;
-
-    flex-wrap: wrap;
-}
-
-.eco-flow-card {
-
-    min-width: 155px;
-
-    padding: 20px;
-
-    border: 1px solid rgba(255,255,255,.18);
-
-    border-radius: 12px;
-
-    background: rgba(255,255,255,.08);
-
-    transition:
-        transform .3s ease,
-        border .3s ease;
-}
-
-.eco-flow-card:hover {
-
-    transform: translateY(-6px);
-
-    border-color: var(--eco-yellow);
-}
-
-.eco-flow-card small {
-
-    display: block;
-
-    color: var(--eco-yellow);
-
-    font-size: 8px;
-}
-
-.eco-flow-card strong {
-
-    display: block;
-
-    margin-top: 12px;
-
-    font-size: 15px;
-}
-
-.eco-flow-card span {
-
-    display: block;
-
-    margin-top: 5px;
-
-    color: rgba(255,255,255,.55);
-
-    font-size: 9px;
-}
-
-.eco-flow-map > b {
-
-    color: var(--eco-yellow);
-
-    font-size: 24px;
-}
-
-
-/* =========================================================
-   FINAL CTA
-========================================================= */
-
-.eco-final-cta {
-
-    position: relative;
-
-    padding: 125px 0;
-
-    overflow: hidden;
-
-    background: var(--eco-blue);
-
-    text-align: center;
-
-    color: #fff;
-}
-
-.eco-final-ring {
-
-    position: absolute;
-
-    width: 650px;
-    height: 650px;
-
-    left: 50%;
-    top: 50%;
-
-    transform: translate(-50%,-50%);
-
-    border: 1px solid rgba(255,255,255,.1);
-
-    border-radius: 50%;
-}
-
-.eco-final-cta .eco-container {
-
-    position: relative;
-
-    z-index: 2;
-}
-
-.eco-final-cta h2 {
-
-    max-width: 850px;
-
-    margin: 20px auto;
-
-    font-size: clamp(45px,6vw,76px);
-
-    line-height: .95;
-
-    letter-spacing: -3px;
-}
-
-.eco-final-cta h2 span {
-
-    display: block;
-
-    color: var(--eco-yellow);
-}
-
-.eco-final-cta p {
-
-    max-width: 650px;
-
-    margin: auto;
-
-    color: rgba(255,255,255,.72);
-
-    font-size: 16px;
-
-    line-height: 1.7;
-}
-
-.eco-final-buttons {
-
-    display: flex;
-
-    justify-content: center;
-
-    flex-wrap: wrap;
-
-    gap: 12px;
-
-    margin-top: 30px;
-}
-
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media (max-width:1100px) {
-
-    .eco-hero {
-        min-height: auto;
-    }
-
-    .eco-intro-grid {
-
-        grid-template-columns: 1fr;
-
-        gap: 35px;
-    }
-
-    .eco-product-row,
-    .eco-product-reverse {
-
-        grid-template-columns: 1fr;
-
-        gap: 50px;
-    }
-
-    .eco-product-reverse .eco-product-info {
-        order: 1;
-    }
-
-    .eco-product-reverse .eco-product-visual {
-        order: 2;
-    }
-
-    .eco-product-info {
-
-        max-width: 750px;
-    }
-
-    .eco-flow-map > b {
-        display: none;
-    }
-
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width:700px) {
-
-    .eco-container {
-        width: 92%;
-    }
-
-    .eco-hero {
-
-        padding: 125px 0 60px;
-    }
-
-    .eco-hero h1 {
-
-        font-size: 47px;
-
-        letter-spacing: -2.5px;
-    }
-
-    .eco-hero p {
-
-        font-size: 14px;
-    }
-
-    .eco-hero-buttons {
-
-        flex-direction: column;
-    }
-
-    .eco-btn {
-
-        width: 100%;
-    }
-
-
-    /* HERO MAP */
-
-    .eco-system-map {
-
-        height: 350px;
-
-        margin-top: 50px;
-    }
-
-    .eco-center {
-
-        width: 120px;
-        height: 120px;
-    }
-
-    .eco-map-node {
-
-        padding: 9px 11px;
-
-        font-size: 8px;
-    }
-
-    .eco-node-erp {
-        top: 0;
-    }
-
-    .eco-node-crm {
-        left: 0;
-        top: 75px;
-    }
-
-    .eco-node-logistics {
-        right: 0;
-        top: 75px;
-    }
-
-    .eco-node-mining {
-        left: 0;
-        bottom: 50px;
-    }
-
-    .eco-node-flow {
-        right: 0;
-        bottom: 50px;
-    }
-
-    .eco-node-ai {
-        bottom: 0;
-    }
-
-
-    /* INTRO */
-
-    .eco-introduction {
-
-        padding: 85px 0;
-    }
-
-    .eco-intro-title h2 {
-
-        font-size: 42px;
-    }
-
-    .eco-intro-copy p {
-
-        font-size: 14px;
-    }
-
-
-    /* PRODUCTS */
-
-    .eco-products {
-
-        padding: 85px 0;
-    }
-
-    .eco-products-heading {
-
-        margin-bottom: 30px;
-    }
-
-    .eco-products-heading h2 {
-
-        font-size: 42px;
-    }
-
-    .eco-product-row {
-
-        padding: 70px 0;
-
-        gap: 40px;
-    }
-
-    .eco-product-info h3 {
-
-        font-size: 45px;
-    }
-
-    .eco-product-info h4 {
-
-        font-size: 17px;
-    }
-
-    .eco-product-info p {
-
-        font-size: 14px;
-    }
-
-
-    /* SOFTWARE WINDOWS */
-
-    .erp-window,
-    .crm-window,
-    .mining-window,
-    .flow-window,
-    .ai-window {
-
-        min-height: 400px;
-
-        border-radius: 13px;
-    }
-
-    .software-topbar {
-
-        height: 52px;
-
-        padding: 0 14px;
-    }
-
-    .software-topbar > span {
-
-        font-size: 8px;
-    }
-
-
-    /* ERP */
-
-    .erp-content {
-
-        grid-template-columns: 80px 1fr;
-
-        min-height: 348px;
-    }
-
-    .software-sidebar {
-
-        padding: 15px 8px;
-    }
-
-    .software-sidebar span {
-
-        padding: 8px 5px;
-
-        font-size: 8px;
-    }
-
-    .erp-main {
-
-        padding: 17px;
-    }
-
-    .erp-stat-grid {
-
-        grid-template-columns: 1fr;
-
-        gap: 6px;
-
-        margin-top: 18px;
-    }
-
-    .erp-stat-grid div {
-
-        padding: 10px;
-    }
-
-    .erp-stat-grid strong {
-
-        font-size: 16px;
-    }
-
-    .erp-chart {
-
-        padding: 12px;
-    }
-
-    .chart-graph {
-
-        height: 105px;
-
-        gap: 6px;
-    }
-
-
-    /* CRM */
-
-    .crm-board {
-
-        grid-template-columns: 1fr;
-
-        gap: 12px;
-
-        padding: 18px;
-
-        min-height: 400px;
-
-        overflow-y: auto;
-    }
-
-    .crm-column {
-
-        display: grid;
-
-        grid-template-columns: 90px 1fr 1fr;
-
-        gap: 8px;
-
-        align-items: start;
-    }
-
-    .crm-column > small {
-
-        margin-top: 15px;
-    }
-
-    .crm-card {
-
-        margin: 0;
-
-        padding: 11px;
-    }
-
-
-    /* LOGISTICS */
-
-    .eco-logistics-visual {
-
-        min-height: 400px;
-    }
-
-    .eco-logistics-visual img {
-
-        min-height: 400px;
-    }
-
-
-    /* MINING */
-
-    .mining-dashboard {
-
-        padding: 15px;
-
-        min-height: 400px;
-    }
-
-    .mining-stats {
-
-        grid-template-columns: 1fr;
-    }
-
-    .mining-stats div {
-
-        padding: 11px;
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: space-between;
-    }
-
-    .mining-stats strong {
-
-        margin: 0;
-
-        font-size: 18px;
-    }
-
-    .mining-analytics {
-
-        grid-template-columns: 1fr;
-    }
-
-    .mining-bars {
-
-        height: 110px;
-    }
-
-    .mining-status {
-
-        display: none;
-    }
-
-
-    /* FLOW */
-
-    .flow-canvas {
-
-        min-height: 400px;
-
-        flex-direction: column;
-
-        gap: 5px;
-
-        padding: 18px;
-
-        overflow-y: auto;
-    }
-
-    .flow-node {
-
-        width: 100%;
-
-        min-height: 70px;
-
-        display: grid;
-
-        grid-template-columns: 30px 1fr;
-
-        column-gap: 8px;
-
-        padding: 11px;
-    }
-
-    .flow-node small {
-
-        grid-row: 1 / span 2;
-    }
-
-    .flow-node strong {
-
-        margin: 0;
-
-        font-size: 12px;
-    }
-
-    .flow-node span {
-
-        margin: 2px 0 0;
-    }
-
-    .flow-connector {
-
-        transform: rotate(90deg);
-
-        font-size: 17px;
-    }
-
-
-    /* AI */
-
-    .ai-window {
-
-        min-height: 400px;
-
-        padding: 17px;
-    }
-
-    .ai-question {
-
-        max-width: 90%;
-
-        font-size: 9px;
-    }
-
-    .ai-answer strong {
-
-        font-size: 15px;
-    }
-
-
-    /* CONNECTED */
-
-    .eco-connected {
-
-        padding: 85px 0;
-    }
-
-    .eco-connected-heading h2 {
-
-        font-size: 42px;
-    }
-
-    .eco-flow-map {
-
-        flex-direction: column;
-
-        align-items: stretch;
-    }
-
-    .eco-flow-card {
-
-        width: 100%;
-    }
-
-
-    /* CTA */
-
-    .eco-final-cta {
-
-        padding: 90px 0;
-    }
-
-    .eco-final-cta h2 {
-
-        font-size: 45px;
-
-        letter-spacing: -2px;
-    }
-
-    .eco-final-buttons {
-
-        flex-direction: column;
-    }
-
-}
-
-
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
-
-@media (max-width:430px) {
-
-    .eco-eyebrow {
-
-        font-size: 9px;
-
-        letter-spacing: 1.8px;
-    }
-
-    .eco-hero h1 {
-
-        font-size: 39px;
-    }
-
-    .eco-system-map {
-
-        height: 310px;
-    }
-
-    .eco-center {
-
-        width: 105px;
-        height: 105px;
-    }
-
-    .eco-center strong {
-
-        font-size: 10px;
-    }
-
-    .eco-map-node {
-
-        font-size: 7px;
-
-        padding: 8px 9px;
-    }
-
-    .eco-intro-title h2,
-    .eco-products-heading h2 {
-
-        font-size: 37px;
-    }
-
-    .eco-product-info h3 {
-
-        font-size: 40px;
-    }
-
-    .eco-feature-list span {
-
-        font-size: 9px;
-
-        padding: 7px 8px;
-    }
-
-    .eco-final-cta h2 {
-
-        font-size: 38px;
-    }
-
-}
-
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    .sbl-ecosystem-page *,
-    .sbl-ecosystem-page *::before,
-    .sbl-ecosystem-page *::after {
-
-        animation-duration: .01ms !important;
-
-        animation-iteration-count: 1 !important;
-
-        transition-duration: .01ms !important;
-    }
-
-}
-
-/* =========================================================
-   ATTRACTIVE PRODUCT EXPLORE BUTTONS
-   ERP / CRM / LOGISTICS / MINING
-========================================================= */
-
-.eco-product-info .eco-explore-btn {
-
-    position: relative;
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 13px;
-
-    min-width: 175px;
-    min-height: 50px;
-
-    margin-top: 12px;
-    padding: 0 22px;
-
-    overflow: hidden;
-
-    border: 1px solid rgba(255,255,255,.2);
-    border-radius: 8px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #0878d8 0%,
-            #0569bd 55%,
-            #0459a5 100%
-        );
-
-    color: #fff;
-
-    font-size: 13px;
-    font-weight: 800;
-
-    letter-spacing: .2px;
-
-    text-decoration: none;
+    color:#fff;
 
     box-shadow:
-        0 10px 25px rgba(8,120,216,.20);
-
-    transition:
-        transform .35s cubic-bezier(.16,1,.3,1),
-        box-shadow .35s ease,
-        background .35s ease;
+        0 0 0 20px rgba(244,197,66,.04),
+        0 0 60px rgba(244,197,66,.18);
 }
 
 
-/* Shine layer */
+.sbl-coming-page .mining-core-circle span {
+    color:#ffe27d;
 
-.eco-product-info .eco-explore-btn::before {
+    font-size:22px;
+    font-weight:900;
+}
 
-    content: "";
 
-    position: absolute;
+.sbl-coming-page .mining-core-circle strong {
+    margin-top:5px;
 
-    top: 0;
-    left: -120%;
+    font-size:10px;
 
-    width: 70%;
-    height: 100%;
+    text-align:center;
+
+    letter-spacing:1.5px;
+}
+
+
+.sbl-coming-page .mining-node {
+    position:absolute;
+
+    min-width:115px;
+
+    padding:13px 15px;
+
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:8px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(10px);
+
+    color:#fff;
+
+    font-size:10px;
+    font-weight:800;
+
+    text-align:center;
+
+    transition:
+        border-color .3s ease,
+        background .3s ease,
+        transform .3s ease;
+}
+
+
+.sbl-coming-page .mining-node span {
+    display:block;
+
+    margin-bottom:4px;
+
+    color:#ffe27d;
+
+    font-size:8px;
+}
+
+
+.sbl-coming-page .mining-node.active {
+    border-color:var(--yellow);
+
+    background:rgba(244,197,66,.12);
+
+    transform:scale(1.06);
+}
+
+
+.sbl-coming-page .mining-node-1 {
+    top:40px;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+
+.sbl-coming-page .mining-node-2 {
+    right:35px;
+    top:50%;
+
+    transform:translateY(-50%);
+}
+
+
+.sbl-coming-page .mining-node-3 {
+    bottom:40px;
+    left:50%;
+
+    transform:translateX(-50%);
+}
+
+
+.sbl-coming-page .mining-node-4 {
+    left:35px;
+    top:50%;
+
+    transform:translateY(-50%);
+}
+
+
+.sbl-coming-page .mining-line {
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    height:1px;
+
+    width:180px;
 
     background:
         linear-gradient(
             90deg,
             transparent,
-            rgba(255,255,255,.35),
+            rgba(244,197,66,.65),
             transparent
         );
 
-    transform: skewX(-20deg);
-
-    transition: left .65s ease;
+    transform-origin:left center;
 }
 
 
-/* Keep text above shine */
-
-.eco-product-info .eco-explore-btn span,
-.eco-product-info .eco-explore-btn {
-
-    z-index: 1;
+.sbl-coming-page .mining-line-1 {
+    transform:rotate(-90deg);
 }
 
 
-/* Arrow */
-
-.eco-product-info .eco-explore-btn span {
-
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    width: 25px;
-    height: 25px;
-
-    border-radius: 50%;
-
-    background: rgba(255,255,255,.15);
-
-    color: #fff;
-
-    font-size: 15px;
-
-    transition:
-        transform .35s ease,
-        background .35s ease;
+.sbl-coming-page .mining-line-2 {
+    transform:rotate(0deg);
 }
 
 
-/* Hover */
-
-.eco-product-info .eco-explore-btn:hover {
-
-    transform: translateY(-5px);
-
-    background:
-        linear-gradient(
-            135deg,
-            #0b83e8,
-            #0878d8,
-            #0562b1
-        );
-
-    box-shadow:
-        0 17px 38px rgba(8,120,216,.30);
+.sbl-coming-page .mining-line-3 {
+    transform:rotate(90deg);
 }
 
 
-/* Shine animation */
-
-.eco-product-info .eco-explore-btn:hover::before {
-
-    left: 140%;
-}
-
-
-/* Arrow hover */
-
-.eco-product-info .eco-explore-btn:hover span {
-
-    transform: translateX(5px);
-
-    background: #f4c542;
-
-    color: #17324d;
-}
-
-
-/* Click */
-
-.eco-product-info .eco-explore-btn:active {
-
-    transform: translateY(-1px) scale(.98);
-
+.sbl-coming-page .mining-line-4 {
+    transform:rotate(180deg);
 }
 
 
 /* =========================================================
-   YELLOW ACCENT UNDER BUTTON
+   RESPONSIVE
 ========================================================= */
 
-.eco-product-info .eco-explore-btn::after {
+@media (max-width:1100px) {
 
-    content: "";
+    .sbl-coming-page .coming-hero-grid {
+        grid-template-columns:1fr;
 
-    position: absolute;
+        gap:55px;
+    }
 
-    left: 18px;
-    bottom: 5px;
 
-    width: 0;
-    height: 2px;
+    .sbl-coming-page .coming-hero-content {
+        max-width:760px;
+    }
 
-    border-radius: 10px;
 
-    background: #f4c542;
+    .sbl-coming-page .coming-product-visual {
+        max-width:850px;
+    }
 
-    transition: width .35s ease;
+
+    .sbl-coming-page .roadmap-grid {
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+
+    .sbl-coming-page .development-grid {
+        grid-template-columns:1fr;
+
+        gap:40px;
+    }
+
 }
 
-.eco-product-info .eco-explore-btn:hover::after {
-
-    width: 45px;
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
 
 @media (max-width:700px) {
 
-    .eco-product-info .eco-explore-btn {
+    .sbl-coming-page .coming-hero {
+        min-height:auto;
 
-        min-width: 165px;
-        min-height: 48px;
+        padding:125px 0 70px;
+    }
 
-        padding: 0 19px;
 
-        font-size: 12px;
+    .sbl-coming-page .coming-hero h1 {
+        font-size:42px;
+
+        letter-spacing:-2px;
+    }
+
+
+    .sbl-coming-page .coming-hero p {
+        font-size:14px;
+    }
+
+
+    .sbl-coming-page .coming-actions {
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+
+    .sbl-coming-page .coming-btn {
+        width:100%;
+    }
+
+
+    .sbl-coming-page .roadmap-grid {
+        grid-template-columns:1fr;
+    }
+
+
+    .sbl-coming-page .coming-intro,
+    .sbl-coming-page .development-section {
+        padding:75px 0;
+    }
+
+
+    .sbl-coming-page .coming-intro h2,
+    .sbl-coming-page .development-section h2 {
+        font-size:36px;
+    }
+
+
+    .sbl-coming-page .erp-window {
+        min-height:350px;
+
+        transform:none;
+    }
+
+
+    .sbl-coming-page .erp-window-body {
+        grid-template-columns:80px 1fr;
+    }
+
+
+    .sbl-coming-page .erp-menu {
+        justify-content:center;
+
+        font-size:0;
+    }
+
+
+    .sbl-coming-page .erp-menu span {
+        font-size:12px;
+    }
+
+
+    .sbl-coming-page .erp-dashboard {
+        padding:13px;
+    }
+
+
+    .sbl-coming-page .erp-stats {
+        grid-template-columns:1fr;
+    }
+
+
+    .sbl-coming-page .erp-stat:nth-child(2),
+    .sbl-coming-page .erp-stat:nth-child(3) {
+        display:none;
+    }
+
+
+    .sbl-coming-page .erp-chart {
+        height:100px;
+    }
+
+
+    .sbl-coming-page .crm-window {
+        transform:none;
+    }
+
+
+    .sbl-coming-page .crm-content {
+        padding:15px;
+    }
+
+
+    .sbl-coming-page .crm-pipeline {
+        overflow-x:auto;
+
+        grid-template-columns:
+            repeat(3,180px);
+    }
+
+
+    .sbl-coming-page .crm-bottom {
+        grid-template-columns:1fr;
+    }
+
+
+    .sbl-coming-page .crm-bottom div:nth-child(n+2) {
+        display:none;
+    }
+
+
+    .sbl-coming-page .mining-visual {
+        height:380px;
+    }
+
+
+    .sbl-coming-page .mining-core-circle {
+        width:110px;
+        height:110px;
+    }
+
+
+    .sbl-coming-page .mining-node {
+        min-width:90px;
+
+        padding:10px 8px;
+
+        font-size:8px;
+    }
+
+
+    .sbl-coming-page .mining-node-1 {
+        top:25px;
+    }
+
+
+    .sbl-coming-page .mining-node-2 {
+        right:10px;
+    }
+
+
+    .sbl-coming-page .mining-node-3 {
+        bottom:25px;
+    }
+
+
+    .sbl-coming-page .mining-node-4 {
+        left:10px;
+    }
+
+
+    .sbl-coming-page .mining-line {
+        width:115px;
+    }
+
+
+    .sbl-coming-page .coming-cta {
+        padding:80px 0;
     }
 
 }
 
-
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
 
 @media (max-width:430px) {
 
-    .eco-product-info .eco-explore-btn {
+    .sbl-coming-page .coming-container {
+        width:90%;
+    }
 
-        width: 100%;
 
-        min-height: 50px;
+    .sbl-coming-page .coming-hero {
+        padding-top:115px;
+    }
+
+
+    .sbl-coming-page .coming-hero h1 {
+        font-size:36px;
+    }
+
+
+    .sbl-coming-page .coming-intro h2,
+    .sbl-coming-page .development-section h2 {
+        font-size:31px;
+    }
+
+
+    .sbl-coming-page .roadmap-card {
+        min-height:225px;
+    }
+
+
+    .sbl-coming-page .development-card {
+        padding:5px;
+    }
+
+
+    .sbl-coming-page .dev-line {
+        grid-template-columns:30px 1fr;
+
+        min-height:62px;
+
+        padding:0 10px;
+    }
+
+
+    .sbl-coming-page .dev-line b {
+        display:none;
+    }
+
+
+    .sbl-coming-page .erp-window {
+        border-radius:12px;
+    }
+
+
+    .sbl-coming-page .erp-window-top {
+        padding:0 10px;
+    }
+
+
+    .sbl-coming-page .erp-sidebar {
+        padding:10px 5px;
+    }
+
+
+    .sbl-coming-page .erp-dashboard-head h3 {
+        font-size:13px;
+    }
+
+
+    .sbl-coming-page .crm-top {
+        padding:0 12px;
+    }
+
+
+    .sbl-coming-page .crm-pipeline {
+        grid-template-columns:
+            repeat(3,155px);
+    }
+
+
+    .sbl-coming-page .mining-visual {
+        height:330px;
+    }
+
+
+    .sbl-coming-page .mining-core-circle {
+        width:90px;
+        height:90px;
+    }
+
+
+    .sbl-coming-page .mining-core-circle span {
+        font-size:17px;
+    }
+
+
+    .sbl-coming-page .mining-node {
+        min-width:75px;
+
+        font-size:7px;
+    }
+
+
+    .sbl-coming-page .mining-line {
+        width:85px;
     }
 
 }
 
+
+@media (prefers-reduced-motion:reduce) {
+
+    .sbl-coming-page *,
+    .sbl-coming-page *::before,
+    .sbl-coming-page *::after {
+        animation:none !important;
+        transition:none !important;
+    }
+
+}
 
 
 .sbl-footer {
