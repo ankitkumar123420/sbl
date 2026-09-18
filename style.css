@@ -12625,3 +12625,181 @@ a {
     }
 
 }
+
+
+/* =====================================================
+   SBL MONTHLY / YEARLY BILLING TOGGLE
+   ADD-ON ONLY
+===================================================== */
+
+.sbl-pricing .sbl-billing-addon {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0 auto 25px;
+    padding-right: 2px;
+}
+
+/* Toggle */
+
+.sbl-pricing .billing-switch-addon {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px;
+
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(8, 120, 216, 0.20);
+    border-radius: 999px;
+
+    box-shadow:
+        0 8px 25px rgba(8, 75, 125, 0.10);
+
+    backdrop-filter: blur(10px);
+}
+
+/* Buttons */
+
+.sbl-pricing .billing-option-addon {
+    border: none;
+    outline: none;
+
+    min-width: 82px;
+
+    padding: 9px 15px;
+
+    border-radius: 999px;
+
+    background: transparent;
+
+    color: #718397;
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+/* Hover */
+
+.sbl-pricing .billing-option-addon:hover {
+    color: #0878d8;
+}
+
+/* Active */
+
+.sbl-pricing .billing-option-addon.active {
+    color: #ffffff;
+    background: #0878d8;
+
+    box-shadow:
+        0 5px 16px rgba(8, 120, 216, 0.25);
+}
+
+/* Save badge */
+
+.sbl-pricing .billing-save-addon {
+    display: inline-block;
+
+    margin-left: 4px;
+
+    padding: 3px 6px;
+
+    border-radius: 999px;
+
+    background: #f4c542;
+    color: #17324d;
+
+    font-size: 7px;
+    font-weight: 900;
+
+    line-height: 1;
+    vertical-align: middle;
+}
+
+/* Active yearly save badge */
+
+.sbl-pricing
+.billing-option-addon[data-billing="yearly"].active
+.billing-save-addon {
+    background: #ffffff;
+    color: #0878d8;
+}
+
+
+/* =====================================================
+   PRICE CHANGE ANIMATION
+===================================================== */
+
+.sbl-pricing .monthly-price.price-changing {
+    animation: sblPriceChangeAddon 0.3s ease;
+}
+
+@keyframes sblPriceChangeAddon {
+
+    0% {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =====================================================
+   YEARLY ACTIVE BILLING TEXT
+===================================================== */
+
+.sbl-pricing .plan-billing.yearly-mode {
+    color: #0878d8;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 800px) {
+
+    .sbl-pricing .sbl-billing-addon {
+        justify-content: center;
+        padding-right: 0;
+        margin-bottom: 22px;
+    }
+
+}
+
+
+@media (max-width: 450px) {
+
+    .sbl-pricing .billing-switch-addon {
+        width: 230px;
+    }
+
+    .sbl-pricing .billing-option-addon {
+        flex: 1;
+        min-width: 0;
+
+        padding: 8px 8px;
+
+        font-size: 11px;
+    }
+
+    .sbl-pricing .billing-save-addon {
+        font-size: 6px;
+        padding: 2px 4px;
+    }
+
+}

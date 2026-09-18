@@ -1224,3 +1224,172 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+
+
+/* =====================================================
+   SBL MONTHLY / YEARLY PRICING TOGGLE
+   ADD ON
+===================================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const billingButtons =
+        document.querySelectorAll(
+            ".sbl-pricing-page .billing-option"
+        );
+
+    const priceElements =
+        document.querySelectorAll(
+            ".sbl-pricing-page .price"
+        );
+
+    const pricePeriods =
+        document.querySelectorAll(
+            ".sbl-pricing-page .price-period"
+        );
+
+
+    if (!billingButtons.length || !priceElements.length) {
+        return;
+    }
+
+
+    /* ---------------------------------------------
+       FORMAT PRICE
+    --------------------------------------------- */
+
+    function formatPrice(value) {
+
+        const number =
+            Number(value);
+
+        if (isNaN(number)) {
+            return value;
+        }
+
+        return number.toLocaleString("en-IN");
+
+    }
+
+
+    /* ---------------------------------------------
+       CHANGE BILLING
+    --------------------------------------------- */
+
+    function changeBilling(type) {
+
+        /* Buttons */
+
+        billingButtons.forEach(button => {
+
+            const buttonType =
+                button.getAttribute("data-billing");
+
+            button.classList.toggle(
+                "active",
+                buttonType === type
+            );
+
+        });
+
+
+        /* Prices */
+
+        priceElements.forEach(price => {
+
+            const newValue =
+                price.getAttribute(
+                    type === "yearly"
+                        ? "data-yearly"
+                        : "data-monthly"
+                );
+
+
+            if (!newValue) {
+                return;
+            }
+
+
+            /* Animation */
+
+            price.classList.remove(
+                "price-changing"
+            );
+
+
+            void price.offsetWidth;
+
+
+            price.classList.add(
+                "price-changing"
+            );
+
+
+            price.textContent =
+                formatPrice(newValue);
+
+        });
+
+
+        /* Period text */
+
+        pricePeriods.forEach(period => {
+
+            if (type === "yearly") {
+
+                period.textContent =
+                    "Price / Org / Year";
+
+                period.classList.add(
+                    "yearly-active"
+                );
+
+            } else {
+
+                period.textContent =
+                    "Price / Org / Month";
+
+                period.classList.remove(
+                    "yearly-active"
+                );
+
+            }
+
+        });
+
+    }
+
+
+    /* ---------------------------------------------
+       BUTTON CLICK
+    --------------------------------------------- */
+
+    billingButtons.forEach(button => {
+
+        button.addEventListener(
+            "click",
+            function () {
+
+                const billingType =
+                    this.getAttribute(
+                        "data-billing"
+                    );
+
+                changeBilling(
+                    billingType
+                );
+
+            }
+        );
+
+    });
+
+
+    /* ---------------------------------------------
+       DEFAULT
+       MONTHLY
+    --------------------------------------------- */
+
+    changeBilling("monthly");
+
+});

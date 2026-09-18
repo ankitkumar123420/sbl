@@ -2439,3 +2439,275 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
 })();
+
+
+/* =====================================================
+   SBL MONTHLY / YEARLY PRICING
+   ADD-ON ONLY
+===================================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const pricingSection =
+        document.querySelector(".sbl-pricing");
+
+    if (!pricingSection) return;
+
+
+    /* ---------------------------------------------
+       FIND EXISTING PRICING ELEMENTS
+    --------------------------------------------- */
+
+    const prices =
+        pricingSection.querySelectorAll(
+            ".monthly-price"
+        );
+
+    const billingTexts =
+        pricingSection.querySelectorAll(
+            ".plan-billing"
+        );
+
+
+    if (!prices.length) return;
+
+
+    /* ---------------------------------------------
+       CREATE BILLING SWITCH
+       WITHOUT MODIFYING EXISTING HTML
+    --------------------------------------------- */
+
+    const pricingContainer =
+        pricingSection.querySelector(
+            ".sbl-pricing-container"
+        );
+
+    if (!pricingContainer) return;
+
+
+    /* Prevent duplicate switch */
+
+    if (
+        pricingSection.querySelector(
+            ".sbl-billing-addon"
+        )
+    ) {
+        return;
+    }
+
+
+    /* ---------------------------------------------
+       CREATE SWITCH
+    --------------------------------------------- */
+
+    const billingWrapper =
+        document.createElement("div");
+
+    billingWrapper.className =
+        "sbl-billing-addon";
+
+
+    billingWrapper.innerHTML = `
+
+        <div class="billing-switch-addon">
+
+            <button
+                type="button"
+                class="billing-option-addon active"
+                data-billing="monthly">
+
+                Monthly
+
+            </button>
+
+
+            <button
+                type="button"
+                class="billing-option-addon"
+                data-billing="yearly">
+
+                Yearly
+
+                <span class="billing-save-addon">
+                    SAVE
+                </span>
+
+            </button>
+
+        </div>
+
+    `;
+
+
+    /* Insert above pricing cards */
+
+    pricingContainer.parentNode.insertBefore(
+        billingWrapper,
+        pricingContainer
+    );
+
+
+    /* ---------------------------------------------
+       GET BUTTONS
+    --------------------------------------------- */
+
+    const billingButtons =
+        billingWrapper.querySelectorAll(
+            ".billing-option-addon"
+        );
+
+
+    /* ---------------------------------------------
+       FORMAT PRICE
+    --------------------------------------------- */
+
+    function formatPrice(value) {
+
+        const number =
+            Number(value);
+
+        if (Number.isNaN(number)) {
+            return value;
+        }
+
+        return number.toLocaleString("en-IN");
+
+    }
+
+
+    /* ---------------------------------------------
+       CHANGE PRICING
+    --------------------------------------------- */
+
+    function changeBilling(type) {
+
+        /* -----------------------------------------
+           BUTTON ACTIVE STATE
+        ----------------------------------------- */
+
+        billingButtons.forEach(button => {
+
+            button.classList.toggle(
+                "active",
+                button.dataset.billing === type
+            );
+
+        });
+
+
+        /* -----------------------------------------
+           UPDATE PRICE
+        ----------------------------------------- */
+
+        prices.forEach(price => {
+
+            const newPrice =
+                price.dataset[
+                    type === "yearly"
+                        ? "yearly"
+                        : "monthly"
+                ];
+
+
+            if (!newPrice) return;
+
+
+            /* Restart animation */
+
+            price.classList.remove(
+                "price-changing"
+            );
+
+            void price.offsetWidth;
+
+            price.classList.add(
+                "price-changing"
+            );
+
+
+            /* Change number */
+
+            price.textContent =
+                formatPrice(newPrice);
+
+        });
+
+
+        /* -----------------------------------------
+           UPDATE BILLING TEXT
+        ----------------------------------------- */
+
+        billingTexts.forEach(text => {
+
+            if (type === "yearly") {
+
+                text.textContent =
+                    "Billed yearly";
+
+                text.classList.add(
+                    "yearly-mode"
+                );
+
+            } else {
+
+                text.textContent =
+                    "Billed monthly";
+
+                text.classList.remove(
+                    "yearly-mode"
+                );
+
+            }
+
+        });
+
+
+        /* -----------------------------------------
+           UPDATE PRICE PERIOD
+        ----------------------------------------- */
+
+        const periods =
+            pricingSection.querySelectorAll(
+                ".price-period"
+            );
+
+
+        periods.forEach(period => {
+
+            period.textContent =
+                type === "yearly"
+                    ? "/year"
+                    : "/month";
+
+        });
+
+    }
+
+
+    /* ---------------------------------------------
+       BUTTON EVENTS
+    --------------------------------------------- */
+
+    billingButtons.forEach(button => {
+
+        button.addEventListener(
+            "click",
+            function () {
+
+                changeBilling(
+                    this.dataset.billing
+                );
+
+            }
+        );
+
+    });
+
+
+    /* ---------------------------------------------
+       DEFAULT = MONTHLY
+    --------------------------------------------- */
+
+    changeBilling("monthly");
+
+});
