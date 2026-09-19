@@ -63,6 +63,8 @@ drawerOverlay.addEventListener(
 );
 
 
+
+
 /* =========================================================
    ESCAPE CLOSE
 ========================================================= */
@@ -2642,7 +2644,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (type === "yearly") {
 
                 text.textContent =
-                    "Billed yearly";
+                    "Billed yearly/ 1 month demom @ rs. 0";
 
                 text.classList.add(
                     "yearly-mode"

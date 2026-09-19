@@ -12803,3 +12803,708 @@ a {
     }
 
 }
+
+/* =========================================
+   SBL HOME TUTORIAL CARD
+========================================= */
+
+.tutorial-box {
+    width: 100%;
+    height: 100%;
+}
+
+.tutorial-video-card {
+    width: 100%;
+    height: 100%;
+    min-height: 390px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    border-radius: 24px;
+    background: #ffffff;
+    border: 1px solid rgba(8, 120, 216, .12);
+    box-shadow: 0 18px 50px rgba(8, 75, 125, .12);
+}
+
+
+/* =========================================
+   VIDEO PREVIEW
+========================================= */
+
+.tutorial-video-preview {
+    position: relative;
+    width: 100%;
+    height: 245px;
+    overflow: hidden;
+    cursor: pointer;
+    background:
+        linear-gradient(135deg, #0878d8, #0459a5);
+}
+
+
+/* Background grid */
+
+.tutorial-grid {
+    position: absolute;
+    inset: 0;
+    opacity: .18;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,.4) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.4) 1px, transparent 1px);
+
+    background-size: 28px 28px;
+
+    transform: perspective(500px) rotateX(55deg) scale(1.6);
+    transform-origin: center bottom;
+
+    transition: transform .7s ease;
+}
+
+
+/* =========================================
+   FAKE DASHBOARD
+========================================= */
+
+.tutorial-dashboard {
+    position: absolute;
+
+    width: 72%;
+    height: 72%;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    background: rgba(255,255,255,.96);
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.25);
+
+    overflow: hidden;
+
+    transition:
+        transform .6s cubic-bezier(.16,1,.3,1),
+        box-shadow .5s ease;
+}
+
+
+/* Browser top */
+
+.dashboard-top {
+    height: 22px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+
+    padding-left: 10px;
+
+    background: #f4f7fa;
+
+    border-bottom: 1px solid #e6edf3;
+}
+
+.dashboard-dot {
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #9bb1c3;
+}
+
+
+/* Dashboard content */
+
+.dashboard-content {
+    display: flex;
+
+    height: calc(100% - 22px);
+}
+
+
+/* Sidebar */
+
+.dashboard-sidebar {
+    width: 18%;
+
+    padding: 14px 8px;
+
+    background: #f7fbff;
+
+    border-right: 1px solid #e5edf4;
+}
+
+.dashboard-sidebar span {
+    display: block;
+
+    height: 5px;
+
+    margin-bottom: 12px;
+
+    border-radius: 5px;
+
+    background: #b9d9ef;
+}
+
+.dashboard-sidebar span:first-child {
+    width: 85%;
+    background: #0878d8;
+}
+
+.dashboard-sidebar span:nth-child(2) {
+    width: 70%;
+}
+
+.dashboard-sidebar span:nth-child(3) {
+    width: 80%;
+}
+
+.dashboard-sidebar span:nth-child(4) {
+    width: 60%;
+}
+
+
+/* Main dashboard */
+
+.dashboard-main {
+    flex: 1;
+
+    padding: 16px;
+}
+
+
+/* Title */
+
+.dashboard-title {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 15px;
+}
+
+.dashboard-title span {
+    display: block;
+
+    height: 7px;
+
+    border-radius: 5px;
+
+    background: #0878d8;
+}
+
+.dashboard-title span:first-child {
+    width: 35%;
+}
+
+.dashboard-title span:last-child {
+    width: 18%;
+
+    background: #f4c542;
+}
+
+
+/* Cards */
+
+.dashboard-cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 8px;
+
+    margin-bottom: 15px;
+}
+
+.dashboard-cards div {
+    height: 40px;
+
+    border-radius: 7px;
+
+    background: #eef7ff;
+
+    border-left: 3px solid #0878d8;
+}
+
+.dashboard-cards div:nth-child(2) {
+    border-left-color: #f4c542;
+}
+
+.dashboard-cards div:nth-child(3) {
+    border-left-color: #48a868;
+}
+
+
+/* Chart */
+
+.dashboard-chart {
+    height: 75px;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-around;
+
+    padding: 10px;
+
+    border-radius: 8px;
+
+    background: #f7fbff;
+}
+
+.dashboard-chart i {
+    display: block;
+
+    width: 9%;
+
+    border-radius: 4px 4px 0 0;
+
+    background: #0878d8;
+
+    animation: tutorialChart 2s ease-in-out infinite;
+}
+
+.dashboard-chart i:nth-child(1) {
+    height: 35%;
+}
+
+.dashboard-chart i:nth-child(2) {
+    height: 55%;
+
+    animation-delay: .15s;
+}
+
+.dashboard-chart i:nth-child(3) {
+    height: 42%;
+
+    animation-delay: .3s;
+}
+
+.dashboard-chart i:nth-child(4) {
+    height: 70%;
+
+    animation-delay: .45s;
+}
+
+.dashboard-chart i:nth-child(5) {
+    height: 60%;
+
+    animation-delay: .6s;
+}
+
+.dashboard-chart i:nth-child(6) {
+    height: 82%;
+
+    animation-delay: .75s;
+}
+
+@keyframes tutorialChart {
+
+    0%,
+    100% {
+        transform: scaleY(.85);
+    }
+
+    50% {
+        transform: scaleY(1);
+    }
+
+}
+
+
+/* =========================================
+   PLAY BUTTON
+========================================= */
+
+.tutorial-play {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 64px;
+    height: 64px;
+
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #f4c542;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.25);
+
+    transition:
+        transform .4s ease,
+        background .3s ease;
+}
+
+.tutorial-play span,
+.tutorial-hover-play span {
+    width: 0;
+    height: 0;
+
+    margin-left: 4px;
+
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+    border-left: 14px solid #17324d;
+}
+
+
+/* =========================================
+   HOVER OVERLAY
+========================================= */
+
+.tutorial-hover {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(4,89,165,.93),
+            rgba(8,120,216,.88)
+        );
+
+    opacity: 0;
+
+    transition: opacity .4s ease;
+}
+
+.tutorial-hover-content {
+    text-align: center;
+
+    color: #ffffff;
+
+    transform: translateY(15px);
+
+    transition:
+        transform .5s cubic-bezier(.16,1,.3,1);
+}
+
+.tutorial-small-label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #f4c542;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.tutorial-hover-content h3 {
+    margin: 0 0 7px;
+
+    font-size: 27px;
+
+    font-weight: 800;
+}
+
+.tutorial-hover-content p {
+    max-width: 330px;
+
+    margin: 0 auto 16px;
+
+    color: rgba(255,255,255,.85);
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+.tutorial-hover-play {
+    width: 48px;
+    height: 48px;
+
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #f4c542;
+
+    transition: transform .3s ease;
+}
+
+.tutorial-hover-play span {
+    border-top-width: 7px;
+    border-bottom-width: 7px;
+    border-left-width: 11px;
+}
+
+
+/* Hover */
+
+.tutorial-video-preview:hover .tutorial-hover {
+    opacity: 1;
+}
+
+.tutorial-video-preview:hover
+.tutorial-hover-content {
+    transform: translateY(0);
+}
+
+.tutorial-video-preview:hover
+.tutorial-dashboard {
+    transform:
+        translate(-50%, -50%)
+        scale(1.05);
+
+    box-shadow:
+        0 30px 70px rgba(0,0,0,.3);
+}
+
+.tutorial-video-preview:hover
+.tutorial-grid {
+    transform:
+        perspective(500px)
+        rotateX(55deg)
+        scale(1.8);
+}
+
+.tutorial-video-preview:hover
+.tutorial-play {
+    transform:
+        translate(-50%, -50%)
+        scale(.85);
+
+    opacity: 0;
+}
+
+.tutorial-hover-play:hover {
+    transform: scale(1.1);
+}
+
+
+/* =========================================
+   INFO AREA
+========================================= */
+
+.tutorial-info {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 22px 24px 24px;
+}
+
+.tutorial-label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #0878d8;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+.tutorial-info h3 {
+    margin: 0 0 6px;
+
+    color: #17324d;
+
+    font-size: 18px;
+
+    line-height: 1.25;
+}
+
+.tutorial-info p {
+    max-width: 390px;
+
+    margin: 0;
+
+    color: #718397;
+
+    font-size: 12px;
+
+    line-height: 1.55;
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.tutorial-button {
+    flex-shrink: 0;
+
+    display: inline-flex;
+
+    align-items: center;
+    gap: 10px;
+
+    padding: 11px 17px;
+
+    border-radius: 8px;
+
+    background: #0878d8;
+
+    color: #ffffff;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 8px 20px rgba(8,120,216,.20);
+
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        box-shadow .3s ease;
+}
+
+.tutorial-button span {
+    font-size: 17px;
+
+    transition: transform .3s ease;
+}
+
+.tutorial-button:hover {
+    background: #0459a5;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 25px rgba(8,120,216,.28);
+}
+
+.tutorial-button:hover span {
+    transform: translateX(4px);
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+
+    .tutorial-video-card {
+        min-height: 360px;
+    }
+
+    .tutorial-video-preview {
+        height: 220px;
+    }
+
+    .tutorial-info {
+        padding: 18px;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .tutorial-video-card {
+        min-height: auto;
+    }
+
+    .tutorial-video-preview {
+        height: 220px;
+    }
+
+    .tutorial-info {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .tutorial-button {
+        width: 100%;
+
+        justify-content: center;
+    }
+
+}
+
+
+@media (max-width: 430px) {
+
+    .tutorial-video-preview {
+        height: 195px;
+    }
+
+    .tutorial-dashboard {
+        width: 82%;
+        height: 72%;
+    }
+
+    .tutorial-hover-content h3 {
+        font-size: 22px;
+    }
+
+    .tutorial-hover-content p {
+        padding: 0 20px;
+
+        font-size: 11px;
+    }
+
+    .tutorial-info h3 {
+        font-size: 16px;
+    }
+
+}
+
+/* =========================================
+   HIDE ARROW WHEN DRAWER IS OPEN
+========================================= */
+
+.next-button {
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease,
+        transform 0.3s ease;
+}
+
+/* When drawer is open */
+body.drawer-is-open .next-button {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: translateY(-50%) translateX(30px) !important;
+}
+
+/* Make sure drawer stays above everything */
+.drawer-overlay {
+    z-index: 9998;
+}
+
+.next-button {
+    z-index: 9997;
+}
