@@ -518,30 +518,119 @@ document.addEventListener("DOMContentLoaded", function () {
 
             }
 
+/* =====================================================
+   CAPTCHA CORRECT
+===================================================== */
 
-            /* CAPTCHA correct */
-
-            captchaArea.classList.remove(
-                "invalid"
-            );
-
-
-            /* Show success */
-
-            successMessage.classList.add(
-                "show"
-            );
+captchaArea.classList.remove("invalid");
 
 
-            /* Reset form */
+/* =====================================================
+   COLLECT FORM DATA
+===================================================== */
 
-            form.reset();
+const formData = new FormData(form);
 
 
-            /* Generate new CAPTCHA */
+/* =====================================================
+   SEND TO PHP
+===================================================== */
 
-            drawCaptcha();
+fetch("send-enquiry.php", {
 
+    method: "POST",
+
+    body: formData
+
+})
+
+.then(function (response) {
+
+    return response.json();
+
+})
+
+.then(function (data) {
+
+    if (data.success) {
+
+        /* -----------------------------------------
+           SHOW YOUR EXISTING SUCCESS MESSAGE
+        ----------------------------------------- */
+
+        successMessage.textContent =
+            "✓ Your enquiry has been submitted successfully.";
+
+        successMessage.classList.add("show");
+
+
+        /* -----------------------------------------
+           RESET FORM
+        ----------------------------------------- */
+
+        form.reset();
+
+
+        /* -----------------------------------------
+           NEW CAPTCHA
+        ----------------------------------------- */
+
+        drawCaptcha();
+
+
+        /* -----------------------------------------
+           HIDE SUCCESS AFTER 6 SECONDS
+        ----------------------------------------- */
+
+        setTimeout(function () {
+
+            successMessage.classList.remove("show");
+
+        }, 6000);
+
+    }
+
+    else {
+
+        successMessage.textContent =
+            "✕ " +
+            (data.message ||
+            "Unable to send your enquiry.");
+
+        successMessage.classList.add("show");
+
+
+        setTimeout(function () {
+
+            successMessage.classList.remove("show");
+
+        }, 6000);
+
+    }
+
+})
+
+.catch(function (error) {
+
+    console.error(
+        "Contact form error:",
+        error
+    );
+
+
+    successMessage.textContent =
+        "✕ Unable to send your enquiry. Please try again.";
+
+    successMessage.classList.add("show");
+
+
+    setTimeout(function () {
+
+        successMessage.classList.remove("show");
+
+    }, 6000);
+
+});
 
             /* Hide success after some time */
 

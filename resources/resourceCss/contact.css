@@ -3859,3 +3859,140 @@ button {
     }
 
 }
+/* =====================================================
+   CONTACT FORM RESPONSIVE ADD-ON
+===================================================== */
+
+.contact-form-wrapper {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.sbl-contact-form {
+    width: 100%;
+}
+
+.sbl-contact-form input,
+.sbl-contact-form select,
+.sbl-contact-form textarea {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 800px) {
+
+    .contact-form-wrapper {
+        width: 100%;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr !important;
+        gap: 0 !important;
+    }
+
+    .form-group {
+        width: 100%;
+    }
+
+    .captcha-box {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    #captchaCanvas {
+        display: block;
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 500px) {
+
+    .contact-form-wrapper {
+        padding: 20px !important;
+    }
+
+    .form-header h2 {
+        font-size: 28px;
+    }
+
+    .form-header p {
+        font-size: 13px;
+    }
+
+    .form-group label {
+        font-size: 12px;
+    }
+
+    .sbl-contact-form input,
+    .sbl-contact-form select,
+    .sbl-contact-form textarea {
+        font-size: 14px;
+    }
+
+    .captcha-header {
+        align-items: flex-start;
+        gap: 8px;
+        flex-direction: column;
+    }
+
+    .captcha-box {
+        width: 100%;
+    }
+
+    #captchaCanvas {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .captcha-input-wrapper {
+        width: 100%;
+    }
+
+    .contact-submit {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .contact-privacy {
+        font-size: 11px;
+        line-height: 1.6;
+    }
+
+}
+
+
+/* =========================================
+   VERY SMALL PHONES
+========================================= */
+
+@media (max-width: 350px) {
+
+    .contact-form-wrapper {
+        padding: 15px !important;
+    }
+
+    .form-header h2 {
+        font-size: 24px;
+    }
+
+    .contact-submit {
+        padding: 13px 15px;
+        font-size: 11px;
+    }
+
+}

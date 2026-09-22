@@ -2644,7 +2644,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (type === "yearly") {
 
                 text.textContent =
-                    "Billed yearly/ 1 month demom @ rs. 0";
+                    "Billed yearly / 1 month fully free access @ Rs. 0";
 
                 text.classList.add(
                     "yearly-mode"

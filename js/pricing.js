@@ -1337,8 +1337,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (type === "yearly") {
 
-                period.textContent =
-                    "Price / Org / Year";
+                period.innerHTML =
+                    "Price / Org / Year <br>" + " 1 month fully free access @ Rs. 0";
 
                 period.classList.add(
                     "yearly-active"
