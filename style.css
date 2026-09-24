@@ -13508,3 +13508,1306 @@ body.drawer-is-open .next-button {
 .next-button {
     z-index: 9997;
 }
+
+/* =========================================================
+   SBL DASHBOARD — RESPONSIVE ALIGNMENT ADD-ON
+   Does not require changing existing HTML
+   ========================================================= */
+
+.dashboard-wrap {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.dashboard {
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+/* ---------- TOP BAR ---------- */
+
+.dashboard-top {
+    width: 100%;
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 0 22px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.dashboard-brand {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.dashboard-search {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: 430px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.dashboard-icons {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* ---------- BODY ---------- */
+
+.dashboard-body {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 190px minmax(0, 1fr);
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+/* ---------- SIDEBAR ---------- */
+
+.dashboard-sidebar {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 18px 12px;
+}
+
+.dashboard-sidebar > div {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+
+    min-height: 42px;
+    padding: 0 12px;
+
+    border-radius: 9px;
+
+    font-size: 13px;
+    line-height: 1.2;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    cursor: pointer;
+}
+
+/* ---------- MAIN ---------- */
+
+.dashboard-main {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 22px;
+}
+
+/* ---------- CARDS ---------- */
+
+.dashboard-cards {
+    width: 100%;
+    min-width: 0;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.dash-card {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.dash-card small {
+    display: block;
+
+    max-width: 100%;
+
+    font-size: 10px;
+    line-height: 1.3;
+    letter-spacing: .6px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dash-card strong {
+    display: block;
+
+    max-width: 100%;
+
+    margin-top: 7px;
+
+    font-size: clamp(17px, 2vw, 25px);
+    line-height: 1.2;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.progress {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* ---------- CHART ---------- */
+
+.chart {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.chart-title {
+    max-width: 100%;
+
+    font-size: 11px;
+    line-height: 1.3;
+    letter-spacing: .7px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.chart svg {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .dashboard-wrap {
+        padding: 0 14px;
+    }
+
+    .dashboard-body {
+        grid-template-columns: 155px minmax(0, 1fr);
+    }
+
+    .dashboard-top {
+        gap: 12px;
+        padding: 0 16px;
+    }
+
+    .dashboard-main {
+        padding: 18px;
+    }
+
+    .dashboard-sidebar {
+        padding: 14px 9px;
+    }
+
+    .dashboard-sidebar > div {
+        min-height: 40px;
+        padding: 0 9px;
+        font-size: 12px;
+    }
+
+    .dashboard-search {
+        max-width: 280px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .dashboard-wrap {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .dashboard {
+        border-radius: 14px;
+    }
+
+    /* Top bar */
+    .dashboard-top {
+        min-height: 58px;
+        padding: 0 13px;
+        gap: 10px;
+    }
+
+    .dashboard-top > div:first-child {
+        font-size: 15px !important;
+    }
+
+    .dashboard-brand {
+        font-size: 13px;
+    }
+
+    .dashboard-search {
+        max-width: none;
+        font-size: 11px;
+    }
+
+    .dashboard-icons {
+        font-size: 11px;
+        letter-spacing: 0;
+    }
+
+    /* Sidebar becomes horizontal */
+    .dashboard-body {
+        display: block;
+    }
+
+    .dashboard-sidebar {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+
+        padding: 9px;
+
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .dashboard-sidebar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .dashboard-sidebar > div {
+        flex: 0 0 auto;
+
+        width: auto;
+        min-height: 34px;
+
+        padding: 0 11px;
+
+        font-size: 11px;
+        border-radius: 7px;
+
+        white-space: nowrap;
+    }
+
+    /* Main */
+    .dashboard-main {
+        padding: 14px;
+    }
+
+    .dashboard-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .dash-card {
+        padding: 13px !important;
+    }
+
+    .dash-card small {
+        font-size: 8px;
+    }
+
+    .dash-card strong {
+        font-size: 16px;
+    }
+
+    .chart {
+        margin-top: 12px;
+    }
+
+    .chart-title {
+        font-size: 9px;
+    }
+
+    .chart svg {
+        height: 145px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .dashboard-wrap {
+        padding: 0 7px;
+    }
+
+    .dashboard {
+        border-radius: 12px;
+    }
+
+    .dashboard-top {
+        min-height: 52px;
+        padding: 0 10px;
+        gap: 7px;
+    }
+
+    .dashboard-brand {
+        font-size: 11px;
+    }
+
+    .dashboard-search {
+        font-size: 9px;
+    }
+
+    .dashboard-icons {
+        font-size: 9px;
+    }
+
+    .dashboard-sidebar {
+        padding: 7px;
+        gap: 5px;
+    }
+
+    .dashboard-sidebar > div {
+        min-height: 31px;
+        padding: 0 9px;
+        font-size: 9px;
+    }
+
+    .dashboard-main {
+        padding: 10px;
+    }
+
+    .dashboard-cards {
+        gap: 8px;
+    }
+
+    .dash-card {
+        padding: 10px !important;
+    }
+
+    .dash-card small {
+        font-size: 7px;
+    }
+
+    .dash-card strong {
+        font-size: 13px;
+    }
+
+    .progress {
+        margin-top: 7px;
+    }
+
+    .chart svg {
+        height: 120px;
+    }
+
+    .chart-title {
+        font-size: 8px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 350px) {
+
+    .dashboard-top {
+        padding: 0 8px;
+        gap: 5px;
+    }
+
+    .dashboard-brand {
+        font-size: 10px;
+    }
+
+    .dashboard-search {
+        font-size: 8px;
+    }
+
+    .dashboard-icons {
+        display: none;
+    }
+
+    .dashboard-sidebar > div {
+        font-size: 8px;
+        padding: 0 8px;
+    }
+
+    .dashboard-main {
+        padding: 8px;
+    }
+
+    .dash-card {
+        padding: 8px !important;
+    }
+
+    .dash-card strong {
+        font-size: 12px;
+    }
+
+    .chart svg {
+        height: 105px;
+    }
+}
+
+
+/* =========================================================
+   EXTRA SAFETY — PREVENT HORIZONTAL OVERFLOW
+   ========================================================= */
+
+.dashboard-wrap *,
+.dashboard * {
+    box-sizing: border-box;
+}
+
+.dashboard-wrap img,
+.dashboard img,
+.dashboard svg {
+    max-width: 100%;
+}
+
+.dashboard-wrap {
+    overflow-x: hidden;
+}
+
+.dashboard {
+    overflow-x: hidden;
+}
+
+/* =========================================================
+   SBL DASHBOARD — DARK HEADER / NAVBAR
+   ========================================================= */
+
+.dashboard-top {
+    background: #111827 !important;
+    color: #ffffff !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+/* SBL Business */
+.dashboard-brand {
+    color: #ffffff !important;
+    font-weight: 800;
+    opacity: 1 !important;
+}
+
+/* Top icons */
+.dashboard-top > div:first-child,
+.dashboard-icons {
+    color: #ffffff !important;
+}
+
+/* Search */
+.dashboard-search {
+    background: #1f2937 !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.dashboard-search::placeholder {
+    color: #9ca3af;
+}
+
+/* Sidebar */
+.dashboard-sidebar {
+    background: #111827 !important;
+    color: #ffffff;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Sidebar items */
+.dashboard-sidebar > div {
+    color: #cbd5e1 !important;
+    transition: background .25s ease, color .25s ease;
+}
+
+/* Active item */
+.dashboard-sidebar > div.active {
+    background: #0878d8 !important;
+    color: #ffffff !important;
+}
+
+/* Hover */
+.dashboard-sidebar > div:hover {
+    background: #1f2937 !important;
+    color: #ffffff !important;
+}
+
+ 
+ /* =========================================================
+   SBL TUTORIAL CARD
+   DESIGN:
+   TOP    = THUMBNAIL
+   BOTTOM = TEXT + EXPLORE BUTTON
+   ========================================================= */
+
+
+/* MAIN CARD */
+.tutorial-video-card {
+    width: 100% !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    overflow: hidden !important;
+
+    box-sizing: border-box !important;
+}
+
+
+/* =========================================================
+   TOP THUMBNAIL
+   ========================================================= */
+
+.tutorial-video-preview {
+    position: relative !important;
+
+    width: 100% !important;
+
+    height: 65% !important;
+
+    min-height: 360px !important;
+
+    aspect-ratio: 16 / 8 !important;
+
+    overflow: hidden !important;
+
+    flex: 0 0 auto !important;
+}
+
+
+/* ACTUAL IMAGE */
+.tutorial-video-preview .tutorial-thumbnail-image {
+    display: block !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    max-width: none !important;
+
+    object-fit: cover !important;
+    object-position: center !important;
+}
+
+
+/* IMAGE OVERLAY */
+.tutorial-video-preview .tutorial-image-overlay {
+    position: absolute !important;
+
+    inset: 0 !important;
+
+    z-index: 2 !important;
+
+    pointer-events: none !important;
+}
+
+
+/* =========================================================
+   PLAY BUTTON
+   ========================================================= */
+
+.tutorial-video-preview .tutorial-play {
+    position: absolute !important;
+
+    left: 50% !important;
+    top: 50% !important;
+
+    z-index: 5 !important;
+
+    transform: translate(-50%, -50%) !important;
+}
+
+
+/* =========================================================
+   HOVER OVERLAY
+   ========================================================= */
+
+.tutorial-video-preview .tutorial-hover {
+    position: absolute !important;
+
+    inset: 0 !important;
+
+    z-index: 4 !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    opacity: 0 !important;
+    visibility: hidden !important;
+
+    transition:
+        opacity .3s ease,
+        visibility .3s ease !important;
+}
+
+
+.tutorial-video-preview:hover .tutorial-hover {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+
+/* =========================================================
+   BOTTOM INFORMATION AREA
+   ========================================================= */
+
+.tutorial-info {
+    width: 100% !important;
+
+    min-height: 150px !important;
+
+    display: flex !important;
+
+    flex-direction: row !important;
+
+    align-items: center !important;
+
+    justify-content: space-between !important;
+
+    gap: 30px !important;
+
+    padding: 28px 32px !important;
+
+    background: #ffffff !important;
+
+    box-sizing: border-box !important;
+
+    flex: 0 0 auto !important;
+}
+
+
+/* =========================================================
+   LEFT TEXT AREA
+   ========================================================= */
+
+.tutorial-info > div {
+    min-width: 0 !important;
+
+    flex: 1 1 auto !important;
+}
+
+
+/* LABEL */
+.tutorial-info .tutorial-label {
+    display: block !important;
+
+    margin-bottom: 8px !important;
+
+    color: #0878d8 !important;
+
+    font-size: 10px !important;
+
+    font-weight: 900 !important;
+
+    letter-spacing: .16em !important;
+}
+
+
+/* HEADING */
+.tutorial-info h3 {
+    margin: 0 0 8px !important;
+
+    color: #102a43 !important;
+
+    font-size: clamp(20px, 2vw, 28px) !important;
+
+    line-height: 1.15 !important;
+
+    font-weight: 850 !important;
+}
+
+
+/* DESCRIPTION */
+.tutorial-info p {
+    margin: 0 !important;
+
+    color: #718397 !important;
+
+    font-size: 13px !important;
+
+    line-height: 1.55 !important;
+}
+
+
+/* =========================================================
+   EXPLORE BUTTON — RIGHT SIDE
+   ========================================================= */
+
+.tutorial-info .tutorial-button {
+    flex: 0 0 auto !important;
+
+    display: inline-flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    gap: 10px !important;
+
+    padding: 14px 20px !important;
+
+    margin: 0 !important;
+
+    background: #0878d8 !important;
+
+    color: #ffffff !important;
+
+    border-radius: 10px !important;
+
+    text-decoration: none !important;
+
+    white-space: nowrap !important;
+
+    font-size: 12px !important;
+
+    font-weight: 800 !important;
+
+    box-shadow:
+        0 10px 25px rgba(8,120,216,.18) !important;
+
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        box-shadow .25s ease !important;
+}
+
+
+.tutorial-info .tutorial-button span {
+    font-size: 17px !important;
+
+    line-height: 1 !important;
+
+    transition: transform .25s ease !important;
+}
+
+
+.tutorial-info .tutorial-button:hover {
+    background: #0459a5 !important;
+
+    transform: translateY(-3px) !important;
+
+    box-shadow:
+        0 15px 30px rgba(8,120,216,.25) !important;
+}
+
+
+.tutorial-info .tutorial-button:hover span {
+    transform: translateX(4px) !important;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .tutorial-video-preview {
+        min-height: 300px !important;
+
+        aspect-ratio: 16 / 8 !important;
+    }
+
+
+    .tutorial-info {
+        padding: 24px 25px !important;
+
+        gap: 20px !important;
+    }
+
+
+    .tutorial-info h3 {
+        font-size: 22px !important;
+    }
+
+
+    .tutorial-info p {
+        font-size: 12px !important;
+    }
+
+
+    .tutorial-info .tutorial-button {
+        padding: 13px 17px !important;
+
+        font-size: 11px !important;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .tutorial-video-card {
+        width: 100% !important;
+
+        display: flex !important;
+
+        flex-direction: column !important;
+    }
+
+
+    /* Thumbnail */
+    .tutorial-video-preview {
+        width: 100% !important;
+
+        height: auto !important;
+
+        min-height: 0 !important;
+
+        aspect-ratio: 16 / 9 !important;
+    }
+
+
+    /* Bottom section */
+    .tutorial-info {
+        width: 100% !important;
+
+        min-height: auto !important;
+
+        display: flex !important;
+
+        flex-direction: column !important;
+
+        align-items: stretch !important;
+
+        gap: 18px !important;
+
+        padding: 23px 20px !important;
+    }
+
+
+    .tutorial-info h3 {
+        font-size: 22px !important;
+    }
+
+
+    .tutorial-info p {
+        font-size: 12px !important;
+    }
+
+
+    /* Button full width on mobile */
+    .tutorial-info .tutorial-button {
+        width: 100% !important;
+
+        margin: 0 !important;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 430px) {
+
+    .tutorial-video-preview {
+        aspect-ratio: 16 / 10 !important;
+    }
+
+
+    .tutorial-info {
+        padding: 20px 17px !important;
+    }
+
+
+    .tutorial-info h3 {
+        font-size: 20px !important;
+    }
+
+
+    .tutorial-info p {
+        font-size: 11.5px !important;
+    }
+
+
+    .tutorial-info .tutorial-button {
+        padding: 13px 15px !important;
+    }
+}
+
+/* =========================================================
+   SBL TUTORIAL THUMBNAIL — FINAL HOVER + LOGO FIX
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   THUMBNAIL CONTAINER
+   --------------------------------------------------------- */
+
+.tutorial-video-preview {
+    position: relative !important;
+    overflow: hidden !important;
+
+    /* Keep the image aligned from the top */
+    background: #eef7ff !important;
+}
+
+
+/* ---------------------------------------------------------
+   IMAGE — FIX TOP SBL LOGO CROPPING
+   --------------------------------------------------------- */
+
+.tutorial-video-preview .tutorial-thumbnail-image {
+    width: 100% !important;
+    height: 100% !important;
+
+    display: block !important;
+
+    /*
+       Keep the top portion visible so the SBL logo
+       does not get cut off.
+    */
+    object-fit: cover !important;
+    object-position: center top !important;
+
+    transform: scale(1) !important;
+
+    transition:
+        transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 0.7s ease !important;
+
+    will-change: transform;
+}
+
+
+/* ---------------------------------------------------------
+   SMOOTH IMAGE HOVER
+   --------------------------------------------------------- */
+
+.tutorial-video-preview:hover .tutorial-thumbnail-image {
+    transform: scale(1.025) !important;
+
+    filter: brightness(0.88) saturate(1.04) !important;
+}
+
+
+/* ---------------------------------------------------------
+   IMAGE OVERLAY
+   --------------------------------------------------------- */
+
+.tutorial-video-preview .tutorial-image-overlay {
+    position: absolute !important;
+
+    inset: 0 !important;
+
+    z-index: 2 !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 72, 135, 0.08),
+            rgba(0, 80, 150, 0.28)
+        ) !important;
+
+    opacity: 0 !important;
+
+    transition:
+        opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1) !important;
+
+    pointer-events: none !important;
+}
+
+
+.tutorial-video-preview:hover .tutorial-image-overlay {
+    opacity: 1 !important;
+}
+
+
+/* ---------------------------------------------------------
+   PLAY BUTTON — SMOOTH
+   --------------------------------------------------------- */
+
+.tutorial-video-preview .tutorial-play {
+    position: absolute !important;
+
+    left: 50% !important;
+    top: 50% !important;
+
+    z-index: 6 !important;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1) !important;
+
+    opacity: 1 !important;
+
+    transition:
+        transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.5s ease,
+        opacity 0.45s ease !important;
+
+    will-change: transform;
+}
+
+
+.tutorial-video-preview:hover .tutorial-play {
+    transform:
+        translate(-50%, -50%)
+        scale(1.10) !important;
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.25) !important;
+}
+
+
+/* ---------------------------------------------------------
+   HOVER OVERLAY
+   --------------------------------------------------------- */
+
+.tutorial-video-preview .tutorial-hover {
+    position: absolute !important;
+
+    inset: 0 !important;
+
+    z-index: 5 !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    padding: 30px !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(4, 65, 120, 0.70),
+            rgba(8, 120, 216, 0.62)
+        ) !important;
+
+    opacity: 0 !important;
+    visibility: hidden !important;
+
+    transform: translateY(8px) !important;
+
+    transition:
+        opacity 0.55s ease,
+        visibility 0.55s ease,
+        transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+
+.tutorial-video-preview:hover .tutorial-hover {
+    opacity: 1 !important;
+    visibility: visible !important;
+
+    transform: translateY(0) !important;
+}
+
+
+/* ---------------------------------------------------------
+   HOVER CONTENT
+   --------------------------------------------------------- */
+
+.tutorial-hover-content {
+    text-align: center !important;
+
+    opacity: 0 !important;
+
+    transform: translateY(18px) scale(0.97) !important;
+
+    transition:
+        opacity 0.55s ease 0.05s,
+        transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.05s !important;
+}
+
+
+.tutorial-video-preview:hover .tutorial-hover-content {
+    opacity: 1 !important;
+
+    transform:
+        translateY(0)
+        scale(1) !important;
+}
+
+
+/* ---------------------------------------------------------
+   HOVER LABEL
+   --------------------------------------------------------- */
+
+.tutorial-hover-content .tutorial-small-label {
+    display: inline-block !important;
+
+    color: #f4c542 !important;
+
+    opacity: 0 !important;
+
+    transform: translateY(8px) !important;
+
+    transition:
+        opacity 0.4s ease 0.12s,
+        transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.12s !important;
+}
+
+
+.tutorial-video-preview:hover
+.tutorial-hover-content
+.tutorial-small-label {
+
+    opacity: 1 !important;
+
+    transform: translateY(0) !important;
+}
+
+
+/* ---------------------------------------------------------
+   HOVER TITLE
+   --------------------------------------------------------- */
+
+.tutorial-hover-content h3 {
+    color: #ffffff !important;
+
+    opacity: 0 !important;
+
+    transform: translateY(10px) !important;
+
+    transition:
+        opacity 0.45s ease 0.16s,
+        transform 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.16s !important;
+}
+
+
+.tutorial-video-preview:hover
+.tutorial-hover-content
+h3 {
+
+    opacity: 1 !important;
+
+    transform: translateY(0) !important;
+}
+
+
+/* ---------------------------------------------------------
+   HOVER DESCRIPTION
+   --------------------------------------------------------- */
+
+.tutorial-hover-content p {
+    color: rgba(255,255,255,.88) !important;
+
+    opacity: 0 !important;
+
+    transform: translateY(8px) !important;
+
+    transition:
+        opacity 0.45s ease 0.22s,
+        transform 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.22s !important;
+}
+
+
+.tutorial-video-preview:hover
+.tutorial-hover-content
+p {
+
+    opacity: 1 !important;
+
+    transform: translateY(0) !important;
+}
+
+
+/* =========================================================
+   EXPLORE BUTTON — SMOOTH
+   ========================================================= */
+
+.tutorial-button {
+    transition:
+        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        background 0.35s ease,
+        box-shadow 0.4s ease !important;
+}
+
+
+.tutorial-button span {
+    display: inline-block;
+
+    transition:
+        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+
+.tutorial-button:hover {
+    transform: translateY(-3px) !important;
+
+    box-shadow:
+        0 14px 30px rgba(8, 120, 216, 0.25) !important;
+}
+
+
+.tutorial-button:hover span {
+    transform: translateX(5px) !important;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .tutorial-video-preview .tutorial-thumbnail-image {
+        object-position: center top !important;
+
+        transform: none !important;
+    }
+
+    .tutorial-video-preview:hover
+    .tutorial-thumbnail-image {
+        transform: scale(1.015) !important;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .tutorial-video-preview *,
+    .tutorial-video-preview *::before,
+    .tutorial-video-preview *::after,
+    .tutorial-button,
+    .tutorial-button span {
+        transition: none !important;
+        animation: none !important;
+    }
+
+}
