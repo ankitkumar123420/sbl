@@ -544,94 +544,216 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+ 
+/* =========================================================
+   LC CAPITALS
+========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const page =
-        document.querySelector(".sbl-capitals-page");
-
-    if (!page) return;
-
-
     /* =====================================================
-       SCROLL REVEAL
+       REVEAL ANIMATIONS
     ===================================================== */
 
-    const revealElements = page.querySelectorAll(
-        ".capital-pillar, .capital-detail, " +
-        ".hft-layer, .hft-facts > div, " +
-        ".research-stage, .research-paper, " +
-        ".capital-loop, .capital-final"
-    );
+    const revealElements =
+        document.querySelectorAll(".lc-reveal");
 
+    const revealObserver =
+        new IntersectionObserver(
+            (entries, observer) => {
 
-    revealElements.forEach((element, index) => {
+                entries.forEach((entry) => {
 
-        element.classList.add("capital-reveal");
+                    if (!entry.isIntersecting) return;
 
-        element.style.transitionDelay =
-            `${Math.min(index * 60, 500)}ms`;
+                    entry.target.classList.add("lc-visible");
 
+                    observer.unobserve(entry.target);
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+    revealElements.forEach((element) => {
+        revealObserver.observe(element);
     });
 
 
-    if ("IntersectionObserver" in window) {
+    /* =====================================================
+       PORTFOLIO COUNTER
+    ===================================================== */
 
-        const revealObserver =
+    const counter =
+        document.querySelector(".lc-counter");
+
+    if (counter) {
+
+        let started = false;
+
+        const counterObserver =
             new IntersectionObserver(
                 (entries, observer) => {
 
                     entries.forEach((entry) => {
 
-                        if (!entry.isIntersecting)
-                            return;
+                        if (!entry.isIntersecting || started) return;
 
-                        entry.target.classList.add(
-                            "visible"
+                        started = true;
+
+                        const target =
+                            Number(counter.dataset.target || 1);
+
+                        const duration = 1200;
+
+                        const startTime =
+                            performance.now();
+
+                        function updateCounter(currentTime) {
+
+                            const progress =
+                                Math.min(
+                                    (currentTime - startTime) /
+                                    duration,
+                                    1
+                                );
+
+                            const eased =
+                                1 -
+                                Math.pow(1 - progress, 3);
+
+                            const value =
+                                target * eased;
+
+                            counter.textContent =
+                                value.toFixed(1);
+
+                            if (progress < 1) {
+
+                                requestAnimationFrame(
+                                    updateCounter
+                                );
+
+                            } else {
+
+                                counter.textContent =
+                                    target.toFixed(1);
+
+                            }
+
+                        }
+
+                        requestAnimationFrame(
+                            updateCounter
                         );
 
-                        observer.unobserve(
-                            entry.target
-                        );
+                        observer.unobserve(entry.target);
 
                     });
 
                 },
                 {
-                    threshold:0.08
+                    threshold: 0.5
                 }
             );
 
+        counterObserver.observe(counter);
+    }
 
-        revealElements.forEach(
-            element =>
-                revealObserver.observe(element)
+
+    /* =====================================================
+       RESEARCH FLOW
+    ===================================================== */
+
+    const flowItems =
+        document.querySelectorAll(".lc-flow-item");
+
+    if (flowItems.length) {
+
+        let activeIndex = 0;
+
+        setInterval(() => {
+
+            flowItems.forEach((item) => {
+                item.classList.remove("active");
+            });
+
+            flowItems[activeIndex]
+                .classList.add("active");
+
+            activeIndex =
+                (activeIndex + 1) %
+                flowItems.length;
+
+        }, 1800);
+
+    }
+
+
+    /* =====================================================
+       FRAMEWORK PARALLAX
+    ===================================================== */
+
+    const framework =
+        document.querySelector(".lc-framework-visual");
+
+    if (framework &&
+        !window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches) {
+
+        framework.addEventListener(
+            "mousemove",
+            (event) => {
+
+                const rect =
+                    framework.getBoundingClientRect();
+
+                const x =
+                    (event.clientX - rect.left) /
+                    rect.width -
+                    0.5;
+
+                const y =
+                    (event.clientY - rect.top) /
+                    rect.height -
+                    0.5;
+
+                framework.style.transform =
+                    `perspective(1000px)
+                     rotateX(${y * -3}deg)
+                     rotateY(${x * 3}deg)`;
+
+            }
         );
 
-    } else {
+        framework.addEventListener(
+            "mouseleave",
+            () => {
 
-        revealElements.forEach(
-            element =>
-                element.classList.add("visible")
+                framework.style.transform =
+                    "perspective(1000px) rotateX(0deg) rotateY(0deg)";
+
+            }
         );
 
     }
 
 
     /* =====================================================
-       TERMINAL MOUSE MOVEMENT
+       HERO TERMINAL MOUSE EFFECT
     ===================================================== */
 
     const terminal =
-        page.querySelector(".capital-terminal");
+        document.querySelector(".lc-hero-terminal");
 
-
-    if (
-        terminal &&
-        window.matchMedia(
-            "(pointer:fine)"
-        ).matches
-    ) {
+    if (terminal &&
+        !window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches) {
 
         terminal.addEventListener(
             "mousemove",
@@ -641,35 +763,30 @@ document.addEventListener("DOMContentLoaded", () => {
                     terminal.getBoundingClientRect();
 
                 const x =
-                    event.clientX -
-                    rect.left;
+                    (event.clientX - rect.left) /
+                    rect.width -
+                    0.5;
 
                 const y =
-                    event.clientY -
-                    rect.top;
-
-                const rotateY =
-                    ((x / rect.width) - 0.5) * 6;
-
-                const rotateX =
-                    ((y / rect.height) - 0.5) * -5;
-
+                    (event.clientY - rect.top) /
+                    rect.height -
+                    0.5;
 
                 terminal.style.transform =
-                    `rotateY(${rotateY}deg)
-                     rotateX(${rotateX}deg)
-                     translateY(-4px)`;
+                    `perspective(1000px)
+                     rotateY(${x * 5}deg)
+                     rotateX(${y * -3}deg)
+                     translateY(-3px)`;
 
             }
         );
-
 
         terminal.addEventListener(
             "mouseleave",
             () => {
 
                 terminal.style.transform =
-                    "rotateY(-5deg) rotateX(2deg)";
+                    "perspective(1000px) rotateY(-4deg)";
 
             }
         );
@@ -678,345 +795,45 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       ALGO PIPELINE
+       GOLD PARTICLE / GRID MOVEMENT
     ===================================================== */
 
-    const algoSteps =
-        page.querySelectorAll(
-            ".algo-step"
-        );
-
-
-    if (algoSteps.length) {
-
-        let currentStep = 0;
-
-
-        function activateAlgoStep() {
-
-            algoSteps.forEach(
-                step =>
-                    step.classList.remove(
-                        "active"
-                    )
-            );
-
-
-            algoSteps[currentStep]
-                ?.classList.add("active");
-
-
-            currentStep =
-                (currentStep + 1)
-                % algoSteps.length;
-
-        }
-
-
-        activateAlgoStep();
-
-
-        setInterval(
-            activateAlgoStep,
-            1300
-        );
-
-    }
-
-
-    /* =====================================================
-       HFT LAYER PULSE
-    ===================================================== */
-
-    const hftLayers =
-        page.querySelectorAll(
-            ".hft-layer"
-        );
-
-
-    if (hftLayers.length) {
-
-        let activeHft = 0;
-
-
-        function pulseHft() {
-
-            hftLayers.forEach(
-                layer =>
-                    layer.classList.remove(
-                        "hft-active"
-                    )
-            );
-
-
-            hftLayers[activeHft]
-                ?.classList.add(
-                    "hft-active"
-                );
-
-
-            activeHft =
-                (activeHft + 1)
-                % hftLayers.length;
-
-        }
-
-
-        pulseHft();
-
-
-        setInterval(
-            pulseHft,
-            1100
-        );
-
-    }
-
-
-    /* =====================================================
-       RESEARCH STAGE ACTIVE
-    ===================================================== */
-
-    const researchStages =
-        page.querySelectorAll(
-            ".research-stage"
-        );
-
-
-    if (researchStages.length) {
-
-        let currentResearch = 0;
-
-
-        function activateResearch() {
-
-            researchStages.forEach(
-                stage =>
-                    stage.classList.remove(
-                        "research-active"
-                    )
-            );
-
-
-            researchStages[currentResearch]
-                ?.classList.add(
-                    "research-active"
-                );
-
-
-            currentResearch =
-                (currentResearch + 1)
-                % researchStages.length;
-
-        }
-
-
-        activateResearch();
-
-
-        setInterval(
-            activateResearch,
-            1700
-        );
-
-    }
-
-
-    /* =====================================================
-       MARKET STREAM
-    ===================================================== */
-
-    const streamRows =
-        page.querySelectorAll(
-            ".terminal-stream > div"
-        );
-
-
-    if (streamRows.length) {
-
-        let currentStream = 0;
-
-
-        setInterval(() => {
-
-            streamRows.forEach(
-                row => {
-                    row.style.opacity = ".45";
-                    row.style.transform =
-                        "translateX(0)";
-                }
-            );
-
-
-            const active =
-                streamRows[currentStream];
-
-
-            if (active) {
-
-                active.style.opacity = "1";
-
-                active.style.transform =
-                    "translateX(5px)";
-
-            }
-
-
-            currentStream =
-                (currentStream + 1)
-                % streamRows.length;
-
-
-        }, 1000);
-
-    }
-
-
-    /* =====================================================
-       PORTFOLIO NODE EFFECT
-    ===================================================== */
-
-    const portfolioNodes =
-        page.querySelectorAll(
-            ".portfolio-node"
-        );
-
-
-    if (portfolioNodes.length) {
-
-        let nodeIndex = 0;
-
-
-        setInterval(() => {
-
-            portfolioNodes.forEach(
-                node =>
-                    node.style.borderColor =
-                        "#cfe3f1"
-            );
-
-
-            portfolioNodes[nodeIndex]
-                .style.borderColor =
-                "#f4c542";
-
-
-            nodeIndex =
-                (nodeIndex + 1)
-                % portfolioNodes.length;
-
-        }, 1200);
-
-    }
-
-
-    /* =====================================================
-       PAPER PARALLAX
-    ===================================================== */
-
-    const paper =
-        page.querySelector(
-            ".research-paper"
-        );
-
-
-    if (
-        paper &&
-        window.matchMedia(
-            "(pointer:fine)"
-        ).matches
-    ) {
-
-        paper.addEventListener(
-            "mousemove",
-            (event) => {
-
-                const rect =
-                    paper.getBoundingClientRect();
-
-                const x =
-                    event.clientX -
-                    rect.left;
-
-                const y =
-                    event.clientY -
-                    rect.top;
-
-                const moveX =
-                    ((x / rect.width) - .5) * 5;
-
-                const moveY =
-                    ((y / rect.height) - .5) * 5;
-
-
-                paper.style.transform =
-                    `perspective(1000px)
-                     rotateX(${moveY * -0.5}deg)
-                     rotateY(${moveX * 0.5}deg)`;
-
-            }
-        );
-
-
-        paper.addEventListener(
-            "mouseleave",
+    const hero =
+        document.querySelector(".lc-hero");
+
+    if (hero &&
+        !window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches) {
+
+        window.addEventListener(
+            "scroll",
             () => {
 
-                paper.style.transform =
-                    "none";
+                const scrollY =
+                    window.scrollY;
 
+                if (scrollY < window.innerHeight) {
+
+                    const grid =
+                        hero.querySelector(".lc-grid");
+
+                    if (grid) {
+
+                        grid.style.transform =
+                            `translateY(${scrollY * .12}px)`;
+
+                    }
+
+                }
+
+            },
+            {
+                passive: true
             }
         );
 
     }
-
-
-    /* =====================================================
-       SMOOTH SCROLL
-    ===================================================== */
-
-    page.querySelectorAll(
-        'a[href^="#"]'
-    ).forEach((link) => {
-
-        link.addEventListener(
-            "click",
-            (event) => {
-
-                const target =
-                    document.querySelector(
-                        link.getAttribute("href")
-                    );
-
-                if (!target) return;
-
-                event.preventDefault();
-
-                target.scrollIntoView({
-                    behavior:"smooth"
-                });
-
-            }
-        );
-
-    });
-
-
-    /* =====================================================
-       SAFETY FALLBACK
-       Prevents blank sections if observer fails.
-    ===================================================== */
-
-    setTimeout(() => {
-
-        revealElements.forEach(
-            element =>
-                element.classList.add(
-                    "visible"
-                )
-        );
-
-    }, 1800);
 
 });
 

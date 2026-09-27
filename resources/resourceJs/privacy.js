@@ -669,6 +669,18 @@ document.addEventListener("DOMContentLoaded", function () {
            ========================= */
 
         privacy: [
+            "SBL may collect and process personal data where such processing is necessary for providing, maintaining, securing, improving, and administering its services; fulfilling contractual or service-related obligations; complying with applicable laws, regulations, governmental requirements, or lawful requests; preventing fraud, misuse, unauthorised access, and security incidents; resolving disputes; maintaining business and operational records; or for other purposes disclosed to the user and permitted under applicable law.",
+            "Here sbl is denoted as  the main company that commenced operations",
+            "Where consent is required under applicable law, SBL will seek such consent through appropriate mechanisms. Where processing is necessary for contractual, legal, security, or other legally recognised purposes, processing may be carried out to the extent permitted by applicable law.",
+            "SBL retains personal data and business information only for as long as reasonably necessary for the purposes for which it was collected, to provide the relevant services, maintain business and transaction records, resolve disputes, enforce contractual terms, comply with applicable legal, regulatory, accounting, tax, security, and reporting obligations, or protect SBL's legitimate interests",
+            " Retention periods may vary depending upon the nature and sensitivity of the information, the purpose of processing, contractual requirements, statutory obligations, security requirements, dispute or investigation requirements, and applicable limitation periods.Upon expiry of the applicable retention period, SBL may delete, anonymise, aggregate, archive, or otherwise securely dispose of information, subject to applicable legal obligations, backup cycles, disaster-recovery requirements, and legitimate business requirements.Backup or disaster-recovery copies may remain for a limited period after deletion from active systems and may not be immediately removable where technical or operational requirements make immediate deletion impracticable.",
+
+            "User RightsSubject to applicable law and reasonable verification requirements, users may have rights relating to their personal data, including the right to request access to information concerning their personal data, correction of inaccurate information, deletion or erasure where legally applicable, restriction or objection to certain processing where applicable, portability where applicable, and withdrawal of consent where processing is based on consent.Requests may be submitted through SBL's designated privacy or grievance contact. SBL may require reasonable information to verify the identity and authority of the requester before processing a request.Certain requests may be limited, delayed, or refused where retention or processing is required or permitted by applicable law, contractual obligations, security requirements, fraud prevention, dispute resolution, or other legitimate purposes.",
+            "SBL may use cloud infrastructure, hosting providers, software providers, analytics providers, communication services, security providers, payment processors, or other service providers that may process information from locations outside India.Where personal data is transferred, stored, or processed outside India, SBL will take such contractual, organisational, technical, and other measures as may be required under applicable law.International processing may also be subject to the terms, privacy practices, and security controls of the relevant third-party service provider.",
+            "SBL's services are primarily intended for businesses, organisations, professionals, and other users capable of entering into legally binding arrangements.SBL does not knowingly seek to collect personal data from children except where such collection is expressly permitted and appropriately authorised under applicable law.Where applicable law requires parental, guardian, or other verifiable authorisation for processing information relating to a child, SBL will implement appropriate measures in accordance with such requirements.",
+            "SBL maintains security and incident-response procedures designed to identify, contain, investigate, mitigate, and recover from suspected or confirmed security incidents and personal-data breaches.Where a personal-data breach occurs, SBL will assess the nature, scope, impact, and applicable legal requirements and will provide notifications to affected users, authorities, regulators, or other relevant parties where and to the extent required by applicable law.SBL may take immediate protective measures, including restricting access, suspending affected functionality, resetting credentials, isolating systems, restoring services from backups, or taking other appropriate remedial measures.",
+            "Certain SBL products or features may use automated systems, algorithms, machine-learning models, artificial intelligence, analytics, or rule-based processing to provide functionality such as classification, recommendations, summarisation, reporting, workflow assistance, anomaly detection, search, forecasting, content generation, or other business-support functions.Automated outputs may depend upon the information supplied to the system, configuration, available data, algorithms, third-party technologies, and other technical factors. Such outputs may contain errors, omissions, inaccuracies, or limitations.Unless expressly stated otherwise, SBL's automated or AI-assisted outputs are provided as decision-support or operational tools and are not professional legal, financial, investment, tax, accounting, medical, employment, or other regulated professional advice.Users remain responsible for reviewing and independently verifying automated outputs before relying upon them for material business, financial, legal, regulatory, operational, or other consequential decisions.",
+           
 
             "These provisions apply to personal information collected, received, generated, stored, transmitted, or otherwise processed in connection with SBL websites, applications, software, communications, and related services.",
 
@@ -780,6 +792,25 @@ document.addEventListener("DOMContentLoaded", function () {
            ========================= */
 
         terms: [
+            "“SBL”, “Company”, “we”, “us” or “our” means SBL and the applicable legal entity providing the relevant service.“User”, “Customer”, “you” or “your” means the person, organisation, business, entity, or authorised representative accessing or using an SBL service.",
+            "“Services” means the software, SaaS platforms, ERP systems, business-automation tools, websites, applications, APIs, dashboards, integrations, support services, documentation, and related functionality made available by SBL.",
+            "“Customer Data” means information, records, documents, files, transactions, configurations, or other information submitted, uploaded, generated, or otherwise provided by a customer through the Services.",
+            "“Third-Party Services” means services, platforms, APIs, infrastructure, payment systems, communication systems, integrations, or other technologies operated by third parties.",
+            "Headings are for convenience only and do not affect interpretation. References to applicable law include amendments, replacements, and legally applicable regulations made under such law.",
+            "Users are responsible for providing accurate and current registration information and for maintaining the confidentiality and security of their account credentials.Users are responsible for all activities carried out through their account unless the user can establish that such activity occurred without their authorisation and despite reasonable security measures being maintained by the user.Users must immediately notify SBL through the designated security channel if they reasonably suspect unauthorised access, credential compromise, or misuse of their account.SBL may require identity or authority verification before making changes to an account or disclosing account-related information.",
+            "Except for Customer Data and materials expressly owned by customers or third parties, all software, source code, object code, interfaces, designs, layouts, trademarks, logos, documentation, databases, workflows, algorithms, processes, technology, content, and other intellectual property forming part of the Services are owned by or licensed to SBL.",
+            "Except as expressly permitted under these Terms or applicable law, users may not copy, reproduce, modify, distribute, reverse engineer, decompile, disassemble, resell, sublicense, commercially exploit, or create derivative works from SBL's intellectual property.",
+            "SBL may suspend, restrict, or terminate access to all or part of a Service where reasonably necessary due to security concerns, suspected misuse, violation of these Terms, non-payment, legal or regulatory requirements, threats to the Services or other users, operational necessity, or other circumstances permitted under the applicable agreement.Where reasonably practicable, SBL may provide notice before suspension or termination; however, immediate action may be taken where delay may create security, legal, operational, or other material risk.Termination or suspension does not automatically extinguish obligations that by their nature are intended to survive termination.",
+            "Subscription cancellation, refunds, credits, renewals, and payment adjustments shall be governed by the applicable subscription plan, order form, commercial agreement, or refund policy displayed or communicated at the time of purchase.Unless expressly stated otherwise or required by applicable law, fees paid for completed subscription periods, consumed services, customised implementation, professional services, third-party charges, or non-refundable plans may not be refundable.Where a refund is legally required, SBL will process the applicable refund in accordance with the relevant legal and contractual requirements.",
+            "SBL will use commercially reasonable efforts to maintain the availability and functionality of its Services. However, uninterrupted or error-free availability is not guaranteed.Services may become temporarily unavailable due to scheduled maintenance, emergency maintenance, upgrades, security measures, infrastructure failures, third-party dependencies, telecommunications failures, force majeure events, cyber incidents, or other circumstances beyond SBL's reasonable control.",
+            "Any specific service-level commitment, uptime commitment, support response time, or service credit shall apply only where expressly agreed in a separate written SLA or applicable service agreement.",
+            "To the extent permitted by applicable law, the User agrees to indemnify and hold harmless SBL, its affiliates, officers, employees, contractors, and service providers from claims, losses, liabilities, damages, costs, and reasonable expenses arising from:(a) the User's breach of these Terms;(b) unlawful or unauthorised use of the Services;(c) Customer Data or materials supplied by the User that infringe applicable law or third-party rights;(d) misuse of the Services by the User or persons acting under the User's account; or(e) violation of third-party rights caused by the User's actions or instructions.",
+            "SBL shall not be responsible for delay, interruption, or failure to perform caused by circumstances beyond its reasonable control, including natural disasters, acts of government, war, terrorism, civil disturbance, epidemics, infrastructure failure, telecommunications failure, power failure, internet disruption, cyberattacks, third-party service outages, cloud-service failures, labour disputes, or other events that could not reasonably have been prevented or overcome through commercially reasonable measures.",
+            "These Terms shall be governed by and interpreted in accordance with the laws of India, except to the extent applicable law requires otherwise.Subject to any mandatory statutory rights or jurisdictional requirements, disputes arising out of or relating to these Terms or the Services shall be subject to the jurisdiction of the competent courts",
+            "If any provision of these Terms is determined by a competent authority to be invalid, unlawful, or unenforceable, that provision shall be modified or limited to the minimum extent necessary, and the remaining provisions shall continue in full force to the extent permitted by law.Failure by SBL to enforce any provision at any time shall not constitute a waiver of its right to enforce that provision or any other provision in the future.",
+            "These Terms, together with the applicable Privacy Policy, Cookie Policy, Security Policy, service-specific terms, order forms, SLAs, and other documents expressly incorporated by reference, constitute the agreement between the User and SBL concerning the relevant Services and supersede prior communications or understandings relating to the same subject matter, except where a separate written agreement expressly provides otherwise.",
+            "Provisions relating to intellectual property, confidentiality, payment obligations, Customer Data, acceptable use, indemnification, limitation of liability, dispute resolution, governing law, and any other provision which by its nature should survive termination shall continue to apply after termination or expiry of the Services.",
+             
 
             "By accessing or using any SBL website, software, application, platform, service, documentation, or related functionality, the user acknowledges that these Terms constitute applicable conditions governing such use.",
 
@@ -891,6 +922,15 @@ document.addEventListener("DOMContentLoaded", function () {
            ========================= */
 
         security: [
+            "SBL maintains procedures designed to detect, assess, contain, investigate, mitigate, document, and recover from security incidents.Where SBL reasonably identifies a suspected or confirmed security incident, SBL may take measures including access restriction, credential reset, system isolation, suspension of affected functionality, forensic investigation, restoration from backup, vulnerability remediation, and other appropriate corrective actions.Where notification is required by applicable law, SBL will provide the required notification to the relevant authority, affected Data Principals, customers, or other parties in the prescribed manner and within the applicable period.",
+            "SBL encourages responsible reporting of suspected vulnerabilities affecting its Services.Security researchers and other persons who identify a potential vulnerability should report it through SBL's designated security contact without exploiting, publicly disclosing, modifying, deleting, extracting, or accessing data beyond what is reasonably necessary to demonstrate the existence of the vulnerability. sblforge@gmail.com",
+            "SBL may conduct or commission security assessments, vulnerability assessments, penetration testing, code reviews, infrastructure reviews, access-control reviews, logging reviews, and other security evaluations based on the nature and risk profile of its Services.The scope, frequency, methodology, and availability of such assessments may vary between products and may be subject to confidentiality, security, contractual, and operational restrictions.",
+            "SBL may implement reasonable personnel-security controls appropriate to the nature of its Services, including role-based access, confidentiality obligations, access restrictions, onboarding and offboarding controls, security awareness, and other organisational safeguards.Access to Customer Data is restricted according to business requirements and applicable authorisation controls.",
+            "SBL maintains backup and recovery mechanisms designed to support service continuity and restoration of Customer Data and operational information in the event of accidental deletion, infrastructure failure, system malfunction, security incidents, or other disruptive events.Depending upon the Service and applicable infrastructure configuration, SBL may maintain multiple redundant databases, backup copies, recovery environments, or geographically and logically separated storage mechanisms.SBL may maintain multiple recovery copies, including three or more redundant database or backup environments where configured for the applicable Service, together with access controls and recovery procedures.Backup systems are subject to defined retention cycles, technical limitations, security controls, and restoration procedures.Backup and redundancy mechanisms are designed to reduce the risk of permanent data loss but do not constitute a guarantee that data loss, corruption, interruption, or service failure can never occur.",
+            "SBL may maintain business-continuity and disaster-recovery procedures proportionate to the nature and operational requirements of its Services. Such procedures may include system redundancy, backup restoration, infrastructure failover, incident escalation, recovery procedures, and alternative operational arrangements.Recovery objectives may vary according to the Service, infrastructure, incident severity, third-party dependencies, and technical circumstances.",
+            "SBL may rely on carefully selected third-party infrastructure, cloud-hosting, payment, communication, analytics, authentication, monitoring, security, and other service providers.Where appropriate, SBL may evaluate third-party providers based on factors including security capabilities, reliability, contractual safeguards, data-processing arrangements, compliance requirements, and operational suitability.Third-party services remain subject to the security practices, availability, and operational controls of the respective provider.",
+            "Security vulnerabilities, suspected unauthorised access, security incidents, or other security concerns should be reported through:Security Contact: [sblforge@gmail.com ]Users should not disclose sensitive credentials, passwords, authentication tokens, private keys, or confidential Customer Data when reporting a suspected vulnerability unless specifically requested through an authorised SBL security channel.",
+           
 
             "SBL may maintain administrative, technical, organisational, and operational safeguards appropriate to the nature, purpose, scale, and reasonably assessed risk associated with its services.",
 
@@ -1000,6 +1040,9 @@ document.addEventListener("DOMContentLoaded", function () {
            ========================= */
 
         cookies: [
+            "SBL may use cookies, local storage, session technologies, pixels, SDKs, device identifiers, and similar technologies for purposes including authentication, security, functionality, preferences, analytics, performance measurement, service improvement, and other permitted purposes.",
+            "Cookie Consent and Management Where applicable, users may accept, reject, customise, or subsequently modify their preferences for non-essential cookies through SBL's cookie-consent mechanism.Withdrawal of consent will not affect the lawfulness of processing carried out before withdrawal.Certain essential technologies may continue to operate where they are necessary for the operation, security, authentication, or functionality of the Services.",
+           
 
             "Cookies are small files or identifiers that may be stored on a browser, device, or related environment to support functionality, preferences, security, analytics, and service operation.",
 
@@ -1109,6 +1152,25 @@ document.addEventListener("DOMContentLoaded", function () {
            ========================= */
 
         disclaimer: [
+            "The Services provided by SBL are technology and business-support solutions intended to assist users with business operations, information management, workflow automation, reporting, analytics, communication, record management, and other functionality depending upon the applicable Service.Unless expressly stated otherwise in a written agreement, SBL does not act as the user's legal, financial, investment, tax, accounting, medical, insurance, employment, regulatory, or other professional adviser.",
+            "Nothing contained in the SBL Services, websites, dashboards, reports, calculators, documentation, communications, recommendations, analytics, automated outputs, or other materials constitutes or should be construed as legal, financial, investment, securities, tax, accounting, medical, insurance, employment, regulatory, or other professional advice.Users should obtain advice from appropriately qualified professionals before making decisions requiring professional expertise or where the consequences of an incorrect decision may be material.SBL does not assume a professional advisory relationship with a user merely because the Services provide information, calculations, analytics, automation, recommendations, or other decision-support functionality.",
+            "Where SBL provides artificial intelligence, machine-learning, automated analysis, recommendation, summarisation, prediction, classification, generation, or other automated functionality, the resulting output may be generated or influenced by automated systems and may contain inaccuracies, omissions, outdated information, unexpected results, or other errors.AI-generated or automated content is provided for informational, operational, or decision-support purposes only unless expressly stated otherwise.Users are solely responsible for reviewing, validating, and independently determining whether any automated output is suitable for their particular circumstances before acting upon it.SBL does not guarantee that automated outputs will be accurate, complete, current, unbiased, suitable, or error-free.",
+            "SBL seeks to provide reliable and useful Services but does not warrant that all information, calculations, reports, analytics, recommendations, content, records, integrations, or automated outputs will always be accurate, complete, current, uninterrupted, or error-free.Results may depend upon information supplied by the User, configuration settings, third-party information, external data sources, integrations, algorithms, system availability, and other factors outside SBL's complete control.Users are responsible for reviewing information before relying upon it for business, financial, legal, tax, regulatory, operational, or other consequential purposes.",
+            "SBL Services may contain links, integrations, APIs, references, or connections to third-party websites, applications, payment providers, cloud infrastructure, communication services, data providers, or other external services.Third-party services are independently operated and may have their own terms, privacy policies, security practices, availability, pricing, and limitations.SBL does not control and, except where expressly agreed, does not assume responsibility for the availability, accuracy, security, legality, performance, or content of third-party services.",
+            "SBL does not guarantee that use of its Services will result in any particular business, financial, operational, productivity, revenue, cost-saving, investment, compliance, tax, accounting, marketing, or other outcome.Results may depend upon the User's decisions, configuration, data quality, implementation, business circumstances, external conditions, third-party services, and numerous other factors outside SBL's control.",
+            "SBL aims to maintain reliable and secure Services but does not guarantee uninterrupted availability, continuous access, zero downtime, or error-free operation.Services may be temporarily unavailable or degraded because of maintenance, upgrades, infrastructure failures, cyber incidents, security measures, network interruptions, third-party service failures, force majeure events, or other technical or operational circumstances.Where reasonably practicable, SBL may provide advance notice of scheduled maintenance.",
+            "Users are responsible for reviewing, verifying, and validating information, calculations, records, reports, documents, automated outputs, recommendations, and other results produced or processed through the Services before relying upon them.The User remains responsible for maintaining appropriate internal controls, approvals, records, backups, regulatory compliance, accounting review, tax compliance, and other business processes applicable to the User's activities.SBL's provision of automation or software functionality does not transfer the User's underlying legal, regulatory, contractual, financial, tax, accounting, employment, or operational responsibilities to SBL.",
+            "Jurisdiction-Specific InformationCertain features, calculations, regulatory information, tax-related functionality, legal information, financial information, compliance tools, and other Services may vary according to jurisdiction, industry, business structure, applicable regulations, or the User's circumstances.Information presented through the Services may not be applicable in every jurisdiction or to every User.Users are responsible for determining the applicability of information to their circumstances and obtaining appropriate professional or regulatory guidance where necessary.",
+            "Automated calculations, reports, classifications, recommendations, alerts, forecasts, summaries, generated documents, analytics, or other outputs are intended to assist the User and should not be treated as a substitute for appropriate human review or professional judgment where such review is required.Users must independently verify material outputs before submitting, filing, publishing, approving, paying, investing, contracting, or otherwise acting upon them.SBL shall not be responsible for consequences arising solely from a User's failure to appropriately review or verify an automated output, except to the extent liability cannot lawfully be excluded.",
+            "To the maximum extent permitted by applicable law, SBL shall not be liable for indirect, incidental, special, consequential, exemplary, or punitive damages, or for loss of profits, revenue, business opportunities, anticipated savings, goodwill, reputation, data, or business interruption arising out of or relating to the Services.SBL's liability shall, to the extent legally permissible, be limited to the direct loss actually established as having resulted from SBL's actionable breach and shall be subject to the limitations expressly set out in the applicable commercial agreement.Nothing in these Terms excludes or limits liability that cannot legally be excluded or limited under applicable law.",
+            "The User remains responsible for the legality, accuracy, completeness, quality, ownership, and lawful authority relating to Customer Data submitted to or processed through the Services.SBL does not independently verify every item of Customer Data and is entitled to rely upon information, instructions, configurations, permissions, and data supplied or authorised by the User.The User is responsible for ensuring that it has all necessary rights, permissions, consents, authorisations, and lawful bases required to provide Customer Data to SBL and to instruct SBL to process such information.SBL will process Customer Data in accordance with its applicable contractual obligations, Privacy Policy, Security Policy, and applicable law.",
+            "No Absolute Security GuaranteeSBL implements technical and organisational security measures appropriate to the nature and risk of its Services. These measures may include access controls, authentication mechanisms, encryption or other protective technologies, logging, monitoring, vulnerability management, backup mechanisms, redundancy, and incident-response procedures.However, no internet-connected system, cloud environment, database, software application, communication channel, or electronic storage system can be guaranteed to be completely secure or immune from every possible cyberattack, unauthorised access, data corruption, technical failure, or other security event.Accordingly, SBL does not represent or warrant that the Services will be completely immune from all security threats or that data loss or unauthorised access can never occur.",
+            "SBL accepts the responsibilities imposed on it by applicable law and its contractual obligations, but does not assume responsibility for matters that remain under the customer's control.",
+            "SBL is responsible for providing the Services in accordance with its applicable contractual obligations and applicable law. The User remains responsible for its business decisions, Customer Data, credentials, configurations, permissions, regulatory obligations, professional determinations, third-party relationships, and use of information or outputs generated through the Services.Nothing in these Terms is intended to exclude or limit any responsibility or liability that cannot lawfully be excluded or limited.",
+            "SBL may update, modify, replace, or supplement these policies from time to time to reflect changes in its Services, technology, security practices, legal or regulatory requirements, or business operations.Where required by applicable law, SBL will provide appropriate notice of material changes.The updated version will become effective from the date specified in the revised policy unless otherwise required by applicable law.",
+            
+
+
 
             "Information published by SBL is provided for general informational, operational, educational, and software-related purposes and should not automatically be treated as professional advice.",
 
@@ -1247,22 +1309,90 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.querySelectorAll(".sbl-legal-points").forEach(function (list) {
 
-        const section = list.dataset.section;
-        const points = legalData[section] || [];
+    const section = list.dataset.section;
+    const points = legalData[section] || [];
 
-        list.innerHTML = "";
+    list.innerHTML = "";
 
-        points.forEach(function (point) {
+    points.forEach(function (point, index) {
 
-            const li = document.createElement("li");
+        const li = document.createElement("li");
 
+        /* =====================================================
+           SPECIAL FORMAT FOR TERMS POINT 13
+           ===================================================== */
+
+        if (section === "terms" && index === 12) {
+
+            // Main paragraph
+            const mainText = document.createElement("div");
+
+            mainText.textContent =
+                "To the extent permitted by applicable law, the User agrees to indemnify and hold harmless SBL, its affiliates, officers, employees, contractors, and service providers from claims, losses, liabilities, damages, costs, and reasonable expenses arising from:";
+
+            li.appendChild(mainText);
+
+
+            // Sub-points container
+            const subPoints = document.createElement("div");
+
+            subPoints.style.marginTop = "12px";
+            subPoints.style.marginLeft = "20px";
+
+
+            // (a)
+            const a = document.createElement("div");
+            a.style.marginBottom = "10px";
+            a.innerHTML =
+                "<strong>(a)</strong> The User's breach of these Terms.";
+            subPoints.appendChild(a);
+
+
+            // (b)
+            const b = document.createElement("div");
+            b.style.marginBottom = "10px";
+            b.innerHTML =
+                "<strong>(b)</strong> Unlawful or unauthorised use of the Services.";
+            subPoints.appendChild(b);
+
+
+            // (c)
+            const c = document.createElement("div");
+            c.style.marginBottom = "10px";
+            c.innerHTML =
+                "<strong>(c)</strong> Customer Data or materials supplied by the User that infringe applicable law or third-party rights.";
+            subPoints.appendChild(c);
+
+
+            // (d)
+            const d = document.createElement("div");
+            d.style.marginBottom = "10px";
+            d.innerHTML =
+                "<strong>(d)</strong> Misuse of the Services by the User or persons acting under the User's account.";
+            subPoints.appendChild(d);
+
+
+            // (e)
+            const e = document.createElement("div");
+            e.innerHTML =
+                "<strong>(e)</strong> Violation of third-party rights caused by the User's actions or instructions.";
+            subPoints.appendChild(e);
+
+
+            li.appendChild(subPoints);
+
+        } else {
+
+            // Normal legal points
             li.textContent = point;
 
-            list.appendChild(li);
+        }
 
-        });
+        list.appendChild(li);
 
     });
+
+});
 
 
     /* =========================================================

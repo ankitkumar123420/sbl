@@ -545,281 +545,250 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+ document.addEventListener("DOMContentLoaded", () => {
 
-document.addEventListener("DOMContentLoaded", () => {
+    /*
+     * Enable scroll reveal only when JavaScript is available.
+     * Without JS, content remains visible.
+     */
+
+    document.body.classList.add("sbl-workforce-js");
+
 
     /* =====================================================
-       HERO ECOSYSTEM NODE ANIMATION
+       SCROLL REVEAL
     ====================================================== */
 
-    const ecosystemNodes =
-        document.querySelectorAll(".eco-map-node");
+    const revealItems =
+        document.querySelectorAll(".wf-reveal");
 
-    let ecosystemIndex = 0;
+    const revealObserver =
+        new IntersectionObserver(
+            (entries, observer) => {
 
-    if (ecosystemNodes.length) {
+                entries.forEach((entry) => {
 
-        setInterval(() => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
 
-            ecosystemNodes.forEach(node => {
-                node.classList.remove("eco-node-active");
-            });
+                    entry.target.classList.add(
+                        "wf-visible"
+                    );
 
-            ecosystemNodes[ecosystemIndex]
-                .classList.add("eco-node-active");
+                    observer.unobserve(
+                        entry.target
+                    );
 
-            ecosystemIndex++;
+                });
 
-            if (ecosystemIndex >= ecosystemNodes.length) {
-                ecosystemIndex = 0;
+            },
+            {
+                threshold: 0.12,
+                rootMargin: "0px 0px -40px 0px"
             }
-
-        }, 1500);
-
-    }
-
-
-
-    /* =====================================================
-       PRODUCT REVEAL
-    ====================================================== */
-
-    const productRows =
-        document.querySelectorAll(".eco-product-row");
-
-    if ("IntersectionObserver" in window) {
-
-        const productObserver =
-            new IntersectionObserver(
-                entries => {
-
-                    entries.forEach(entry => {
-
-                        if (!entry.isIntersecting) {
-                            return;
-                        }
-
-                        entry.target.classList.add(
-                            "eco-product-visible"
-                        );
-
-                        productObserver.unobserve(
-                            entry.target
-                        );
-
-                    });
-
-                },
-                {
-                    threshold: .12
-                }
-            );
-
-
-        productRows.forEach(row => {
-
-            row.classList.add(
-                "eco-product-hidden"
-            );
-
-            productObserver.observe(row);
-
-        });
-
-    }
-
-
-
-    /* =====================================================
-       PRODUCT VISUAL MOUSE EFFECT
-    ====================================================== */
-
-    const visuals =
-        document.querySelectorAll(
-            ".eco-product-visual"
         );
 
-    const finePointer =
-        window.matchMedia("(pointer:fine)").matches;
 
+    revealItems.forEach((item, index) => {
 
-    if (finePointer) {
+        item.style.transitionDelay =
+            `${Math.min(index * 0.04, 0.25)}s`;
 
-        visuals.forEach(visual => {
+        revealObserver.observe(item);
 
-            visual.addEventListener(
-                "mousemove",
-                event => {
-
-                    const rect =
-                        visual.getBoundingClientRect();
-
-                    const x =
-                        (event.clientX - rect.left) /
-                        rect.width - .5;
-
-                    const y =
-                        (event.clientY - rect.top) /
-                        rect.height - .5;
-
-
-                    const windowElement =
-                        visual.firstElementChild;
-
-                    if (!windowElement) return;
-
-
-                    windowElement.style.transform =
-                        `perspective(1200px)
-                         rotateY(${x * 2.5}deg)
-                         rotateX(${y * -2.5}deg)
-                         translateY(-5px)`;
-
-                }
-            );
-
-
-            visual.addEventListener(
-                "mouseleave",
-                () => {
-
-                    const windowElement =
-                        visual.firstElementChild;
-
-                    if (!windowElement) return;
-
-                    windowElement.style.transform = "";
-
-                }
-            );
-
-        });
-
-    }
-
+    });
 
 
     /* =====================================================
-       FLOW NODE ACTIVE ANIMATION
+       WORKFLOW ANIMATION
     ====================================================== */
 
-    const flowNodes =
-        document.querySelectorAll(".flow-node");
+    const workflowSteps =
+        document.querySelectorAll(
+            ".wf-work-step"
+        );
 
-    let flowIndex = 0;
+    if (workflowSteps.length) {
 
-    if (flowNodes.length) {
+        let current = 0;
 
         setInterval(() => {
 
-            flowNodes.forEach(node => {
-                node.classList.remove(
-                    "flow-node-active"
+            workflowSteps.forEach((step) => {
+
+                step.classList.remove(
+                    "active"
                 );
+
             });
 
-            flowNodes[flowIndex]
-                .classList.add(
-                    "flow-node-active"
-                );
+            workflowSteps[current]
+                .classList.add("active");
 
-            flowIndex++;
+            current =
+                (current + 1) %
+                workflowSteps.length;
 
-            if (flowIndex >= flowNodes.length) {
-                flowIndex = 0;
-            }
-
-        }, 1700);
+        }, 1800);
 
     }
 
+
+    /* =====================================================
+       HERO DASHBOARD PARALLAX
+    ====================================================== */
+
+    const heroDashboard =
+        document.querySelector(
+            ".wf-hero-dashboard"
+        );
+
+    const reduceMotion =
+        window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+
+    if (heroDashboard && !reduceMotion) {
+
+        heroDashboard.addEventListener(
+            "mousemove",
+            (event) => {
+
+                const rect =
+                    heroDashboard
+                        .getBoundingClientRect();
+
+                const x =
+                    (event.clientX - rect.left) /
+                    rect.width -
+                    0.5;
+
+                const y =
+                    (event.clientY - rect.top) /
+                    rect.height -
+                    0.5;
+
+                heroDashboard.style.transform =
+                    `perspective(1200px)
+                     rotateY(${x * 4}deg)
+                     rotateX(${y * -2}deg)
+                     translateY(-4px)`;
+
+            }
+        );
+
+
+        heroDashboard.addEventListener(
+            "mouseleave",
+            () => {
+
+                heroDashboard.style.transform =
+                    "perspective(1200px) rotateY(-3deg)";
+
+            }
+        );
+
+    }
 
 
     /* =====================================================
        SMOOTH INTERNAL LINKS
     ====================================================== */
 
-    document
-        .querySelectorAll(
-            '.sbl-ecosystem-page a[href^="#"]'
-        )
-        .forEach(link => {
+    document.querySelectorAll(
+        '.sbl-workforce-page a[href^="#"]'
+    ).forEach((link) => {
 
-            link.addEventListener(
-                "click",
-                event => {
+        link.addEventListener(
+            "click",
+            (event) => {
 
-                    const target =
-                        document.querySelector(
-                            link.getAttribute("href")
-                        );
+                const targetId =
+                    link.getAttribute("href");
 
-                    if (!target) return;
-
-                    event.preventDefault();
-
-                    target.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start"
-                    });
-
+                if (
+                    !targetId ||
+                    targetId === "#"
+                ) {
+                    return;
                 }
-            );
 
-        });
+                const target =
+                    document.querySelector(
+                        targetId
+                    );
 
+                if (!target) {
+                    return;
+                }
 
+                event.preventDefault();
 
-    /* =====================================================
-       LOGISTICS IMAGE SAFETY
-    ====================================================== */
-
-    const logisticsImage =
-        document.querySelector(
-            ".logistics-image"
-        );
-
-    if (logisticsImage) {
-
-        logisticsImage.addEventListener(
-            "error",
-            () => {
-
-                logisticsImage.style.display =
-                    "none";
-
-                const parent =
-                    logisticsImage.parentElement;
-
-                parent.style.background =
-                    "linear-gradient(135deg,#0878d8,#0459a5)";
+                target.scrollIntoView({
+                    behavior:
+                        reduceMotion
+                            ? "auto"
+                            : "smooth",
+                    block: "start"
+                });
 
             }
         );
 
-    }
-
+    });
 
 
     /* =====================================================
-       MOBILE SAFETY
+       SOFTWARE SCREENSHOT HOVER
     ====================================================== */
 
-    if (window.innerWidth <= 700) {
+    document.querySelectorAll(
+        ".wf-software-preview"
+    ).forEach((preview) => {
 
-        document
-            .querySelectorAll(
-                ".erp-window, .crm-window, " +
-                ".mining-window, .flow-window, " +
-                ".ai-window"
-            )
-            .forEach(element => {
+        preview.addEventListener(
+            "mousemove",
+            (event) => {
 
-                element.style.transform = "none";
+                if (reduceMotion) {
+                    return;
+                }
 
-            });
+                const rect =
+                    preview.getBoundingClientRect();
 
-    }
+                const x =
+                    (event.clientX - rect.left) /
+                    rect.width -
+                    0.5;
+
+                const y =
+                    (event.clientY - rect.top) /
+                    rect.height -
+                    0.5;
+
+                preview.style.transform =
+                    `perspective(1000px)
+                     rotateY(${x * 2.5}deg)
+                     rotateX(${y * -1.5}deg)
+                     translateY(-6px)`;
+
+            }
+        );
+
+        preview.addEventListener(
+            "mouseleave",
+            () => {
+
+                preview.style.transform =
+                    "";
+
+            }
+        );
+
+    });
 
 });
 
